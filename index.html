@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,58 +7,32 @@
     <title>Estude+ | Portal de Estudos para Concursos</title>
     <meta name="description" content="Portal de estudos para concursos públicos - Estude+">
     <style>
-        /* ============================================================
-           DESIGN SYSTEM - Variáveis e Padronização Global
-           ============================================================ */
         :root {
-            /* Cores base */
             --bg: #f5f6fa;
             --surface: #ffffff;
             --surface-hover: #f0f1f5;
-            --surface-active: #e8e9f0;
             --text: #1a1a2e;
             --text-secondary: #5a5a7a;
             --text-muted: #8a8aa0;
-            --text-inverse: #ffffff;
-
-            /* Marca */
             --primary: #4f46e5;
             --primary-light: #6366f1;
             --primary-dark: #4338ca;
             --primary-bg: #eef2ff;
-            --primary-bg-hover: #e0e4ff;
-
-            /* Semânticas */
             --accent: #f59e0b;
             --accent-light: #fbbf24;
-            --accent-bg: #fffbeb;
             --success: #10b981;
-            --success-light: #34d399;
             --success-bg: #ecfdf5;
-            --success-bg-hover: #d1fae5;
             --danger: #ef4444;
-            --danger-light: #f87171;
             --danger-bg: #fef2f2;
-            --danger-bg-hover: #fee2e2;
             --warning: #f59e0b;
             --warning-bg: #fffbeb;
-            --info: #3b82f6;
-            --info-bg: #eff6ff;
-
-            /* Bordas */
             --border: #e2e4ea;
             --border-light: #eef0f5;
-            --border-focus: var(--primary);
-
-            /* Sombras - hierarquia consistente */
-            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.06);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.09), 0 6px 12px rgba(0, 0, 0, 0.05);
             --shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.11), 0 8px 16px rgba(0, 0, 0, 0.06);
-
-            /* Arredondamentos */
             --radius-xs: 6px;
             --radius-sm: 8px;
             --radius: 12px;
@@ -65,69 +40,35 @@
             --radius-lg: 20px;
             --radius-xl: 24px;
             --radius-full: 9999px;
-
-            /* Tipografia */
             --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
-            --font-size-xs: 0.75rem;
-            --font-size-sm: 0.82rem;
-            --font-size-base: 0.95rem;
-            --font-size-md: 1rem;
-            --font-size-lg: 1.15rem;
-            --font-size-xl: 1.25rem;
-            --font-size-2xl: 1.6rem;
-            --font-size-3xl: 2rem;
-            --font-weight-normal: 400;
-            --font-weight-medium: 500;
-            --font-weight-semibold: 600;
-            --font-weight-bold: 700;
-            --font-weight-extrabold: 800;
-
-            /* Transições */
             --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-            /* Layout */
             --navbar-height: 64px;
             --max-width: 1280px;
         }
 
-        /* ============================================================
-           TEMA ESCURO - cores ajustadas para melhor contraste
-           ============================================================ */
         .dark {
             --bg: #0f0f1a;
             --surface: #1a1a2e;
             --surface-hover: #22223a;
-            --surface-active: #2a2a42;
             --text: #e8e8f0;
             --text-secondary: #b0b0c8;
             --text-muted: #7a7a96;
-            --text-inverse: #1a1a2e;
             --primary: #818cf8;
             --primary-light: #9394f8;
             --primary-dark: #6d6ff0;
             --primary-bg: #1e1e3a;
-            --primary-bg-hover: #252545;
             --accent: #fbbf24;
             --accent-light: #fcd34d;
-            --accent-bg: #2e2000;
             --success: #34d399;
-            --success-light: #6ee7b7;
             --success-bg: #0a2e1f;
-            --success-bg-hover: #0d3b28;
             --danger: #f87171;
-            --danger-light: #fca5a5;
             --danger-bg: #2e0f0f;
-            --danger-bg-hover: #3d1515;
             --warning: #fbbf24;
             --warning-bg: #2e2000;
-            --info: #60a5fa;
-            --info-bg: #0f1e3a;
             --border: #2a2a40;
             --border-light: #22223a;
-            --border-focus: var(--primary);
-            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -135,9 +76,6 @@
             --shadow-xl: 0 24px 56px rgba(0, 0, 0, 0.45);
         }
 
-        /* ============================================================
-           RESET E BASE
-           ============================================================ */
         *,
         *::before,
         *::after {
@@ -176,7 +114,7 @@
             outline: none;
         }
         button:focus-visible {
-            outline: 3px solid var(--border-focus);
+            outline: 3px solid var(--primary);
             outline-offset: 3px;
             border-radius: var(--radius-sm);
         }
@@ -196,12 +134,11 @@
             font-size: inherit;
         }
         input:focus-visible {
-            outline: 2px solid var(--border-focus);
+            outline: 2px solid var(--primary);
             outline-offset: 2px;
             border-radius: var(--radius-xs);
         }
 
-        /* Scrollbar padronizada */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
@@ -217,24 +154,7 @@
             background: var(--text-muted);
         }
 
-        /* ============================================================
-           UTILITÁRIOS
-           ============================================================ */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* ============================================================
-           TELA DE LOGIN - padronizada
-           ============================================================ */
+        /* ========== LOGIN PAGE ========== */
         .login-page {
             display: flex;
             align-items: center;
@@ -249,39 +169,32 @@
             box-shadow: var(--shadow-xl);
             padding: 40px 32px;
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             border: 1px solid var(--border-light);
             text-align: center;
-            transition: background var(--transition), border var(--transition), box-shadow var(--transition);
+            transition: background var(--transition), border var(--transition);
         }
         .login-card .app-logo {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 72px;
-            height: 72px;
+            width: 64px;
+            height: 64px;
             background: var(--primary-bg);
             color: var(--primary);
             border-radius: var(--radius);
             margin-bottom: 24px;
-            transition: background var(--transition), color var(--transition);
-        }
-        .login-card .app-logo svg {
-            width: 36px;
-            height: 36px;
         }
         .login-card h2 {
-            font-size: var(--font-size-2xl);
-            font-weight: var(--font-weight-bold);
+            font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 8px;
             color: var(--text);
-            letter-spacing: -0.02em;
         }
         .login-card p {
             color: var(--text-secondary);
             margin-bottom: 28px;
-            font-size: var(--font-size-base);
-            line-height: 1.5;
+            font-size: 0.95rem;
         }
         .input-group {
             margin-bottom: 20px;
@@ -289,11 +202,10 @@
         }
         .input-group label {
             display: block;
-            font-weight: var(--font-weight-semibold);
-            font-size: var(--font-size-sm);
-            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
             color: var(--text);
-            letter-spacing: 0.01em;
         }
         .input-wrapper {
             position: relative;
@@ -301,32 +213,19 @@
             align-items: center;
             background: var(--bg);
             border-radius: var(--radius-sm);
-            border: 2px solid var(--border-light);
-            transition: border var(--transition-fast), box-shadow var(--transition-fast), background var(--transition);
+            border: 2px solid transparent;
+            transition: border var(--transition-fast), box-shadow var(--transition-fast);
         }
         .input-wrapper:focus-within {
-            border-color: var(--border-focus);
+            border-color: var(--primary);
             box-shadow: 0 0 0 4px var(--primary-bg);
-        }
-        .input-wrapper.input-error {
-            border-color: var(--danger);
-            box-shadow: 0 0 0 4px var(--danger-bg);
-        }
-        .input-wrapper.input-success {
-            border-color: var(--success);
-            box-shadow: 0 0 0 4px var(--success-bg);
         }
         .input-wrapper input {
             flex: 1;
             padding: 14px 16px;
-            font-size: var(--font-size-md);
+            font-size: 1rem;
             background: transparent;
             color: var(--text);
-            width: 100%;
-        }
-        .input-wrapper input::placeholder {
-            color: var(--text-muted);
-            opacity: 1;
         }
         .input-wrapper .toggle-password {
             padding: 0 14px;
@@ -336,89 +235,43 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            transition: color var(--transition-fast);
-            flex-shrink: 0;
-        }
-        .input-wrapper .toggle-password:hover {
-            color: var(--text-secondary);
         }
         .login-error {
             color: var(--danger);
-            font-size: var(--font-size-sm);
+            font-size: 0.85rem;
             margin-bottom: 12px;
             min-height: 20px;
             text-align: left;
-            font-weight: var(--font-weight-medium);
-            transition: all var(--transition-fast);
-        }
-        .validation-hints {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-            font-size: var(--font-size-xs);
-        }
-        .validation-hint {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 10px;
-            border-radius: var(--radius-full);
-            background: var(--bg);
-            color: var(--text-muted);
-            font-weight: var(--font-weight-medium);
-            transition: all var(--transition-fast);
-        }
-        .validation-hint.valid {
-            background: var(--success-bg);
-            color: var(--success);
-        }
-        .validation-hint.invalid {
-            background: var(--danger-bg);
-            color: var(--danger);
+            font-weight: 500;
         }
         .login-btn {
             width: 100%;
             padding: 14px;
             background: var(--primary);
-            color: var(--text-inverse);
+            color: #fff;
             border-radius: var(--radius-sm);
-            font-weight: var(--font-weight-bold);
-            font-size: var(--font-size-md);
+            font-weight: 700;
+            font-size: 1rem;
             transition: all var(--transition-fast);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            letter-spacing: 0.01em;
         }
-        .login-btn:hover:not(:disabled) {
+        .login-btn:hover {
             background: var(--primary-dark);
             box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
             transform: translateY(-1px);
         }
-        .login-btn:active:not(:disabled) {
-            transform: scale(0.98);
-        }
-        .login-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
         .password-hint {
-            font-size: var(--font-size-xs);
+            font-size: 0.78rem;
             color: var(--text-muted);
             margin-top: 20px;
             text-align: left;
-            line-height: 1.5;
-            padding: 12px;
-            background: var(--bg);
-            border-radius: var(--radius-xs);
-            border: 1px solid var(--border-light);
+            line-height: 1.4;
         }
 
-        /* ============================================================
-           NAVBAR - padronizada
-           ============================================================ */
+        /* ========== MAIN APP (mantido) ========== */
         .navbar {
             position: fixed;
             top: 0;
@@ -428,7 +281,7 @@
             height: var(--navbar-height);
             background: var(--surface);
             border-bottom: 1px solid var(--border-light);
-            box-shadow: var(--shadow-xs);
+            box-shadow: var(--shadow-sm);
             display: flex;
             align-items: center;
             padding: 0 20px;
@@ -445,12 +298,11 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: var(--font-weight-bold);
-            font-size: var(--font-size-xl);
+            font-weight: 700;
+            font-size: 1.25rem;
             color: var(--primary);
             white-space: nowrap;
             flex-shrink: 0;
-            transition: color var(--transition);
         }
         .navbar-logo svg {
             width: 34px;
@@ -472,7 +324,7 @@
             transition: all var(--transition);
         }
         .navbar-search:focus-within {
-            border-color: var(--border-focus);
+            border-color: var(--primary);
             box-shadow: 0 0 0 4px var(--primary-bg);
         }
         .navbar-search svg {
@@ -481,17 +333,13 @@
             color: var(--text-muted);
             flex-shrink: 0;
             margin-right: 8px;
-            transition: color var(--transition-fast);
-        }
-        .navbar-search:focus-within svg {
-            color: var(--primary);
         }
         .navbar-search input {
             flex: 1;
             height: 100%;
             background: transparent;
             color: var(--text);
-            font-size: var(--font-size-base);
+            font-size: 0.95rem;
         }
         .navbar-search input::placeholder {
             color: var(--text-muted);
@@ -515,7 +363,7 @@
             flex-shrink: 0;
         }
         .nav-btn:hover {
-            background: var(--surface-hover);
+            background: var(--bg);
             color: var(--text);
         }
         .nav-btn.active-nav {
@@ -528,12 +376,12 @@
         }
         .nav-badge {
             position: absolute;
-            top: 2px;
-            right: 2px;
+            top: 4px;
+            right: 4px;
             background: var(--danger);
             color: #fff;
             font-size: 0.65rem;
-            font-weight: var(--font-weight-bold);
+            font-weight: 700;
             min-width: 16px;
             height: 16px;
             border-radius: var(--radius-full);
@@ -542,12 +390,11 @@
             justify-content: center;
             padding: 0 5px;
             line-height: 1;
-            box-shadow: 0 0 0 2px var(--surface);
         }
         .nav-label {
             display: none;
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-medium);
+            font-size: 0.85rem;
+            font-weight: 500;
             white-space: nowrap;
         }
         @media (min-width: 768px) {
@@ -562,9 +409,6 @@
             }
         }
 
-        /* ============================================================
-           CONTEÚDO PRINCIPAL
-           ============================================================ */
         .main-content {
             padding-top: calc(var(--navbar-height) + 24px);
             padding-bottom: 40px;
@@ -573,7 +417,6 @@
             padding-left: 16px;
             padding-right: 16px;
             min-height: 100vh;
-            transition: padding var(--transition);
         }
         @media (min-width: 768px) {
             .main-content {
@@ -582,9 +425,6 @@
             }
         }
 
-        /* ============================================================
-           PÁGINAS E ANIMAÇÕES
-           ============================================================ */
         .page {
             display: none;
             animation: fadeSlideIn 0.35s ease-out;
@@ -593,131 +433,44 @@
             display: block;
         }
         @keyframes fadeSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
-        }
-        @keyframes toastIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        @keyframes toastOut {
-            from {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(30px) scale(0.9);
-            }
-        }
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        @keyframes toastIn { from { opacity: 0; transform: translateY(30px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes toastOut { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(30px) scale(0.9); } }
 
-        /* ============================================================
-           SEÇÕES E CABEÇALHOS
-           ============================================================ */
         .section-header {
             margin-bottom: 24px;
         }
         .section-header h1 {
-            font-size: var(--font-size-2xl);
-            font-weight: var(--font-weight-bold);
+            font-size: 1.75rem;
+            font-weight: 700;
             color: var(--text);
             letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-header h1 .section-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius);
-            background: var(--primary-bg);
-            color: var(--primary);
-            flex-shrink: 0;
-        }
-        .section-header h1 .section-icon svg {
-            width: 22px;
-            height: 22px;
         }
         .section-header p {
             color: var(--text-secondary);
-            font-size: var(--font-size-base);
-            margin-top: 6px;
-            margin-left: 50px;
+            font-size: 0.95rem;
+            margin-top: 4px;
         }
-        @media (min-width: 768px) {
-            .section-header h1 {
-                font-size: var(--font-size-3xl);
-            }
-        }
-        @media (max-width: 640px) {
-            .section-header h1 {
-                font-size: var(--font-size-xl);
-                gap: 8px;
-            }
-            .section-header h1 .section-icon {
-                width: 34px;
-                height: 34px;
-            }
-            .section-header h1 .section-icon svg {
-                width: 18px;
-                height: 18px;
-            }
-            .section-header p {
-                margin-left: 42px;
-                font-size: var(--font-size-sm);
-            }
-        }
+        @media (min-width: 768px) { .section-header h1 { font-size: 2rem; } }
 
-        /* ============================================================
-           CARDS DE DISCIPLINA - padronizados
-           ============================================================ */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 16px;
         }
         @media (max-width: 480px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
+            .cards-grid { grid-template-columns: 1fr; gap: 12px; }
         }
+
         .discipline-card {
             background: var(--surface);
             border-radius: var(--radius-md);
             padding: 24px 20px;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow);
             cursor: pointer;
             transition: all var(--transition);
             border: 1px solid var(--border-light);
@@ -734,18 +487,10 @@
             border-color: var(--primary);
             background: var(--surface-hover);
         }
-        .discipline-card:active {
-            transform: scale(0.985);
-            transition: all 0.1s ease;
-            background: var(--surface-active);
-        }
-        .discipline-card:focus-visible {
-            outline: 3px solid var(--border-focus);
-            outline-offset: 2px;
-        }
+        .discipline-card:active { transform: scale(0.985); transition: all 0.1s ease; }
         .discipline-card .card-icon {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             border-radius: var(--radius);
             display: flex;
             align-items: center;
@@ -753,36 +498,29 @@
             flex-shrink: 0;
             background: var(--primary-bg);
             color: var(--primary);
-            transition: all var(--transition);
-        }
-        .discipline-card:hover .card-icon {
-            background: var(--primary);
-            color: #fff;
-            transform: scale(1.05);
         }
         .discipline-card .card-icon svg {
             width: 28px;
             height: 28px;
         }
         .discipline-card .card-info h3 {
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-bold);
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--text);
             margin-bottom: 2px;
             letter-spacing: -0.01em;
-            line-height: 1.3;
         }
         .discipline-card .card-info .card-category {
-            font-size: var(--font-size-xs);
+            font-size: 0.82rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-weight: var(--font-weight-semibold);
+            letter-spacing: 0.04em;
+            font-weight: 600;
         }
         .discipline-card .card-stats {
             display: flex;
             gap: 16px;
-            font-size: var(--font-size-sm);
+            font-size: 0.82rem;
             color: var(--text-secondary);
             flex-wrap: wrap;
         }
@@ -790,7 +528,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            font-weight: var(--font-weight-medium);
+            font-weight: 500;
         }
         .discipline-card .card-stats svg {
             width: 14px;
@@ -809,8 +547,7 @@
             height: 100%;
             background: linear-gradient(90deg, var(--primary), var(--primary-light));
             border-radius: var(--radius-full);
-            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            min-width: 0;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .discipline-card .open-btn {
             display: inline-flex;
@@ -818,11 +555,11 @@
             justify-content: center;
             gap: 6px;
             background: var(--primary);
-            color: var(--text-inverse);
+            color: #fff;
             padding: 10px 18px;
             border-radius: var(--radius-sm);
-            font-weight: var(--font-weight-semibold);
-            font-size: var(--font-size-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
             transition: all var(--transition-fast);
             align-self: flex-start;
         }
@@ -831,23 +568,12 @@
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
             transform: translateY(-1px);
         }
-        .discipline-card .open-btn:active {
-            transform: scale(0.96);
-        }
 
-        /* ============================================================
-           CARDS DE MATERIAL - padronizados
-           ============================================================ */
-        .materials-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
         .material-card {
             background: var(--surface);
             border-radius: var(--radius);
             padding: 16px;
-            box-shadow: var(--shadow-xs);
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-light);
             transition: all var(--transition);
             display: flex;
@@ -858,10 +584,6 @@
             box-shadow: var(--shadow-md);
             border-color: var(--border);
             transform: translateY(-2px);
-        }
-        .material-card:focus-within {
-            outline: 3px solid var(--border-focus);
-            outline-offset: 2px;
         }
         .material-card .material-thumb {
             width: 100px;
@@ -874,7 +596,6 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border: 1px solid var(--border-light);
         }
         .material-card .material-thumb img {
             width: 100%;
@@ -894,26 +615,19 @@
             gap: 4px;
         }
         .material-card .material-info h4 {
-            font-size: var(--font-size-base);
-            font-weight: var(--font-weight-semibold);
+            font-size: 0.95rem;
+            font-weight: 600;
             color: var(--text);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            line-height: 1.3;
         }
         .material-card .material-meta {
-            font-size: var(--font-size-xs);
+            font-size: 0.78rem;
             color: var(--text-muted);
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            align-items: center;
-        }
-        .material-card .material-meta span {
-            display: flex;
-            align-items: center;
-            gap: 3px;
         }
         .material-card .material-actions {
             display: flex;
@@ -922,120 +636,60 @@
             align-items: center;
         }
         .icon-btn {
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
             transition: all var(--transition-fast);
-            position: relative;
         }
-        .icon-btn:hover {
-            background: var(--bg);
-            color: var(--text);
-            transform: scale(1.05);
-        }
-        .icon-btn:active {
-            transform: scale(0.92);
-        }
-        .icon-btn.fav-active {
-            color: #e53e3e;
-            background: var(--danger-bg);
-        }
-        .icon-btn.fav-active:hover {
-            background: var(--danger-bg-hover);
-            color: #c53030;
-        }
-        .icon-btn.done-active {
-            color: #059669;
-            background: var(--success-bg);
-        }
-        .icon-btn.done-active:hover {
-            background: var(--success-bg-hover);
-            color: #047857;
-        }
-        .icon-btn svg {
-            width: 18px;
-            height: 18px;
-        }
+        .icon-btn:hover { background: var(--bg); color: var(--text); }
+        .icon-btn.fav-active { color: #e53e3e; background: var(--danger-bg); }
+        .icon-btn.done-active { color: #10b981; background: var(--success-bg); }
+        .icon-btn svg { width: 18px; height: 18px; }
         .action-btn {
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            padding: 9px 16px;
+            padding: 8px 14px;
             border-radius: var(--radius-sm);
-            font-weight: var(--font-weight-semibold);
-            font-size: var(--font-size-sm);
+            font-weight: 600;
+            font-size: 0.82rem;
             background: var(--primary);
-            color: var(--text-inverse);
+            color: #fff;
             transition: all var(--transition-fast);
             white-space: nowrap;
-            letter-spacing: 0.01em;
         }
         .action-btn:hover {
             background: var(--primary-dark);
             box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
-            transform: translateY(-1px);
-        }
-        .action-btn:active {
-            transform: scale(0.96);
         }
         .action-btn.outline {
             background: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
         }
-        .action-btn.outline:hover {
-            background: var(--primary-bg);
-            box-shadow: none;
-        }
+        .action-btn.outline:hover { background: var(--primary-bg); }
 
         @media (max-width: 480px) {
-            .material-card {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .material-card .material-thumb {
-                width: 100%;
-                height: 140px;
-            }
-            .material-card .material-actions {
-                width: 100%;
-                justify-content: flex-end;
-                flex-wrap: wrap;
-            }
+            .material-card { flex-direction: column; gap: 10px; }
+            .material-card .material-thumb { width: 100%; height: 140px; }
+            .material-card .material-actions { width: 100%; justify-content: flex-end; }
         }
 
-        /* ============================================================
-           SKELETON LOADING
-           ============================================================ */
         .skeleton {
             background: linear-gradient(90deg, var(--border-light) 25%, var(--bg) 50%, var(--border-light) 75%);
             background-size: 200% 100%;
-            animation: shimmer 1.8s infinite;
+            animation: shimmer 1.6s infinite;
             border-radius: var(--radius-xs);
         }
-        .skeleton-card {
-            height: 240px;
-            border-radius: var(--radius-md);
-        }
-        .skeleton-line {
-            height: 14px;
-            margin-bottom: 8px;
-            border-radius: var(--radius-xs);
-        }
-        .skeleton-line.short {
-            width: 55%;
-        }
-        .skeleton-line.medium {
-            width: 75%;
-        }
+        .skeleton-card { height: 220px; border-radius: var(--radius-md); }
+        .skeleton-line { height: 14px; margin-bottom: 8px; border-radius: var(--radius-xs); }
+        .skeleton-line.short { width: 60%; }
+        .skeleton-line.medium { width: 80%; }
 
-        /* ============================================================
-           TOASTS - padronizados
-           ============================================================ */
         .toast-container {
             position: fixed;
             bottom: 24px;
@@ -1049,209 +703,89 @@
         .toast {
             background: var(--surface);
             color: var(--text);
-            padding: 14px 20px;
+            padding: 12px 20px;
             border-radius: var(--radius);
             box-shadow: var(--shadow-lg);
-            font-weight: var(--font-weight-medium);
-            font-size: var(--font-size-sm);
+            font-weight: 500;
+            font-size: 0.9rem;
             pointer-events: auto;
-            animation: toastIn 0.35s ease-out;
+            animation: toastIn 0.3s ease-out;
             border: 1px solid var(--border-light);
             display: flex;
             align-items: center;
-            gap: 10px;
-            max-width: 400px;
-            transition: all var(--transition);
+            gap: 8px;
+            max-width: 380px;
         }
-        .toast.removing {
-            animation: toastOut 0.3s ease-out forwards;
-        }
-        .toast.success {
-            border-left: 4px solid var(--success);
-        }
-        .toast.error {
-            border-left: 4px solid var(--danger);
-        }
-        .toast.info {
-            border-left: 4px solid var(--info);
-        }
+        .toast.removing { animation: toastOut 0.3s ease-out forwards; }
+        .toast.success { border-left: 4px solid var(--success); }
+        .toast.error { border-left: 4px solid var(--danger); }
+        .toast.info { border-left: 4px solid var(--primary); }
 
-        /* ============================================================
-           ESTADOS VAZIOS
-           ============================================================ */
         .empty-state {
             text-align: center;
-            padding: 56px 20px;
+            padding: 48px 20px;
             color: var(--text-muted);
         }
-        .empty-state svg {
-            width: 72px;
-            height: 72px;
-            margin-bottom: 16px;
-            opacity: 0.4;
-            transition: opacity var(--transition);
-        }
-        .empty-state h3 {
-            font-size: var(--font-size-lg);
-            color: var(--text-secondary);
-            margin-bottom: 6px;
-            font-weight: var(--font-weight-semibold);
-        }
-        .empty-state p {
-            font-size: var(--font-size-sm);
-            color: var(--text-muted);
-            max-width: 400px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
+        .empty-state svg { width: 80px; height: 80px; margin-bottom: 16px; opacity: 0.5; }
+        .empty-state h3 { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 4px; }
 
-        /* ============================================================
-           BOTÃO VOLTAR
-           ============================================================ */
         .back-btn {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 10px 18px;
+            padding: 8px 16px;
             border-radius: var(--radius-sm);
-            font-weight: var(--font-weight-medium);
+            font-weight: 500;
             color: var(--text-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             transition: all var(--transition-fast);
-            font-size: var(--font-size-sm);
         }
-        .back-btn:hover {
-            background: var(--surface-hover);
-            color: var(--text);
-        }
-        .back-btn:active {
-            transform: scale(0.96);
-        }
-        .back-btn svg {
-            width: 18px;
-            height: 18px;
-        }
+        .back-btn:hover { background: var(--bg); color: var(--text); }
+        .back-btn svg { width: 18px; height: 18px; }
 
-        /* ============================================================
-           TABS
-           ============================================================ */
         .tabs {
             display: flex;
             gap: 4px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             background: var(--bg);
             border-radius: var(--radius-sm);
             padding: 4px;
             width: fit-content;
             flex-wrap: wrap;
-            border: 1px solid var(--border-light);
         }
         .tab-btn {
             padding: 10px 20px;
             border-radius: var(--radius-xs);
-            font-weight: var(--font-weight-semibold);
-            font-size: var(--font-size-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             transition: all var(--transition-fast);
             white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
         .tab-btn.active {
             background: var(--surface);
             color: var(--primary);
-            box-shadow: var(--shadow-xs);
+            box-shadow: var(--shadow-sm);
         }
-        .tab-btn:hover:not(.active) {
-            color: var(--text);
-            background: var(--surface-hover);
-        }
+        .tab-btn:hover:not(.active) { color: var(--text); background: var(--surface-hover); }
 
-        /* ============================================================
-           BOTÃO VOLTAR AO TOPO
-           ============================================================ */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 24px;
-            left: 24px;
-            width: 44px;
-            height: 44px;
-            border-radius: var(--radius-full);
-            background: var(--surface);
-            color: var(--text-secondary);
-            box-shadow: var(--shadow-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 998;
-            transition: all var(--transition);
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(20px);
-            border: 1px solid var(--border-light);
-        }
-        .scroll-to-top.visible {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-        .scroll-to-top:hover {
-            background: var(--surface-hover);
-            color: var(--text);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* ============================================================
-           RESPONSIVIDADE ADICIONAL
-           ============================================================ */
         @media (max-width: 640px) {
-            .navbar {
-                padding: 0 12px;
-                gap: 6px;
-            }
-            .navbar-logo span {
-                display: none;
-            }
-            .navbar-search {
-                max-width: 170px;
-                height: 38px;
-                padding: 0 10px;
-            }
-            .nav-label {
-                display: none;
-            }
-            .nav-btn {
-                width: 36px;
-                height: 36px;
-            }
-            .section-header h1 {
-                font-size: var(--font-size-xl);
-            }
-            .back-btn {
-                padding: 8px 14px;
-                font-size: var(--font-size-xs);
-            }
-            .toast-container {
-                bottom: 16px;
-                right: 12px;
-                left: 12px;
-            }
-            .toast {
-                max-width: 100%;
-                font-size: var(--font-size-xs);
-            }
+            .navbar { padding: 0 12px; gap: 6px; }
+            .navbar-logo span { display: none; }
+            .navbar-search { max-width: 180px; height: 36px; padding: 0 10px; }
+            .nav-label { display: none; }
+            .nav-btn { width: 36px; height: 36px; }
+            .section-header h1 { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ==================== TELA DE LOGIN ==================== -->
+    <!-- ==================== LOGIN PAGE ==================== -->
     <div id="loginPage" class="login-page" style="display: none;">
         <div class="login-card">
             <div class="app-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
                     <line x1="8" y1="7" x2="16" y2="7"/>
@@ -1259,38 +793,32 @@
                 </svg>
             </div>
             <h2>Estude+</h2>
-            <p>Entre com sua senha de acesso para continuar</p>
+            <p>Entre com sua senha de acesso</p>
             <div class="input-group">
-                <label for="loginPassword">Senha de acesso</label>
-                <div class="input-wrapper" id="passwordWrapper">
-                    <input type="password" id="loginPassword" placeholder="Digite sua senha" autocomplete="off" maxlength="20" />
-                    <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar senha" title="Mostrar/ocultar senha">
+                <label for="loginPassword">Senha</label>
+                <div class="input-wrapper">
+                    <input type="password" id="loginPassword" placeholder="Digite sua senha" autocomplete="off" />
+                    <button type="button" class="toggle-password" id="togglePassword" aria-label="Mostrar senha">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                             <circle cx="12" cy="12" r="3"/>
                         </svg>
                     </button>
                 </div>
-                <div class="validation-hints" id="validationHints">
-                    <span class="validation-hint" data-rule="length">8 caracteres</span>
-                    <span class="validation-hint" data-rule="letter">Letra V, U ou P</span>
-                    <span class="validation-hint" data-rule="number">Número 5 a 9</span>
-                </div>
             </div>
             <div class="login-error" id="loginError"></div>
             <button class="login-btn" id="loginBtn">Entrar</button>
             <div class="password-hint">
-                🔐 A senha deve conter exatamente 8 caracteres, incluir pelo menos uma das letras <strong>V</strong>, <strong>U</strong> ou <strong>P</strong> e pelo menos um número entre <strong>5</strong> e <strong>9</strong>.
+                🔐 A senha deve conter exatamente 8 caracteres, incluir pelo menos uma das letras V, U ou P e pelo menos um número entre 5 e 9.
             </div>
         </div>
     </div>
 
-    <!-- ==================== APLICATIVO PRINCIPAL ==================== -->
+    <!-- ==================== MAIN APP (oculto inicialmente) ==================== -->
     <div id="appContainer" style="display: none;">
-        <!-- Navbar -->
-        <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+        <nav class="navbar" id="navbar">
             <div class="navbar-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
                     <line x1="8" y1="7" x2="16" y2="7"/>
@@ -1298,53 +826,47 @@
                 </svg>
                 <span>Estude+</span>
             </div>
-            <div class="navbar-search" id="searchContainer" role="search">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <div class="navbar-search" id="searchContainer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"/>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                 </svg>
-                <input type="text" id="searchInput" placeholder="Pesquisar materiais..." autocomplete="off" aria-label="Pesquisar materiais">
+                <input type="text" id="searchInput" placeholder="Pesquisar materiais..." autocomplete="off">
             </div>
             <div class="navbar-actions">
-                <button class="nav-btn active-nav" id="navHome" onclick="Navigation.navigateTo('home')" title="Início" aria-label="Página inicial">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <button class="nav-btn active-nav" id="navHome" onclick="Navigation.navigateTo('home')" title="Início" aria-label="Início">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                     <span class="nav-label">Início</span>
                 </button>
-                <button class="nav-btn" id="navFavorites" onclick="Navigation.navigateTo('favorites')" title="Favoritos" aria-label="Materiais favoritos">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <button class="nav-btn" id="navFavorites" onclick="Navigation.navigateTo('favorites')" title="Favoritos" aria-label="Favoritos">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     <span class="nav-label">Favoritos</span>
-                    <span class="nav-badge" id="favBadge" style="display:none;" aria-hidden="true">0</span>
+                    <span class="nav-badge" id="favBadge" style="display:none;">0</span>
                 </button>
-                <button class="nav-btn" id="navDone" onclick="Navigation.navigateTo('done')" title="Concluídos" aria-label="Materiais concluídos">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                <button class="nav-btn" id="navDone" onclick="Navigation.navigateTo('done')" title="Concluídos" aria-label="Concluídos">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                     <span class="nav-label">Concluídos</span>
                 </button>
-                <button class="nav-btn" id="btnSync" onclick="App.syncData()" title="Sincronizar dados" aria-label="Sincronizar dados com o servidor">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="syncIcon" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                <button class="nav-btn" id="btnSync" onclick="App.syncData()" title="Sincronizar" aria-label="Sincronizar dados">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="syncIcon"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                     <span class="nav-label">Sincronizar</span>
                 </button>
-                <button class="nav-btn" id="btnDarkMode" onclick="App.toggleDarkMode()" title="Alternar tema" aria-label="Alternar entre tema claro e escuro">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="darkModeIcon" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <button class="nav-btn" id="btnDarkMode" onclick="App.toggleDarkMode()" title="Modo Escuro/Claro" aria-label="Alternar modo escuro">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="darkModeIcon"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
                     <span class="nav-label">Tema</span>
                 </button>
-                <button class="nav-btn" id="btnLogout" onclick="App.logout()" title="Sair do sistema" aria-label="Sair do sistema">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                <button class="nav-btn" id="btnLogout" onclick="App.logout()" title="Sair" aria-label="Sair do sistema">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                     <span class="nav-label">Sair</span>
                 </button>
             </div>
         </nav>
 
-        <!-- Conteúdo principal -->
-        <main class="main-content" id="mainContent" role="main">
-            <!-- Página Inicial -->
+        <main class="main-content" id="mainContent">
+            <!-- HOME PAGE -->
             <div class="page active" id="pageHome">
                 <div class="section-header">
-                    <h1>
-                        <span class="section-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        </span>
-                        Disciplinas
-                    </h1>
+                    <h1>📚 Disciplinas</h1>
                     <p>Explore os conteúdos disponíveis e acompanhe seu progresso</p>
                 </div>
                 <div class="cards-grid" id="disciplinesGrid">
@@ -1357,41 +879,30 @@
                 </div>
             </div>
 
-            <!-- Página de Detalhes da Disciplina -->
+            <!-- DISCIPLINE DETAIL PAGE -->
             <div class="page" id="pageDiscipline">
                 <button class="back-btn" onclick="Navigation.navigateTo('home')">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
                     Voltar para Disciplinas
                 </button>
                 <div class="section-header" id="disciplineHeader">
                     <h1 id="disciplineTitle">Disciplina</h1>
                     <p id="disciplineSubtitle"></p>
                 </div>
-                <div class="tabs" id="disciplineTabs" role="tablist">
-                    <button class="tab-btn active" onclick="Render.switchDisciplineTab('pdfs')" role="tab" aria-selected="true">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        PDFs
-                    </button>
-                    <button class="tab-btn" onclick="Render.switchDisciplineTab('videos')" role="tab" aria-selected="false">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-                        Vídeos
-                    </button>
+                <div class="tabs" id="disciplineTabs">
+                    <button class="tab-btn active" onclick="Render.switchDisciplineTab('pdfs')">📄 PDFs</button>
+                    <button class="tab-btn" onclick="Render.switchDisciplineTab('videos')">🎬 Vídeos</button>
                 </div>
-                <div id="disciplineMaterials" class="materials-list"></div>
+                <div id="disciplineMaterials"></div>
             </div>
 
-            <!-- Página de Favoritos -->
+            <!-- FAVORITES PAGE -->
             <div class="page" id="pageFavorites">
                 <div class="section-header">
-                    <h1>
-                        <span class="section-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                        </span>
-                        Favoritos
-                    </h1>
+                    <h1>⭐ Favoritos</h1>
                     <p>Seus materiais salvos para revisão</p>
                 </div>
-                <div id="favoritesList" class="materials-list">
+                <div id="favoritesList">
                     <div class="empty-state">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                         <h3>Nenhum favorito ainda</h3>
@@ -1400,18 +911,13 @@
                 </div>
             </div>
 
-            <!-- Página de Concluídos -->
+            <!-- DONE PAGE -->
             <div class="page" id="pageDone">
                 <div class="section-header">
-                    <h1>
-                        <span class="section-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        </span>
-                        Concluídos
-                    </h1>
+                    <h1>✅ Concluídos</h1>
                     <p>Materiais que você já estudou</p>
                 </div>
-                <div id="doneList" class="materials-list">
+                <div id="doneList">
                     <div class="empty-state">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
                         <h3>Nenhum material concluído</h3>
@@ -1421,12 +927,6 @@
             </div>
         </main>
 
-        <!-- Botão voltar ao topo -->
-        <button class="scroll-to-top" id="scrollToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Voltar ao topo" aria-label="Voltar ao topo da página">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-        </button>
-
-        <!-- Container de toasts -->
         <div class="toast-container" id="toastContainer"></div>
     </div>
 
@@ -1435,8 +935,7 @@
          * ============================================================
          * APLICATIVO ESTUDE+
          * Portal de Estudos para Concursos Públicos
-         * Código 100% funcional – com tela de login, validação de senha,
-         * padronização visual e melhorias de UX
+         * Código 100% funcional – com tela de login e validação de senha
          * ============================================================
          */
 
@@ -1474,9 +973,6 @@
             },
         };
 
-        /* ============================================================
-           STORAGE - Gerenciamento de dados locais
-           ============================================================ */
         const Storage = {
             get(key, defaultValue = null) {
                 try { const raw = localStorage.getItem(key); return raw === null ? defaultValue : JSON.parse(raw); }
@@ -1510,9 +1006,6 @@
             setLoggedIn(value) { this.set(Config.LOGIN_KEY, value); },
         };
 
-        /* ============================================================
-           API - Comunicação com o servidor
-           ============================================================ */
         const API = {
             async fetchMaterials() {
                 try {
@@ -1527,9 +1020,6 @@
             },
         };
 
-        /* ============================================================
-           UTILS - Funções utilitárias
-           ============================================================ */
         const Utils = {
             extractYouTubeID(url) {
                 if (!url) return null;
@@ -1571,21 +1061,11 @@
             escapeHTML(str) { const div = document.createElement('div'); div.textContent = str || ''; return div.innerHTML; },
             truncate(str, maxLen = 60) { if (!str) return ''; return str.length > maxLen ? str.substring(0, maxLen) + '...' : str; },
             validatePassword(password) {
-                const lengthValid = password.length === 8;
-                const hasLetter = /[VUP]/.test(password);
-                const hasNumber = /[5-9]/.test(password);
-                return {
-                    isValid: lengthValid && hasLetter && hasNumber,
-                    lengthValid,
-                    hasLetter,
-                    hasNumber
-                };
+                const regex = /^(?=.{8}$)(?=.*[VUP])(?=.*[5-9]).*$/;
+                return regex.test(password);
             },
         };
 
-        /* ============================================================
-           RENDER - Renderização da interface
-           ============================================================ */
         const Render = {
             currentDiscipline: null,
             currentDisciplineTab: 'pdfs',
@@ -1605,19 +1085,19 @@
                     const doneCount = disc.all.filter(m => Storage.isDone(m.ID)).length;
                     const progress = total > 0 ? Math.round((doneCount / total) * 100) : 0;
                     return `
-                    <div class="discipline-card" onclick="Navigation.openDiscipline('${Utils.escapeHTML(disc.name)}')" role="button" tabindex="0" aria-label="Abrir disciplina ${Utils.escapeHTML(disc.name)}">
-                        <div class="card-icon" aria-hidden="true">${disc.icon}</div>
+                    <div class="discipline-card" onclick="Navigation.openDiscipline('${Utils.escapeHTML(disc.name)}')" role="button" tabindex="0">
+                        <div class="card-icon">${disc.icon}</div>
                         <div class="card-info">
                             <h3>${Utils.escapeHTML(disc.name)}</h3>
                             <span class="card-category">${disc.pdfs.length + disc.videos.length} materiais</span>
                         </div>
                         <div class="card-stats">
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> ${disc.pdfs.length} PDFs</span>
-                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> ${disc.videos.length} Vídeos</span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> ${disc.pdfs.length} PDFs</span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> ${disc.videos.length} Vídeos</span>
                         </div>
-                        <div class="progress-bar-container"><div class="progress-bar-fill" style="width:${progress}%;" role="progressbar" aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100"></div></div>
-                        <div style="font-size:var(--font-size-xs);color:var(--text-muted);">${doneCount} de ${total} concluídos (${progress}%)</div>
-                        <button class="open-btn" onclick="event.stopPropagation(); Navigation.openDiscipline('${Utils.escapeHTML(disc.name)}')">Abrir Disciplina <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+                        <div class="progress-bar-container"><div class="progress-bar-fill" style="width:${progress}%;"></div></div>
+                        <div style="font-size:0.78rem;color:var(--text-muted);">${doneCount} de ${total} concluídos (${progress}%)</div>
+                        <button class="open-btn" onclick="event.stopPropagation(); Navigation.openDiscipline('${Utils.escapeHTML(disc.name)}')">Abrir Disciplina <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
                     </div>`;
                 }).join('');
             },
@@ -1627,19 +1107,14 @@
                 this.currentDisciplineTab = 'pdfs';
                 document.getElementById('disciplineTitle').innerHTML = disc.icon + ' ' + Utils.escapeHTML(disc.name);
                 document.getElementById('disciplineSubtitle').textContent = `${disc.pdfs.length} PDFs · ${disc.videos.length} Vídeos · ${disc.all.length} materiais no total`;
-                document.querySelectorAll('#disciplineTabs .tab-btn').forEach((btn, i) => {
-                    btn.classList.toggle('active', i === 0);
-                    btn.setAttribute('aria-selected', i === 0);
-                });
+                document.querySelectorAll('#disciplineTabs .tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === 0));
                 this.renderDisciplineMaterials();
             },
 
             switchDisciplineTab(tab) {
                 this.currentDisciplineTab = tab;
                 document.querySelectorAll('#disciplineTabs .tab-btn').forEach(btn => {
-                    const isActive = btn.textContent.trim().toLowerCase().includes(tab);
-                    btn.classList.toggle('active', isActive);
-                    btn.setAttribute('aria-selected', isActive);
+                    btn.classList.toggle('active', btn.textContent.trim().toLowerCase().includes(tab));
                 });
                 this.renderDisciplineMaterials();
             },
@@ -1668,7 +1143,7 @@
 
                 let thumbHTML = '';
                 if (isVideo && thumbUrl) {
-                    thumbHTML = `<img src="${thumbUrl}" alt="Miniatura do vídeo" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\"icon-placeholder\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\"/></svg></div>'">`;
+                    thumbHTML = `<img src="${thumbUrl}" alt="Thumbnail do vídeo" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\"icon-placeholder\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\"/></svg></div>'">`;
                 } else if (isVideo) {
                     thumbHTML = `<div class="icon-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>`;
                 } else {
@@ -1677,21 +1152,21 @@
 
                 return `
                 <div class="material-card" id="material-${mat.ID}">
-                    <div class="material-thumb" aria-hidden="true">${thumbHTML}</div>
+                    <div class="material-thumb">${thumbHTML}</div>
                     <div class="material-info">
                         <h4 title="${Utils.escapeHTML(mat.Título || mat.Titulo || '')}">${Utils.escapeHTML(mat.Título || mat.Titulo || 'Sem título')}</h4>
                         <div class="material-meta">
-                            ${mat.Categoria ? `<span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg> ${Utils.escapeHTML(mat.Categoria)}</span>` : ''}
-                            ${mat.Professor ? `<span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> ${Utils.escapeHTML(mat.Professor)}</span>` : ''}
-                            ${mat['Carga Horária'] || mat['Carga Horaria'] ? `<span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${Utils.escapeHTML(mat['Carga Horária'] || mat['Carga Horaria'])}</span>` : ''}
+                            ${mat.Categoria ? `<span>📂 ${Utils.escapeHTML(mat.Categoria)}</span>` : ''}
+                            ${mat.Professor ? `<span>👤 ${Utils.escapeHTML(mat.Professor)}</span>` : ''}
+                            ${mat['Carga Horária'] || mat['Carga Horaria'] ? `<span>⏱️ ${Utils.escapeHTML(mat['Carga Horária'] || mat['Carga Horaria'])}</span>` : ''}
                         </div>
                     </div>
                     <div class="material-actions">
-                        <button class="icon-btn fav-btn ${isFav ? 'fav-active' : ''}" onclick="App.toggleFavorite('${mat.ID}')" title="${isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}" aria-label="${isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}">
-                            <svg viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        <button class="icon-btn fav-btn ${isFav ? 'fav-active' : ''}" onclick="App.toggleFavorite('${mat.ID}')" title="${isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}" aria-label="Favorito">
+                            <svg viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                         </button>
-                        <button class="icon-btn done-btn ${isDone ? 'done-active' : ''}" onclick="App.toggleDone('${mat.ID}')" title="${isDone ? 'Marcar como não concluído' : 'Marcar como concluído'}" aria-label="${isDone ? 'Marcar como não concluído' : 'Marcar como concluído'}">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        <button class="icon-btn done-btn ${isDone ? 'done-active' : ''}" onclick="App.toggleDone('${mat.ID}')" title="${isDone ? 'Marcar como não concluído' : 'Marcar como concluído'}" aria-label="Concluído">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
                         </button>
                         <button class="action-btn open-material-btn" data-link="${Utils.escapeHTML(mat.Link || '')}" data-id="${mat.ID}" title="${hasLink ? 'Abrir material' : 'Link não cadastrado'}">
                             ${isVideo ? '▶ Assistir' : '📖 Abrir'}
@@ -1710,14 +1185,12 @@
                 if (favBtn) {
                     favBtn.classList.toggle('fav-active', isFav);
                     favBtn.title = isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos';
-                    favBtn.setAttribute('aria-label', favBtn.title);
                     const svg = favBtn.querySelector('svg');
                     if (svg) svg.setAttribute('fill', isFav ? 'currentColor' : 'none');
                 }
                 if (doneBtn) {
                     doneBtn.classList.toggle('done-active', isDone);
                     doneBtn.title = isDone ? 'Marcar como não concluído' : 'Marcar como concluído';
-                    doneBtn.setAttribute('aria-label', doneBtn.title);
                 }
             },
 
@@ -1756,9 +1229,6 @@
             },
         };
 
-        /* ============================================================
-           NAVIGATION - Controle de navegação
-           ============================================================ */
         const Navigation = {
             currentPage: 'home',
 
@@ -1831,9 +1301,6 @@
             },
         };
 
-        /* ============================================================
-           SEARCH - Sistema de busca
-           ============================================================ */
         const Search = {
             search(term, allMaterials) {
                 if (!term || term.trim() === '') return Utils.groupByDiscipline(allMaterials);
@@ -1873,53 +1340,44 @@
             },
         };
 
-        /* ============================================================
-           TOAST - Sistema de notificações
-           ============================================================ */
         const Toast = {
             show(message, type = 'info') {
                 const container = document.getElementById('toastContainer');
                 if (!container) return;
                 const toast = document.createElement('div');
                 toast.className = `toast ${type}`;
-                toast.setAttribute('role', 'alert');
                 const icons = { success: '✅', error: '❌', info: 'ℹ️' };
-                toast.innerHTML = `<span aria-hidden="true">${icons[type] || 'ℹ️'}</span> ${message}`;
+                toast.innerHTML = `<span>${icons[type] || 'ℹ️'}</span> ${message}`;
                 container.appendChild(toast);
-                const removeToast = () => {
+                setTimeout(() => {
                     toast.classList.add('removing');
                     toast.addEventListener('animationend', () => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, { once: true });
                     setTimeout(() => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 350);
-                };
-                setTimeout(removeToast, Config.TOAST_DURATION_MS);
+                }, Config.TOAST_DURATION_MS);
             },
             success(msg) { this.show(msg, 'success'); },
             error(msg) { this.show(msg, 'error'); },
             info(msg) { this.show(msg, 'info'); },
         };
 
-        /* ============================================================
-           APP - Controle principal da aplicação
-           ============================================================ */
         const App = {
             allMaterials: [],
             isLoading: false,
-            isSyncing: false,
 
             async init() {
+                // Verificar login
                 if (!Storage.isLoggedIn()) {
                     this.showLoginScreen();
                     return;
                 }
+                // Já logado, esconder login, mostrar app
                 this.showAppScreen();
 
                 const darkMode = Storage.getDarkMode();
                 if (darkMode) document.body.classList.add('dark');
                 this.updateDarkModeIcon();
 
-                this.setupScrollToTop();
                 Render.showSkeletons();
-
                 const cache = Storage.getCache();
                 if (cache.data && cache.data.length > 0) {
                     this.allMaterials = cache.data;
@@ -1950,72 +1408,25 @@
                 document.getElementById('appContainer').style.display = 'block';
             },
 
-            setupScrollToTop() {
-                const btn = document.getElementById('scrollToTop');
-                if (!btn) return;
-                const toggleVisibility = () => {
-                    const scrollY = window.scrollY || window.pageYOffset;
-                    btn.classList.toggle('visible', scrollY > 300);
-                };
-                window.addEventListener('scroll', toggleVisibility, { passive: true });
-                toggleVisibility();
-            },
-
             setupLoginEvents() {
                 const passwordInput = document.getElementById('loginPassword');
                 const loginBtn = document.getElementById('loginBtn');
                 const errorEl = document.getElementById('loginError');
                 const toggleBtn = document.getElementById('togglePassword');
-                const wrapper = document.getElementById('passwordWrapper');
-                const hints = document.querySelectorAll('.validation-hint');
-
-                const updateValidationUI = (validation) => {
-                    // Atualizar dicas visuais
-                    hints.forEach(hint => {
-                        const rule = hint.dataset.rule;
-                        hint.classList.remove('valid', 'invalid');
-                        if (passwordInput.value.length > 0) {
-                            if (rule === 'length') hint.classList.add(validation.lengthValid ? 'valid' : 'invalid');
-                            if (rule === 'letter') hint.classList.add(validation.hasLetter ? 'valid' : 'invalid');
-                            if (rule === 'number') hint.classList.add(validation.hasNumber ? 'valid' : 'invalid');
-                        }
-                    });
-
-                    // Atualizar borda do input
-                    wrapper.classList.remove('input-error', 'input-success');
-                    if (passwordInput.value.length > 0) {
-                        if (validation.isValid) {
-                            wrapper.classList.add('input-success');
-                            errorEl.textContent = '';
-                        } else {
-                            wrapper.classList.add('input-error');
-                        }
-                    }
-                };
 
                 const performLogin = () => {
                     const senha = passwordInput.value.trim();
-                    const validation = Utils.validatePassword(senha);
-                    if (!validation.isValid) {
-                        errorEl.textContent = 'Senha inválida. Verifique os requisitos abaixo.';
+                    if (!Utils.validatePassword(senha)) {
+                        errorEl.textContent = 'Senha inválida. A senha deve conter exatamente 8 caracteres, incluir pelo menos uma das letras V, U ou P e pelo menos um número entre 5 e 9.';
                         passwordInput.focus();
-                        updateValidationUI(validation);
                         return;
                     }
+                    // Sucesso
                     Storage.setLoggedIn(true);
                     errorEl.textContent = '';
-                    wrapper.classList.remove('input-error', 'input-success');
                     this.showAppScreen();
-                    this.init();
+                    this.init(); // recarrega dados
                 };
-
-                passwordInput.addEventListener('input', () => {
-                    const validation = Utils.validatePassword(passwordInput.value.trim());
-                    updateValidationUI(validation);
-                    if (validation.isValid) {
-                        errorEl.textContent = '';
-                    }
-                });
 
                 loginBtn.addEventListener('click', performLogin);
                 passwordInput.addEventListener('keydown', (e) => {
@@ -2025,31 +1436,25 @@
                 });
 
                 toggleBtn.addEventListener('click', () => {
-                    const isPassword = passwordInput.getAttribute('type') === 'password';
-                    passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-                    toggleBtn.querySelector('svg').innerHTML = isPassword
-                        ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>'
-                        : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
-                    toggleBtn.setAttribute('aria-label', isPassword ? 'Ocultar senha' : 'Mostrar senha');
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    toggleBtn.querySelector('svg').innerHTML = type === 'password'
+                        ? '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>'
+                        : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
                 });
             },
 
             logout() {
                 Storage.setLoggedIn(false);
+                // Limpar estado visual (opcional)
                 this.allMaterials = [];
                 Render.showSkeletons();
                 document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
                 document.getElementById('pageHome')?.classList.add('active');
-                const searchInput = document.getElementById('searchInput');
-                if (searchInput) searchInput.value = '';
+                document.getElementById('searchInput').value = '';
                 Navigation.currentPage = 'home';
-                const passwordInput = document.getElementById('loginPassword');
-                if (passwordInput) passwordInput.value = '';
-                document.querySelectorAll('.validation-hint').forEach(h => h.classList.remove('valid', 'invalid'));
-                const wrapper = document.getElementById('passwordWrapper');
-                if (wrapper) wrapper.classList.remove('input-error', 'input-success');
+                document.getElementById('loginPassword').value = '';
                 this.showLoginScreen();
-                Toast.info('Você saiu do sistema.');
             },
 
             setupOpenMaterialListener() {
@@ -2108,21 +1513,13 @@
             },
 
             async syncData() {
-                if (this.isSyncing) return;
-                this.isSyncing = true;
-                const syncBtn = document.getElementById('btnSync');
-                const syncIcon = document.getElementById('syncIcon');
-                if (syncBtn) syncBtn.disabled = true;
-                if (syncIcon) syncIcon.style.animation = 'spin 0.8s linear infinite';
-
                 Storage.clearCache();
                 Toast.info('Sincronizando dados...');
+                const syncIcon = document.getElementById('syncIcon');
+                if (syncIcon) syncIcon.style.animation = 'spin 0.8s linear infinite';
                 await this.fetchAndCache(false);
-
                 if (syncIcon) syncIcon.style.animation = '';
-                if (syncBtn) syncBtn.disabled = false;
                 Navigation.refreshCurrentPage();
-                this.isSyncing = false;
             },
 
             toggleFavorite(id) {
@@ -2204,9 +1601,6 @@
             },
         };
 
-        /* ============================================================
-           POLYFILLS E INICIALIZAÇÃO
-           ============================================================ */
         if (!CanvasRenderingContext2D.prototype.roundRect) {
             CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, radii) {
                 const r = Array.isArray(radii) ? radii : [radii, radii, radii, radii];
@@ -2225,8 +1619,9 @@
             };
         }
 
+        document.head.insertAdjacentHTML('beforeend', `<style>@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style>`);
         document.addEventListener('DOMContentLoaded', () => App.init());
-        console.log('%c🚀 Estude+ %c100% funcional e padronizado!', 'font-size:1.3em;font-weight:bold;color:#4f46e5;', 'color:#5a5a7a;');
+        console.log('%c🚀 Estude+ %c100% funcional!', 'font-size:1.3em;font-weight:bold;color:#4f46e5;', 'color:#5a5a7a;');
     </script>
 </body>
 </html>

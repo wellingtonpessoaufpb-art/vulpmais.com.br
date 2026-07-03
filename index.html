@@ -127,7 +127,7 @@
         ul {
             list-style: none;
         }
-        input {
+        input, select {
             font-family: inherit;
             border: none;
             outline: none;
@@ -136,7 +136,7 @@
             font-size: inherit;
             letter-spacing: -0.01em;
         }
-        input:focus-visible {
+        input:focus-visible, select:focus-visible {
             outline: 2.5px solid var(--primary);
             outline-offset: 2px;
             border-radius: var(--radius-xs);
@@ -157,7 +157,6 @@
             background: var(--text-muted);
         }
 
-        /* ========== LOGIN PAGE ========== */
         .login-page {
             display: flex;
             align-items: center;
@@ -298,7 +297,6 @@
             letter-spacing: -0.01em;
         }
 
-        /* ========== WELCOME MODAL ========== */
         .welcome-overlay {
             position: fixed;
             inset: 0;
@@ -329,14 +327,8 @@
             border-color: #2a2a40;
         }
         @keyframes welcomeScaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -431,13 +423,11 @@
             }
         }
 
-        /* ========== LAYOUT PRINCIPAL (SIDEBAR + MAIN) ========== */
         .app-layout {
             display: flex;
             min-height: 100vh;
         }
 
-        /* Sidebar */
         .sidebar {
             position: fixed;
             top: 0;
@@ -649,7 +639,6 @@
             box-shadow: 0 0 0 2px var(--success-bg);
         }
 
-        /* Overlay para mobile */
         .sidebar-overlay {
             display: none;
             position: fixed;
@@ -664,7 +653,6 @@
             display: block;
         }
 
-        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -825,7 +813,173 @@
             letter-spacing: -0.01em;
         }
 
-        /* Main content */
+        .notification-bell {
+            position: relative;
+        }
+        .notification-count {
+            position: absolute;
+            top: -4px;
+            right: -6px;
+            background: var(--danger);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            min-width: 18px;
+            height: 18px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+            box-shadow: var(--shadow-sm);
+            animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .notification-panel-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 9000;
+            display: none;
+            animation: fadeIn 0.2s ease-out;
+            backdrop-filter: blur(2px);
+        }
+        .notification-panel-overlay.visible {
+            display: block;
+        }
+        .notification-panel {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--surface);
+            z-index: 9100;
+            box-shadow: var(--shadow-xl);
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--border-light);
+        }
+        .notification-panel.open {
+            right: 0;
+        }
+        .notification-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border-light);
+            flex-shrink: 0;
+        }
+        .notification-panel-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .notification-panel-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .notification-panel-actions .icon-btn {
+            width: 34px;
+            height: 34px;
+            font-size: 0.8rem;
+        }
+        .notification-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px 0;
+        }
+        .notification-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-light);
+            transition: background var(--transition-fast);
+            cursor: pointer;
+            position: relative;
+        }
+        .notification-item:hover {
+            background: var(--bg);
+        }
+        .notification-item.unread {
+            background: var(--primary-bg);
+            border-left: 3px solid var(--primary);
+        }
+        .notification-item .notification-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+        .notification-item .notification-icon.pdf {
+            background: #fef2f2;
+            color: #ef4444;
+        }
+        .notification-item .notification-icon.video {
+            background: #eff6ff;
+            color: #3b82f6;
+        }
+        .notification-item .notification-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .notification-item .notification-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .notification-item .notification-subtitle {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+        .notification-item .notification-time {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .notification-item .notification-delete {
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+            color: var(--text-muted);
+            flex-shrink: 0;
+            padding: 4px;
+            border-radius: var(--radius-xs);
+        }
+        .notification-item:hover .notification-delete {
+            opacity: 1;
+        }
+        .notification-item .notification-delete:hover {
+            color: var(--danger);
+            background: var(--danger-bg);
+        }
+        .notification-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        .notification-empty svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+            opacity: 0.4;
+        }
+
         .main-content {
             flex: 1;
             margin-top: var(--navbar-height);
@@ -834,7 +988,6 @@
             transition: margin-left var(--transition-slow);
         }
 
-        /* ========== PAGES (mantidas) ========== */
         .page {
             display: none;
             animation: fadeSlideIn 0.35s ease-out;
@@ -867,14 +1020,18 @@
             margin-top: 4px;
             letter-spacing: -0.01em;
         }
-        @media (min-width: 768px) { .section-header h1 { font-size: 2rem; } }
+        @media (min-width: 768px) {
+            .section-header h1 { font-size: 2rem; }
+        }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
             gap: 18px;
         }
-        @media (max-width: 480px) { .cards-grid { grid-template-columns: 1fr; gap: 14px; } }
+        @media (max-width: 480px) {
+            .cards-grid { grid-template-columns: 1fr; gap: 14px; }
+        }
 
         .discipline-card {
             background: var(--surface);
@@ -1005,6 +1162,7 @@
             display: flex;
             gap: 16px;
             align-items: flex-start;
+            position: relative;
         }
         .material-card:hover { box-shadow: var(--shadow-md); border-color: var(--border); transform: translateY(-1px); }
         .material-card .material-thumb {
@@ -1095,13 +1253,61 @@
         .action-btn.outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); box-shadow: none; }
         .action-btn.outline:hover { background: var(--primary-bg); box-shadow: var(--shadow-sm); }
 
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 15px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.83rem;
+            background: var(--success);
+            color: #fff;
+            transition: all var(--transition);
+            white-space: nowrap;
+            box-shadow: var(--shadow-sm);
+            letter-spacing: -0.01em;
+            cursor: pointer;
+            border: none;
+        }
+        .download-btn:hover {
+            background: #059669;
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
+            transform: translateY(-1px);
+        }
+        .download-btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+        .download-btn.downloading {
+            background: var(--text-muted);
+            pointer-events: none;
+            animation: pulse 1.2s infinite;
+        }
+        .download-btn svg { width: 16px; height: 16px; }
+
+        .novo-badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--danger);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.02em;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 0 3px var(--danger-bg);
+            white-space: nowrap;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            z-index: 2;
+        }
+
         @media (max-width: 480px) {
             .material-card { flex-direction: column; gap: 12px; }
             .material-card .material-thumb { width: 100%; height: 150px; }
-            .material-card .material-actions { width: 100%; justify-content: flex-end; }
+            .material-card .material-actions { width: 100%; justify-content: flex-end; flex-wrap: wrap; }
         }
 
-        /* ========== VIDEO CARD PREMIUM ========== */
         .video-card-premium {
             background: var(--surface);
             border-radius: var(--radius-md);
@@ -1314,6 +1520,7 @@
         .toast.success { border-left: 3px solid var(--success); }
         .toast.error { border-left: 3px solid var(--danger); }
         .toast.info { border-left: 3px solid var(--primary); }
+        .toast.download { border-left: 3px solid var(--success); }
 
         .empty-state {
             text-align: center;
@@ -1363,7 +1570,83 @@
         .tab-btn.active { background: var(--surface); color: var(--primary); box-shadow: var(--shadow); }
         .tab-btn:hover:not(.active) { color: var(--text); background: var(--surface-hover); }
 
-        /* Responsividade */
+        .downloads-list .download-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-light);
+            transition: all var(--transition);
+        }
+        .download-item:hover { box-shadow: var(--shadow-md); }
+        .download-item .download-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-sm);
+            background: var(--primary-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .download-item .download-info { flex: 1; min-width: 0; }
+        .download-item .download-info h4 {
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .download-item .download-meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 2px;
+        }
+        .download-item .download-actions {
+            display: flex;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+        .downloads-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+            align-items: center;
+        }
+        .downloads-toolbar .sort-select {
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+            background: var(--surface);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .downloads-toolbar input {
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+            background: var(--surface);
+            color: var(--text);
+            flex: 1;
+            min-width: 150px;
+        }
+
+        @media (max-width: 480px) {
+            .notification-panel { max-width: 100%; right: -100%; }
+            .download-item { flex-wrap: wrap; }
+            .download-item .download-actions { width: 100%; justify-content: flex-end; }
+        }
+
         @media (min-width: 769px) {
             .hamburger-btn { display: none; }
             .navbar-logo { display: none; }
@@ -1395,7 +1678,6 @@
 </head>
 <body>
 
-    <!-- ==================== LOGIN PAGE ==================== -->
     <div id="loginPage" class="login-page" style="display: none;">
         <div class="login-card">
             <div class="app-logo">V+</div>
@@ -1421,7 +1703,6 @@
         </div>
     </div>
 
-    <!-- ==================== WELCOME MODAL ==================== -->
     <div id="welcomeOverlay" class="welcome-overlay" style="display: none;">
         <div class="welcome-modal">
             <img src="https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092990/ChatGPT_Image_3_de_jul._de_2026_11_01_34_t5hexq.png" alt="VULP +" class="welcome-logo">
@@ -1440,7 +1721,6 @@
         </div>
     </div>
 
-    <!-- ==================== MAIN APP ==================== -->
     <div id="appContainer" style="display: none;">
         <div class="sidebar-overlay" id="sidebarOverlay" onclick="Sidebar.close()"></div>
 
@@ -1473,6 +1753,10 @@
                 <div class="sidebar-item" data-page="done" onclick="Sidebar.navigateTo('done')">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                     Concluídos
+                </div>
+                <div class="sidebar-item" data-page="downloads" onclick="Sidebar.navigateTo('downloads')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Meus Downloads
                 </div>
             </nav>
             <div class="sidebar-footer">
@@ -1520,6 +1804,13 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                     <span class="nav-label">Concluídos</span>
                 </button>
+                <button class="nav-btn notification-bell" id="btnNotifications" onclick="NotificationPanel.toggle()" title="Notificações" aria-label="Notificações">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    <span class="notification-count" id="notificationCount" style="display:none;">0</span>
+                </button>
                 <button class="nav-btn" id="btnSync" onclick="App.syncData()" title="Sincronizar" aria-label="Sincronizar dados">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="syncIcon"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                     <span class="nav-label">Sincronizar</span>
@@ -1534,6 +1825,24 @@
                 </button>
             </div>
         </nav>
+
+        <div class="notification-panel-overlay" id="notificationPanelOverlay" onclick="NotificationPanel.close()"></div>
+        <div class="notification-panel" id="notificationPanel">
+            <div class="notification-panel-header">
+                <h3>🔔 Notificações</h3>
+                <div class="notification-panel-actions">
+                    <button class="icon-btn" onclick="NotificationManager.markAllRead()" title="Marcar todas como lidas">✅</button>
+                    <button class="icon-btn" onclick="NotificationManager.clearAll()" title="Limpar todas">🗑️</button>
+                    <button class="icon-btn" onclick="NotificationPanel.close()" title="Fechar">✕</button>
+                </div>
+            </div>
+            <div class="notification-list" id="notificationList">
+                <div class="notification-empty">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    <p>Nenhuma notificação</p>
+                </div>
+            </div>
+        </div>
 
         <main class="main-content" id="mainContent">
             <div class="page active" id="pageHome">
@@ -1594,6 +1903,25 @@
                     </div>
                 </div>
             </div>
+
+            <div class="page" id="pageDownloads">
+                <div class="section-header">
+                    <h1>⬇️ Meus Downloads</h1>
+                    <p>Histórico de PDFs baixados</p>
+                </div>
+                <div class="downloads-toolbar">
+                    <input type="text" id="downloadSearch" placeholder="Pesquisar downloads...">
+                    <select class="sort-select" id="downloadSort" onchange="DownloadManager.renderDownloads()">
+                        <option value="date-desc">Mais recentes</option>
+                        <option value="date-asc">Mais antigos</option>
+                        <option value="name-asc">Nome A-Z</option>
+                        <option value="name-desc">Nome Z-A</option>
+                        <option value="discipline">Disciplina</option>
+                    </select>
+                    <button class="action-btn outline" onclick="DownloadManager.clearAll()">🗑️ Limpar histórico</button>
+                </div>
+                <div id="downloadsList"></div>
+            </div>
         </main>
 
         <div class="toast-container" id="toastContainer"></div>
@@ -1609,8 +1937,10 @@
             DARK_MODE_KEY: 'estude_plus_dark_mode',
             LOGIN_KEY: 'estude_plus_logged_in',
             WELCOME_SHOWN_KEY: 'estude_plus_welcome_shown',
+            NEW_MATERIALS_KEY: 'estude_plus_viewed_materials',
             CACHE_MAX_AGE_MS: 30 * 60 * 1000,
             TOAST_DURATION_MS: 3000,
+            POLL_INTERVAL_MS: 5 * 60 * 1000,
             PDF_ICON_URL: 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/simbolo-de-formato-de-arquivo-pdf_j0spve.png',
             VIDEO_ICON_URL: 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/camera-de-video_c5p1ae.png',
             DISCIPLINE_ICONS: {
@@ -1624,23 +1954,23 @@
                 'Dicas de Estudos para Concursos': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/foguete_bppg3w.png',
                 'Simulados': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092487/trofeu_imvpxm.png',
                 'Bateria de Questões': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092487/trofeu_imvpxm.png',
-                'Matemática': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg>`,
-                'Direito Constitucional': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`,
-                'Direito Administrativo': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>`,
-                'Administração': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>`,
-                'Contabilidade': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`,
-                'Economia': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v12"/><path d="m16 10-4 4-4-4"/></svg>`,
-                'Inglês': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
-                'Espanhol': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
-                'História': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
-                'Geografia': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
-                'Atualidades': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>`,
-                'Ética': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11h-3V8a2 2 0 0 0-4 0v3H7a2 2 0 0 0 0 4h3v3a2 2 0 0 0 4 0v-3h3a2 2 0 0 0 0-4z"/></svg>`,
-                'Filosofia': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>`,
-                'Sociologia': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-                'Biologia': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>`,
-                'Física': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
-                'Química': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l4 10H5l4-10V3z"/><line x1="5" y1="21" x2="19" y2="21"/></svg>`,
+                'Matemática': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg>',
+                'Direito Constitucional': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
+                'Direito Administrativo': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>',
+                'Administração': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>',
+                'Contabilidade': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>',
+                'Economia': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v12"/><path d="m16 10-4 4-4-4"/></svg>',
+                'Inglês': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+                'Espanhol': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+                'História': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+                'Geografia': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+                'Atualidades': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>',
+                'Ética': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11h-3V8a2 2 0 0 0-4 0v3H7a2 2 0 0 0 0 4h3v3a2 2 0 0 0 4 0v-3h3a2 2 0 0 0 0-4z"/></svg>',
+                'Filosofia': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>',
+                'Sociologia': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+                'Biologia': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
+                'Física': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>',
+                'Química': '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l4 10H5l4-10V3z"/><line x1="5" y1="21" x2="19" y2="21"/></svg>',
             },
         };
 
@@ -1669,6 +1999,9 @@
             setLoggedIn(value) { this.set(Config.LOGIN_KEY, value); },
             wasWelcomeShown() { return sessionStorage.getItem(Config.WELCOME_SHOWN_KEY) === 'true'; },
             markWelcomeShown() { sessionStorage.setItem(Config.WELCOME_SHOWN_KEY, 'true'); },
+            getViewedMaterials() { return this.get(Config.NEW_MATERIALS_KEY, []); },
+            markMaterialViewed(id) { const viewed = this.getViewedMaterials(); if (!viewed.includes(String(id))) { viewed.push(String(id)); this.set(Config.NEW_MATERIALS_KEY, viewed); } },
+            isMaterialViewed(id) { return this.getViewedMaterials().includes(String(id)); },
         };
 
         const Welcome = {
@@ -1698,7 +2031,7 @@
             async fetchMaterials() {
                 try {
                     const response = await fetch(Config.API_URL, { method: 'GET', headers: { 'Accept': 'application/json' } });
-                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
                     const data = await response.json();
                     let items = Array.isArray(data) ? data : (data.data || data.records || []);
                     items = items.filter(item => item.Status === 'ATIVO' || item.Status === 'ativo' || item.Status === 'Ativo')
@@ -1721,14 +2054,14 @@
                 for (const p of patterns) { const match = url.match(p); if (match) return match[1]; }
                 return null;
             },
-            getYouTubeThumbnail(url) { const id = this.extractYouTubeID(url); return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null; },
+            getYouTubeThumbnail(url) { const id = this.extractYouTubeID(url); return id ? 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg' : null; },
             getDisciplineIcon(name) {
                 if (!name) return this.defaultIcon();
                 const icons = Config.DISCIPLINE_ICONS;
                 for (const [key, icon] of Object.entries(icons)) {
                     if (name.toLowerCase().includes(key.toLowerCase())) {
                         if (typeof icon === 'string' && icon.startsWith('http')) {
-                            return `<img src="${icon}" alt="${key}" width="28" height="28" style="object-fit:contain;">`;
+                            return '<img src="' + icon + '" alt="' + key + '" width="28" height="28" style="object-fit:contain;">';
                         }
                         return icon;
                     }
@@ -1736,7 +2069,7 @@
                 return this.defaultIcon();
             },
             defaultIcon() {
-                return `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>`;
+                return '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
             },
             isVideoType(tipo) {
                 if (!tipo) return false;
@@ -1766,12 +2099,12 @@
                 const match = url.trim().match(driveViewPattern);
                 if (match) {
                     const fileId = match[1];
-                    return `https://drive.google.com/uc?export=download&id=${fileId}`;
+                    return 'https://drive.google.com/uc?export=download&id=' + fileId;
                 }
                 return url.trim();
             },
             escapeHTML(str) { const div = document.createElement('div'); div.textContent = str || ''; return div.innerHTML; },
-            truncate(str, maxLen = 60) { if (!str) return ''; return str.length > maxLen ? str.substring(0, maxLen) + '...' : str; },
+            truncate(str, maxLen) { maxLen = maxLen || 60; if (!str) return ''; return str.length > maxLen ? str.substring(0, maxLen) + '...' : str; },
             validatePassword(password) {
                 const regex = /^(?=.{8}$)(?=.*[VUP])(?=.*[5-9]).*$/;
                 return regex.test(password);
@@ -1782,6 +2115,12 @@
                     return iconHTML.replace('width="28"', 'width="18"').replace('height="28"', 'height="18"');
                 }
                 return iconHTML.replace(/width="28"/g, 'width="18"').replace(/height="28"/g, 'height="18"');
+            },
+            formatFileSize(bytes) {
+                if (!bytes || bytes === 0) return '';
+                if (bytes < 1024) return bytes + ' B';
+                if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+                return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
             },
         };
 
@@ -1800,25 +2139,30 @@
                 document.getElementById('sidebar').classList.remove('open');
                 document.getElementById('sidebarOverlay').classList.remove('visible');
             },
-            navigateTo(page, disciplineName = null, tab = null) {
+            navigateTo(page, disciplineName, tab) {
                 if (window.innerWidth <= 768) this.close();
                 if (page === 'home') { Navigation.navigateTo('home'); this.setActiveItem('home'); }
                 else if (page === 'favorites') { Navigation.navigateTo('favorites'); this.setActiveItem('favorites'); }
                 else if (page === 'done') { Navigation.navigateTo('done'); this.setActiveItem('done'); }
+                else if (page === 'downloads') { Navigation.navigateTo('downloads'); this.setActiveItem('downloads'); }
                 else if (page === 'discipline' && disciplineName) {
                     Navigation.openDiscipline(disciplineName);
-                    if (tab) setTimeout(() => { Render.switchDisciplineTab(tab); }, 100);
+                    if (tab) setTimeout(function() { Render.switchDisciplineTab(tab); }, 100);
                     this.setActiveItem('discipline', disciplineName);
                 }
             },
-            setActiveItem(page, disciplineName = null) {
-                document.querySelectorAll('.sidebar-item[data-page]').forEach(el => el.classList.remove('active'));
-                document.querySelectorAll('.sidebar-discipline-item').forEach(el => el.classList.remove('active'));
-                document.querySelectorAll('.sidebar-subitem').forEach(el => el.classList.remove('active'));
-                if (page === 'home') document.querySelector('.sidebar-item[data-page="home"]')?.classList.add('active');
-                else if (page === 'favorites') document.querySelector('.sidebar-item[data-page="favorites"]')?.classList.add('active');
-                else if (page === 'done') document.querySelector('.sidebar-item[data-page="done"]')?.classList.add('active');
-                else if (page === 'discipline' && disciplineName) document.querySelector(`.sidebar-discipline-item[data-discipline="${CSS.escape(disciplineName)}"]`)?.classList.add('active');
+            setActiveItem(page, disciplineName) {
+                document.querySelectorAll('.sidebar-item[data-page]').forEach(function(el) { el.classList.remove('active'); });
+                document.querySelectorAll('.sidebar-discipline-item').forEach(function(el) { el.classList.remove('active'); });
+                document.querySelectorAll('.sidebar-subitem').forEach(function(el) { el.classList.remove('active'); });
+                if (page === 'home') { var el = document.querySelector('.sidebar-item[data-page="home"]'); if (el) el.classList.add('active'); }
+                else if (page === 'favorites') { var el = document.querySelector('.sidebar-item[data-page="favorites"]'); if (el) el.classList.add('active'); }
+                else if (page === 'done') { var el = document.querySelector('.sidebar-item[data-page="done"]'); if (el) el.classList.add('active'); }
+                else if (page === 'downloads') { var el = document.querySelector('.sidebar-item[data-page="downloads"]'); if (el) el.classList.add('active'); }
+                else if (page === 'discipline' && disciplineName) {
+                    var sel = document.querySelector('.sidebar-discipline-item[data-discipline="' + CSS.escape(disciplineName) + '"]');
+                    if (sel) sel.classList.add('active');
+                }
                 this.currentDisciplineName = disciplineName;
             },
             render(disciplines) {
@@ -1826,22 +2170,21 @@
                 if (!container) return;
                 const favCount = Storage.getFavorites().length;
                 let html = '';
-                disciplines.forEach(disc => {
-                    const doneCount = disc.all.filter(m => Storage.isDone(m.ID)).length;
+                disciplines.forEach(function(disc) {
+                    const doneCount = disc.all.filter(function(m) { return Storage.isDone(m.ID); }).length;
                     const total = disc.all.length;
                     const safeName = Utils.escapeHTML(disc.name);
                     const miniIcon = Utils.getMiniIcon(disc.icon);
-                    html += `
-                    <div class="sidebar-item sidebar-discipline-item" data-discipline="${safeName}" onclick="Sidebar.toggleDiscipline(event, '${safeName}')">
-                        <span class="sidebar-icon">${miniIcon}</span>
-                        <span>${safeName}</span>
-                        <span style="font-size:0.7rem;color:var(--text-muted);margin-left:auto;margin-right:4px;">${doneCount}/${total}</span>
-                        <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                    </div>
-                    <div class="sidebar-subitems" id="subitems-${CSS.escape(disc.name)}">
-                        <div class="sidebar-subitem" onclick="Sidebar.navigateTo('discipline', '${safeName}', 'pdfs')">📄 PDFs <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">${disc.pdfs.length}</span></div>
-                        <div class="sidebar-subitem" onclick="Sidebar.navigateTo('discipline', '${safeName}', 'videos')">🎬 Vídeos <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">${disc.videos.length}</span></div>
-                    </div>`;
+                    html += '<div class="sidebar-item sidebar-discipline-item" data-discipline="' + safeName + '" onclick="Sidebar.toggleDiscipline(event, \'' + safeName + '\')">' +
+                        '<span class="sidebar-icon">' + miniIcon + '</span>' +
+                        '<span>' + safeName + '</span>' +
+                        '<span style="font-size:0.7rem;color:var(--text-muted);margin-left:auto;margin-right:4px;">' + doneCount + '/' + total + '</span>' +
+                        '<svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>' +
+                    '</div>' +
+                    '<div class="sidebar-subitems" id="subitems-' + CSS.escape(disc.name) + '">' +
+                        '<div class="sidebar-subitem" onclick="Sidebar.navigateTo(\'discipline\', \'' + safeName + '\', \'pdfs\')">📄 PDFs <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">' + disc.pdfs.length + '</span></div>' +
+                        '<div class="sidebar-subitem" onclick="Sidebar.navigateTo(\'discipline\', \'' + safeName + '\', \'videos\')">🎬 Vídeos <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">' + disc.videos.length + '</span></div>' +
+                    '</div>';
                 });
                 container.innerHTML = html;
                 const sidebarFavBadge = document.getElementById('sidebarFavBadge');
@@ -1850,21 +2193,21 @@
             toggleDiscipline(event, disciplineName) {
                 event.stopPropagation();
                 const item = event.currentTarget;
-                const subitems = document.getElementById(`subitems-${CSS.escape(disciplineName)}`);
+                const subitems = document.getElementById('subitems-' + CSS.escape(disciplineName));
                 if (!subitems) return;
                 const isOpen = subitems.classList.contains('open');
-                document.querySelectorAll('.sidebar-subitems.open').forEach(el => { if (el !== subitems) el.classList.remove('open'); });
-                document.querySelectorAll('.sidebar-discipline-item.expanded').forEach(el => { if (el !== item) el.classList.remove('expanded'); });
+                document.querySelectorAll('.sidebar-subitems.open').forEach(function(el) { if (el !== subitems) el.classList.remove('open'); });
+                document.querySelectorAll('.sidebar-discipline-item.expanded').forEach(function(el) { if (el !== item) el.classList.remove('expanded'); });
                 if (isOpen) { subitems.classList.remove('open'); item.classList.remove('expanded'); }
                 else { subitems.classList.add('open'); item.classList.add('expanded'); }
             },
-            updateActiveOnPageChange(page, disciplineName = null, tab = null) {
+            updateActiveOnPageChange(page, disciplineName, tab) {
                 this.setActiveItem(page, disciplineName);
                 if (tab) this.currentTab = tab;
             },
             refreshBadges() {
                 const favCount = Storage.getFavorites().length;
-                document.querySelectorAll('#sidebarFavBadge, #favBadge').forEach(badge => {
+                document.querySelectorAll('#sidebarFavBadge, #favBadge').forEach(function(badge) {
                     badge.textContent = favCount;
                     badge.style.display = favCount > 0 ? 'flex' : 'none';
                 });
@@ -1878,34 +2221,38 @@
             renderHome(disciplines) {
                 const grid = document.getElementById('disciplinesGrid');
                 if (!disciplines || disciplines.length === 0) {
-                    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
-                        <h3>Nenhuma disciplina encontrada</h3><p>Tente sincronizar os dados ou verifique sua conexão.</p></div>`;
+                    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;">' +
+                        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>' +
+                        '<h3>Nenhuma disciplina encontrada</h3><p>Tente sincronizar os dados ou verifique sua conexão.</p></div>';
                     return;
                 }
-                grid.innerHTML = disciplines.map(disc => {
+                grid.innerHTML = disciplines.map(function(disc) {
                     const total = disc.all.length;
-                    const doneCount = disc.all.filter(m => Storage.isDone(m.ID)).length;
+                    const doneCount = disc.all.filter(function(m) { return Storage.isDone(m.ID); }).length;
                     const progress = total > 0 ? Math.round((doneCount / total) * 100) : 0;
-                    return `<div class="discipline-card" onclick="Navigation.openDiscipline('${Utils.escapeHTML(disc.name)}')" role="button" tabindex="0">
-                        <div class="card-icon">${disc.icon}</div><div class="card-info"><h3>${Utils.escapeHTML(disc.name)}</h3><span class="card-category">${disc.pdfs.length + disc.videos.length} materiais</span></div>
-                        <div class="card-stats"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> ${disc.pdfs.length} PDFs</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> ${disc.videos.length} Vídeos</span></div>
-                        <div class="progress-bar-container"><div class="progress-bar-fill" style="width:${progress}%;"></div></div>
-                        <div style="font-size:0.78rem;color:var(--text-muted);">${doneCount} de ${total} concluídos (${progress}%)</div>
-                        <button class="open-btn" onclick="event.stopPropagation(); Navigation.openDiscipline('${Utils.escapeHTML(disc.name)}')">Abrir Disciplina <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>`;
+                    return '<div class="discipline-card" onclick="Navigation.openDiscipline(\'' + Utils.escapeHTML(disc.name) + '\')" role="button" tabindex="0">' +
+                        '<div class="card-icon">' + disc.icon + '</div>' +
+                        '<div class="card-info"><h3>' + Utils.escapeHTML(disc.name) + '</h3><span class="card-category">' + (disc.pdfs.length + disc.videos.length) + ' materiais</span></div>' +
+                        '<div class="card-stats"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> ' + disc.pdfs.length + ' PDFs</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> ' + disc.videos.length + ' Vídeos</span></div>' +
+                        '<div class="progress-bar-container"><div class="progress-bar-fill" style="width:' + progress + '%;"></div></div>' +
+                        '<div style="font-size:0.78rem;color:var(--text-muted);">' + doneCount + ' de ' + total + ' concluídos (' + progress + '%)</div>' +
+                        '<button class="open-btn" onclick="event.stopPropagation(); Navigation.openDiscipline(\'' + Utils.escapeHTML(disc.name) + '\')">Abrir Disciplina <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>' +
+                    '</div>';
                 }).join('');
             },
             renderDiscipline(disc) {
                 this.currentDiscipline = disc; this.currentDisciplineTab = 'pdfs';
                 document.getElementById('disciplineTitle').innerHTML = disc.icon + ' ' + Utils.escapeHTML(disc.name);
-                document.getElementById('disciplineSubtitle').textContent = `${disc.pdfs.length} PDFs · ${disc.videos.length} Vídeos · ${disc.all.length} materiais no total`;
-                document.querySelectorAll('#disciplineTabs .tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === 0));
+                document.getElementById('disciplineSubtitle').textContent = disc.pdfs.length + ' PDFs · ' + disc.videos.length + ' Vídeos · ' + disc.all.length + ' materiais no total';
+                document.querySelectorAll('#disciplineTabs .tab-btn').forEach(function(btn, i) { btn.classList.toggle('active', i === 0); });
                 this.renderDisciplineMaterials();
                 Sidebar.updateActiveOnPageChange('discipline', disc.name, 'pdfs');
             },
             switchDisciplineTab(tab) {
                 this.currentDisciplineTab = tab;
-                document.querySelectorAll('#disciplineTabs .tab-btn').forEach(btn => btn.classList.toggle('active', btn.textContent.trim().toLowerCase().includes(tab)));
+                document.querySelectorAll('#disciplineTabs .tab-btn').forEach(function(btn) {
+                    btn.classList.toggle('active', btn.textContent.trim().toLowerCase().includes(tab));
+                });
                 this.renderDisciplineMaterials();
                 if (this.currentDiscipline) Sidebar.updateActiveOnPageChange('discipline', this.currentDiscipline.name, tab);
             },
@@ -1914,28 +2261,47 @@
                 const materials = this.currentDisciplineTab === 'pdfs' ? disc.pdfs : disc.videos;
                 const container = document.getElementById('disciplineMaterials');
                 if (materials.length === 0) {
-                    container.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><h3>Nenhum ${this.currentDisciplineTab === 'pdfs' ? 'PDF' : 'vídeo'} nesta disciplina</h3></div>`;
+                    container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><h3>Nenhum ' + (this.currentDisciplineTab === 'pdfs' ? 'PDF' : 'vídeo') + ' nesta disciplina</h3></div>';
                     return;
                 }
-                container.innerHTML = materials.map(mat => this.createMaterialCard(mat)).join('');
+                container.innerHTML = materials.map(function(mat) { return Render.createMaterialCard(mat); }).join('');
             },
             createMaterialCard(mat) {
                 const isVideo = Utils.isVideoType(mat.Tipo);
                 if (isVideo) {
-                    return this.createVideoCardPremium(mat);
+                    return Render.createVideoCardPremium(mat);
                 }
                 const isFav = Storage.isFavorite(mat.ID);
                 const isDone = Storage.isDone(mat.ID);
+                const isNew = !Storage.isMaterialViewed(mat.ID);
                 const hasLink = mat.Link && mat.Link.trim() !== '';
-                const thumbHTML = `<div class="icon-placeholder"><img src="${Config.PDF_ICON_URL}" alt="PDF" width="44" height="44" style="object-fit:contain;"></div>`;
-                return `<div class="material-card" id="material-${mat.ID}"><div class="material-thumb">${thumbHTML}</div><div class="material-info"><h4 title="${Utils.escapeHTML(mat.Título || mat.Titulo || '')}">${Utils.escapeHTML(mat.Título || mat.Titulo || 'Sem título')}</h4><div class="material-meta">${mat.Categoria ? `<span>📂 ${Utils.escapeHTML(mat.Categoria)}</span>` : ''}${mat.Professor ? `<span>👤 ${Utils.escapeHTML(mat.Professor)}</span>` : ''}${mat['Carga Horária'] || mat['Carga Horaria'] ? `<span>⏱️ ${Utils.escapeHTML(mat['Carga Horária'] || mat['Carga Horaria'])}</span>` : ''}</div></div><div class="material-actions"><button class="icon-btn fav-btn ${isFav ? 'fav-active' : ''}" onclick="App.toggleFavorite('${mat.ID}')" title="${isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}" aria-label="Favorito"><svg viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button><button class="icon-btn done-btn ${isDone ? 'done-active' : ''}" onclick="App.toggleDone('${mat.ID}')" title="${isDone ? 'Marcar como não concluído' : 'Marcar como concluído'}" aria-label="Concluído"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></button><button class="action-btn open-material-btn" data-link="${Utils.escapeHTML(mat.Link || '')}" data-id="${mat.ID}" title="${hasLink ? 'Abrir material' : 'Link não cadastrado'}">📖 Abrir</button></div></div>`;
+                const novoBadge = isNew ? '<span class="novo-badge">NOVO</span>' : '';
+                const thumbHTML = '<div class="icon-placeholder"><img src="' + Config.PDF_ICON_URL + '" alt="PDF" width="44" height="44" style="object-fit:contain;"></div>';
+                return '<div class="material-card" id="material-' + mat.ID + '">' + novoBadge +
+                    '<div class="material-thumb">' + thumbHTML + '</div>' +
+                    '<div class="material-info">' +
+                        '<h4 title="' + Utils.escapeHTML(mat['Título'] || mat.Titulo || '') + '">' + Utils.escapeHTML(mat['Título'] || mat.Titulo || 'Sem título') + '</h4>' +
+                        '<div class="material-meta">' +
+                            (mat.Categoria ? '<span>📂 ' + Utils.escapeHTML(mat.Categoria) + '</span>' : '') +
+                            (mat.Professor ? '<span>👤 ' + Utils.escapeHTML(mat.Professor) + '</span>' : '') +
+                            (mat['Carga Horária'] || mat['Carga Horaria'] ? '<span>⏱️ ' + Utils.escapeHTML(mat['Carga Horária'] || mat['Carga Horaria']) + '</span>' : '') +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="material-actions">' +
+                        '<button class="icon-btn fav-btn ' + (isFav ? 'fav-active' : '') + '" onclick="App.toggleFavorite(\'' + mat.ID + '\')" title="' + (isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos') + '" aria-label="Favorito"><svg viewBox="0 0 24 24" fill="' + (isFav ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>' +
+                        '<button class="icon-btn done-btn ' + (isDone ? 'done-active' : '') + '" onclick="App.toggleDone(\'' + mat.ID + '\')" title="' + (isDone ? 'Marcar como não concluído' : 'Marcar como concluído') + '" aria-label="Concluído"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></button>' +
+                        '<button class="action-btn open-material-btn" data-link="' + Utils.escapeHTML(mat.Link || '') + '" data-id="' + mat.ID + '" title="' + (hasLink ? 'Abrir material' : 'Link não cadastrado') + '">📖 Abrir</button>' +
+                        '<button class="download-btn" data-link="' + Utils.escapeHTML(mat.Link || '') + '" data-id="' + mat.ID + '" data-name="' + Utils.escapeHTML(mat['Título'] || mat.Titulo || 'documento') + '" data-disciplina="' + Utils.escapeHTML(mat.Disciplina || '') + '" title="Baixar PDF" onclick="event.stopPropagation(); DownloadManager.downloadPDF(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar</button>' +
+                    '</div></div>';
             },
             createVideoCardPremium(mat) {
                 const isFav = Storage.isFavorite(mat.ID);
                 const isDone = Storage.isDone(mat.ID);
+                const isNew = !Storage.isMaterialViewed(mat.ID);
                 const hasLink = mat.Link && mat.Link.trim() !== '';
+                const novoBadge = isNew ? '<span class="novo-badge">NOVO</span>' : '';
                 const thumbUrl = Utils.getYouTubeThumbnail(mat.Link);
-                const titulo = Utils.escapeHTML(mat.Título || mat.Titulo || 'Sem título');
+                const titulo = Utils.escapeHTML(mat['Título'] || mat.Titulo || 'Sem título');
                 const professor = mat.Professor ? Utils.escapeHTML(mat.Professor) : '';
                 const categoria = mat.Categoria ? Utils.escapeHTML(mat.Categoria) : '';
                 const descricao = mat['Descrição'] || mat.Descricao || '';
@@ -1943,42 +2309,31 @@
                 const disciplinaNome = Utils.escapeHTML(mat.Disciplina || '');
                 let thumbContent = '';
                 if (thumbUrl) {
-                    thumbContent = `<img src="${thumbUrl}" alt="Thumbnail do vídeo" class="video-thumb-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="video-thumb-placeholder" style="display:none;"><img src="${Config.VIDEO_ICON_URL}" alt="Vídeo" width="56" height="56" style="object-fit:contain;"></div>`;
+                    thumbContent = '<img src="' + thumbUrl + '" alt="Thumbnail do vídeo" class="video-thumb-img" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"><div class="video-thumb-placeholder" style="display:none;"><img src="' + Config.VIDEO_ICON_URL + '" alt="Vídeo" width="56" height="56" style="object-fit:contain;"></div>';
                 } else {
-                    thumbContent = `<div class="video-thumb-placeholder"><img src="${Config.VIDEO_ICON_URL}" alt="Vídeo" width="56" height="56" style="object-fit:contain;"></div>`;
+                    thumbContent = '<div class="video-thumb-placeholder"><img src="' + Config.VIDEO_ICON_URL + '" alt="Vídeo" width="56" height="56" style="object-fit:contain;"></div>';
                 }
-                const duracaoBadge = duracao ? `<span class="video-duration-badge">${Utils.escapeHTML(duracao)}</span>` : '';
+                const duracaoBadge = duracao ? '<span class="video-duration-badge">' + Utils.escapeHTML(duracao) + '</span>' : '';
                 let metaHTML = '';
-                if (professor) metaHTML += `<span>👤 ${professor}</span>`;
-                if (categoria) metaHTML += `<span>📂 ${categoria}</span>`;
-                if (duracao && !duracaoBadge) metaHTML += `<span>⏱️ ${Utils.escapeHTML(duracao)}</span>`;
-                const descHTML = descricao ? `<p class="video-desc-short">${Utils.escapeHTML(Utils.truncate(descricao, 120))}</p>` : '';
-                const discTag = disciplinaNome ? `<span class="video-disciplina-tag">📚 ${disciplinaNome}</span>` : '';
-                return `
-                <div class="video-card-premium" id="material-${mat.ID}" onclick="App.openMaterial('${Utils.escapeHTML(mat.Link || '')}', '${mat.ID}')">
-                    <div class="video-thumb-wrapper">
-                        ${thumbContent}
-                        <div class="video-play-overlay">
-                            <div class="play-circle">▶</div>
-                        </div>
-                        ${duracaoBadge}
-                    </div>
-                    <div class="video-info-section" onclick="event.stopPropagation();">
-                        <h4 class="video-title-premium" title="${titulo}">${titulo}</h4>
-                        ${metaHTML ? `<div class="video-meta-row">${metaHTML}</div>` : ''}
-                        ${descHTML}
-                        ${discTag}
-                        <div class="video-actions-row">
-                            <button class="action-btn open-material-btn" data-link="${Utils.escapeHTML(mat.Link || '')}" data-id="${mat.ID}" title="${hasLink ? 'Assistir vídeo' : 'Link não cadastrado'}" onclick="event.stopPropagation(); App.openMaterial('${Utils.escapeHTML(mat.Link || '')}', '${mat.ID}')">▶ Assistir</button>
-                            <button class="icon-btn fav-btn ${isFav ? 'fav-active' : ''}" onclick="event.stopPropagation(); App.toggleFavorite('${mat.ID}')" title="${isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}" aria-label="Favorito">
-                                <svg viewBox="0 0 24 24" fill="${isFav ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                            </button>
-                            <button class="icon-btn done-btn ${isDone ? 'done-active' : ''}" onclick="event.stopPropagation(); App.toggleDone('${mat.ID}')" title="${isDone ? 'Marcar como não concluído' : 'Marcar como concluído'}" aria-label="Concluído">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>`;
+                if (professor) metaHTML += '<span>👤 ' + professor + '</span>';
+                if (categoria) metaHTML += '<span>📂 ' + categoria + '</span>';
+                if (duracao && !duracaoBadge) metaHTML += '<span>⏱️ ' + Utils.escapeHTML(duracao) + '</span>';
+                const descHTML = descricao ? '<p class="video-desc-short">' + Utils.escapeHTML(Utils.truncate(descricao, 120)) + '</p>' : '';
+                const discTag = disciplinaNome ? '<span class="video-disciplina-tag">📚 ' + disciplinaNome + '</span>' : '';
+                return '<div class="video-card-premium" id="material-' + mat.ID + '" onclick="App.openMaterial(\'' + Utils.escapeHTML(mat.Link || '') + '\', \'' + mat.ID + '\')">' + novoBadge +
+                    '<div class="video-thumb-wrapper">' + thumbContent +
+                        '<div class="video-play-overlay"><div class="play-circle">▶</div></div>' + duracaoBadge +
+                    '</div>' +
+                    '<div class="video-info-section" onclick="event.stopPropagation();">' +
+                        '<h4 class="video-title-premium" title="' + titulo + '">' + titulo + '</h4>' +
+                        (metaHTML ? '<div class="video-meta-row">' + metaHTML + '</div>' : '') +
+                        descHTML + discTag +
+                        '<div class="video-actions-row">' +
+                            '<button class="action-btn open-material-btn" data-link="' + Utils.escapeHTML(mat.Link || '') + '" data-id="' + mat.ID + '" title="' + (hasLink ? 'Assistir vídeo' : 'Link não cadastrado') + '" onclick="event.stopPropagation(); App.openMaterial(\'' + Utils.escapeHTML(mat.Link || '') + '\', \'' + mat.ID + '\')">▶ Assistir</button>' +
+                            '<button class="icon-btn fav-btn ' + (isFav ? 'fav-active' : '') + '" onclick="event.stopPropagation(); App.toggleFavorite(\'' + mat.ID + '\')" title="' + (isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos') + '" aria-label="Favorito"><svg viewBox="0 0 24 24" fill="' + (isFav ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>' +
+                            '<button class="icon-btn done-btn ' + (isDone ? 'done-active' : '') + '" onclick="event.stopPropagation(); App.toggleDone(\'' + mat.ID + '\')" title="' + (isDone ? 'Marcar como não concluído' : 'Marcar como concluído') + '" aria-label="Concluído"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></button>' +
+                        '</div>' +
+                    '</div></div>';
             },
             updateMaterialCardButtons(id) {
                 const card = document.getElementById('material-' + id); if (!card) return;
@@ -1986,18 +2341,20 @@
                 const isFav = Storage.isFavorite(id); const isDone = Storage.isDone(id);
                 if (favBtn) { favBtn.classList.toggle('fav-active', isFav); favBtn.title = isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'; const svg = favBtn.querySelector('svg'); if (svg) svg.setAttribute('fill', isFav ? 'currentColor' : 'none'); }
                 if (doneBtn) { doneBtn.classList.toggle('done-active', isDone); doneBtn.title = isDone ? 'Marcar como não concluído' : 'Marcar como concluído'; }
+                const novoBadge = card.querySelector('.novo-badge');
+                if (novoBadge && Storage.isMaterialViewed(id)) { novoBadge.remove(); }
             },
             renderFavorites(allMaterials) {
-                const favIds = Storage.getFavorites(); const favMaterials = allMaterials.filter(m => favIds.includes(String(m.ID)));
+                const favIds = Storage.getFavorites(); const favMaterials = allMaterials.filter(function(m) { return favIds.includes(String(m.ID)); });
                 const container = document.getElementById('favoritesList');
-                if (favMaterials.length === 0) container.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><h3>Nenhum favorito ainda</h3><p>Marque materiais como favoritos para acessá-los rapidamente.</p></div>`;
-                else container.innerHTML = favMaterials.map(mat => this.createMaterialCard(mat)).join('');
+                if (favMaterials.length === 0) container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><h3>Nenhum favorito ainda</h3><p>Marque materiais como favoritos para acessá-los rapidamente.</p></div>';
+                else container.innerHTML = favMaterials.map(function(mat) { return Render.createMaterialCard(mat); }).join('');
             },
             renderDone(allMaterials) {
-                const doneIds = Storage.getDone(); const doneMaterials = allMaterials.filter(m => doneIds.includes(String(m.ID)));
+                const doneIds = Storage.getDone(); const doneMaterials = allMaterials.filter(function(m) { return doneIds.includes(String(m.ID)); });
                 const container = document.getElementById('doneList');
-                if (doneMaterials.length === 0) container.innerHTML = `<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><h3>Nenhum material concluído</h3><p>Marque materiais como concluídos para acompanhar seu progresso.</p></div>`;
-                else container.innerHTML = doneMaterials.map(mat => this.createMaterialCard(mat)).join('');
+                if (doneMaterials.length === 0) container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><h3>Nenhum material concluído</h3><p>Marque materiais como concluídos para acompanhar seu progresso.</p></div>';
+                else container.innerHTML = doneMaterials.map(function(mat) { return Render.createMaterialCard(mat); }).join('');
             },
             showSkeletons() { document.getElementById('disciplinesGrid').innerHTML = Array(6).fill('<div class="skeleton skeleton-card"></div>').join(''); },
         };
@@ -2006,22 +2363,23 @@
             currentPage: 'home',
             navigateTo(page) {
                 this.currentPage = page;
-                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                const pageMap = { 'home': 'pageHome', 'discipline': 'pageDiscipline', 'favorites': 'pageFavorites', 'done': 'pageDone' };
-                const targetId = pageMap[page]; if (targetId) document.getElementById(targetId)?.classList.add('active');
-                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active-nav'));
+                document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+                const pageMap = { 'home': 'pageHome', 'discipline': 'pageDiscipline', 'favorites': 'pageFavorites', 'done': 'pageDone', 'downloads': 'pageDownloads' };
+                const targetId = pageMap[page]; if (targetId) { var el = document.getElementById(targetId); if (el) el.classList.add('active'); }
+                document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active-nav'); });
                 const navBtnMap = { 'home': 'navHome', 'favorites': 'navFavorites', 'done': 'navDone' };
-                const navBtnId = navBtnMap[page]; if (navBtnId) document.getElementById(navBtnId)?.classList.add('active-nav');
+                const navBtnId = navBtnMap[page]; if (navBtnId) { var nb = document.getElementById(navBtnId); if (nb) nb.classList.add('active-nav'); }
                 window.scrollTo({ top: 0, behavior: 'smooth' }); this.refreshCurrentPage();
                 const searchInput = document.getElementById('searchInput'); if (searchInput && page !== 'home') searchInput.value = '';
                 if (page === 'home' && searchInput && searchInput.value === '' && App.allMaterials && App.allMaterials.length > 0) {
                     const disciplines = Utils.groupByDiscipline(App.allMaterials); Render.renderHome(disciplines);
                 }
+                if (page === 'downloads') { DownloadManager.renderDownloads(); }
                 Sidebar.updateActiveOnPageChange(page);
             },
             openDiscipline(disciplineName) {
-                const disciplines = Utils.groupByDiscipline(App.allMaterials); const disc = disciplines.find(d => d.name === disciplineName);
-                if (disc) { Render.renderDiscipline(disc); this.navigateTo('discipline'); document.getElementById('disciplineTitle').scrollIntoView({ behavior: 'smooth' }); }
+                const disciplines = Utils.groupByDiscipline(App.allMaterials); const disc = disciplines.find(function(d) { return d.name === disciplineName; });
+                if (disc) { Render.renderDiscipline(disc); this.navigateTo('discipline'); var el = document.getElementById('disciplineTitle'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }
             },
             refreshCurrentPage() {
                 if (!App.allMaterials || App.allMaterials.length === 0) return;
@@ -2031,6 +2389,7 @@
                     case 'favorites': Render.renderFavorites(App.allMaterials); break;
                     case 'done': Render.renderDone(App.allMaterials); break;
                     case 'discipline': if (Render.currentDiscipline) Render.renderDisciplineMaterials(); break;
+                    case 'downloads': DownloadManager.renderDownloads(); break;
                 }
                 this.updateBadges(); Sidebar.refreshBadges(); Sidebar.render(disciplines);
             },
@@ -2045,7 +2404,14 @@
             search(term, allMaterials) {
                 if (!term || term.trim() === '') return Utils.groupByDiscipline(allMaterials);
                 const lowerTerm = term.toLowerCase().trim();
-                const filtered = allMaterials.filter(mat => (mat.Disciplina || '').toLowerCase().includes(lowerTerm) || (mat.Título || mat.Titulo || '').toLowerCase().includes(lowerTerm) || (mat.Categoria || '').toLowerCase().includes(lowerTerm) || (mat.Professor || '').toLowerCase().includes(lowerTerm) || (mat.Tags || '').toLowerCase().includes(lowerTerm) || (mat['Descrição'] || mat.Descricao || '').toLowerCase().includes(lowerTerm));
+                const filtered = allMaterials.filter(function(mat) {
+                    return (mat.Disciplina || '').toLowerCase().includes(lowerTerm) ||
+                           (mat['Título'] || mat.Titulo || '').toLowerCase().includes(lowerTerm) ||
+                           (mat.Categoria || '').toLowerCase().includes(lowerTerm) ||
+                           (mat.Professor || '').toLowerCase().includes(lowerTerm) ||
+                           (mat.Tags || '').toLowerCase().includes(lowerTerm) ||
+                           (mat['Descrição'] || mat.Descricao || '').toLowerCase().includes(lowerTerm);
+                });
                 return Utils.groupByDiscipline(filtered);
             },
             performSearch(term) {
@@ -2053,22 +2419,506 @@
                 const disciplines = this.search(term, App.allMaterials);
                 if (Navigation.currentPage === 'home' || Navigation.currentPage === 'discipline') {
                     if (term.trim() === '') { Navigation.navigateTo('home'); Render.renderHome(disciplines); }
-                    else { Navigation.navigateTo('home'); Render.renderHome(disciplines); if (disciplines.length === 0 && term.trim() !== '') document.getElementById('disciplinesGrid').innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><h3>Nenhum resultado para "${Utils.escapeHTML(term.trim())}"</h3><p>Tente outros termos ou verifique a ortografia.</p></div>`; }
+                    else { Navigation.navigateTo('home'); Render.renderHome(disciplines); if (disciplines.length === 0 && term.trim() !== '') document.getElementById('disciplinesGrid').innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><h3>Nenhum resultado para "' + Utils.escapeHTML(term.trim()) + '"</h3><p>Tente outros termos ou verifique a ortografia.</p></div>'; }
                 }
             },
         };
 
         const Toast = {
-            show(message, type = 'info') {
+            show(message, type) {
+                type = type || 'info';
                 const container = document.getElementById('toastContainer'); if (!container) return;
-                const toast = document.createElement('div'); toast.className = `toast ${type}`;
-                const icons = { success: '✅', error: '❌', info: 'ℹ️' }; toast.innerHTML = `<span>${icons[type] || 'ℹ️'}</span> ${message}`;
+                const toast = document.createElement('div'); toast.className = 'toast ' + type;
+                const icons = { success: '✅', error: '❌', info: 'ℹ️', download: '📥' };
+                toast.innerHTML = '<span>' + (icons[type] || 'ℹ️') + '</span> ' + message;
                 container.appendChild(toast);
-                setTimeout(() => { toast.classList.add('removing'); toast.addEventListener('animationend', () => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, { once: true }); setTimeout(() => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 350); }, Config.TOAST_DURATION_MS);
+                setTimeout(function() {
+                    toast.classList.add('removing');
+                    toast.addEventListener('animationend', function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, { once: true });
+                    setTimeout(function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 350);
+                }, Config.TOAST_DURATION_MS);
             },
             success(msg) { this.show(msg, 'success'); },
             error(msg) { this.show(msg, 'error'); },
             info(msg) { this.show(msg, 'info'); },
+            download(msg) { this.show(msg, 'download'); },
+        };
+
+        const IDBManager = {
+            _db: null,
+            DB_NAME: 'VULP_Plus_DB',
+            DB_VERSION: 1,
+
+            async openDB() {
+                if (this._db) return this._db;
+                const self = this;
+                return new Promise(function(resolve, reject) {
+                    const request = indexedDB.open(self.DB_NAME, self.DB_VERSION);
+                    request.onupgradeneeded = function(event) {
+                        const db = event.target.result;
+                        if (!db.objectStoreNames.contains('downloads')) {
+                            db.createObjectStore('downloads', { keyPath: 'id' });
+                        }
+                        if (!db.objectStoreNames.contains('notifications')) {
+                            const store = db.createObjectStore('notifications', { keyPath: 'id', autoIncrement: true });
+                            store.createIndex('read', 'read', { unique: false });
+                            store.createIndex('timestamp', 'timestamp', { unique: false });
+                        }
+                    };
+                    request.onsuccess = function(event) { self._db = event.target.result; resolve(self._db); };
+                    request.onerror = function(event) { reject(event.target.error); };
+                });
+            },
+
+            async addDownload(downloadData) {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('downloads', 'readwrite');
+                    const store = tx.objectStore('downloads');
+                    store.put(downloadData);
+                    tx.oncomplete = function() { resolve(); };
+                    tx.onerror = function() { reject(tx.error); };
+                });
+            },
+
+            async getDownloads() {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('downloads', 'readonly');
+                    const store = tx.objectStore('downloads');
+                    const request = store.getAll();
+                    request.onsuccess = function() { resolve(request.result || []); };
+                    request.onerror = function() { reject(request.error); };
+                });
+            },
+
+            async deleteDownload(id) {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('downloads', 'readwrite');
+                    const store = tx.objectStore('downloads');
+                    store.delete(id);
+                    tx.oncomplete = function() { resolve(); };
+                    tx.onerror = function() { reject(tx.error); };
+                });
+            },
+
+            async clearDownloads() {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('downloads', 'readwrite');
+                    const store = tx.objectStore('downloads');
+                    store.clear();
+                    tx.oncomplete = function() { resolve(); };
+                    tx.onerror = function() { reject(tx.error); };
+                });
+            },
+
+            async addNotification(notifData) {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('notifications', 'readwrite');
+                    const store = tx.objectStore('notifications');
+                    const data = Object.assign({}, notifData, { timestamp: notifData.timestamp || Date.now(), read: false });
+                    const request = store.add(data);
+                    request.onsuccess = function() { resolve(request.result); };
+                    request.onerror = function() { reject(request.error); };
+                });
+            },
+
+            async getNotifications() {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('notifications', 'readonly');
+                    const store = tx.objectStore('notifications');
+                    const request = store.getAll();
+                    request.onsuccess = function() {
+                        const results = request.result || [];
+                        results.sort(function(a, b) { return (b.timestamp || 0) - (a.timestamp || 0); });
+                        resolve(results);
+                    };
+                    request.onerror = function() { reject(request.error); };
+                });
+            },
+
+            async markNotificationRead(id) {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('notifications', 'readwrite');
+                    const store = tx.objectStore('notifications');
+                    const getReq = store.get(id);
+                    getReq.onsuccess = function() {
+                        const data = getReq.result;
+                        if (data) { data.read = true; store.put(data); }
+                        tx.oncomplete = function() { resolve(); };
+                    };
+                    getReq.onerror = function() { reject(getReq.error); };
+                });
+            },
+
+            async markAllNotificationsRead() {
+                const db = await this.openDB();
+                const notifications = await this.getNotifications();
+                const tx = db.transaction('notifications', 'readwrite');
+                const store = tx.objectStore('notifications');
+                notifications.forEach(function(n) { n.read = true; store.put(n); });
+                return new Promise(function(resolve) { tx.oncomplete = function() { resolve(); }; });
+            },
+
+            async deleteNotification(id) {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('notifications', 'readwrite');
+                    const store = tx.objectStore('notifications');
+                    store.delete(id);
+                    tx.oncomplete = function() { resolve(); };
+                    tx.onerror = function() { reject(tx.error); };
+                });
+            },
+
+            async clearNotifications() {
+                const db = await this.openDB();
+                return new Promise(function(resolve, reject) {
+                    const tx = db.transaction('notifications', 'readwrite');
+                    const store = tx.objectStore('notifications');
+                    store.clear();
+                    tx.oncomplete = function() { resolve(); };
+                    tx.onerror = function() { reject(tx.error); };
+                });
+            },
+
+            async getUnreadCount() {
+                const notifications = await this.getNotifications();
+                var count = 0;
+                notifications.forEach(function(n) { if (!n.read) count++; });
+                return count;
+            }
+        };
+
+        const DownloadManager = {
+            async downloadPDF(buttonElement) {
+                const link = buttonElement.dataset.link;
+                const id = buttonElement.dataset.id;
+                const name = buttonElement.dataset.name || 'documento';
+                const disciplina = buttonElement.dataset.disciplina || '';
+
+                if (!link || link.trim() === '') {
+                    Toast.error('Este material não possui link para download.');
+                    return;
+                }
+
+                buttonElement.classList.add('downloading');
+                buttonElement.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 10"/></svg> Baixando...';
+
+                try {
+                    const response = await fetch(link, { mode: 'cors' }).catch(function() { return null; });
+
+                    if (response && response.ok) {
+                        const blob = await response.blob();
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = name.replace(/[^a-zA-Z0-9_\-. ]/g, '_') + '.pdf';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+
+                        await IDBManager.addDownload({
+                            id: id + '_' + Date.now(),
+                            materialId: id,
+                            name: name,
+                            disciplina: disciplina,
+                            date: new Date().toISOString(),
+                            size: blob.size || null
+                        });
+                        Toast.download('Download concluído! 📥');
+                        if (Navigation.currentPage === 'downloads') { DownloadManager.renderDownloads(); }
+                    } else {
+                        window.open(link, '_blank', 'noopener,noreferrer');
+                        await IDBManager.addDownload({
+                            id: id + '_' + Date.now(),
+                            materialId: id,
+                            name: name,
+                            disciplina: disciplina,
+                            date: new Date().toISOString(),
+                            size: null
+                        });
+                        Toast.info('Abrindo em nova aba para download...');
+                        if (Navigation.currentPage === 'downloads') { DownloadManager.renderDownloads(); }
+                    }
+                } catch (error) {
+                    window.open(link, '_blank', 'noopener,noreferrer');
+                    try {
+                        await IDBManager.addDownload({
+                            id: id + '_' + Date.now(),
+                            materialId: id,
+                            name: name,
+                            disciplina: disciplina,
+                            date: new Date().toISOString(),
+                            size: null
+                        });
+                    } catch (dbError) { console.warn('[DownloadManager] Erro ao salvar download:', dbError); }
+                    Toast.info('Abrindo em nova aba para download...');
+                    if (Navigation.currentPage === 'downloads') { DownloadManager.renderDownloads(); }
+                } finally {
+                    buttonElement.classList.remove('downloading');
+                    buttonElement.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar';
+                }
+            },
+
+            async renderDownloads() {
+                const container = document.getElementById('downloadsList');
+                if (!container) return;
+
+                let downloads = [];
+                try {
+                    downloads = await IDBManager.getDownloads();
+                } catch (e) {
+                    container.innerHTML = '<div class="empty-state"><h3>Erro ao carregar downloads</h3></div>';
+                    return;
+                }
+
+                const searchTerm = (document.getElementById('downloadSearch')?.value || '').toLowerCase();
+                const sortBy = document.getElementById('downloadSort')?.value || 'date-desc';
+
+                if (searchTerm) {
+                    downloads = downloads.filter(function(d) {
+                        return (d.name || '').toLowerCase().includes(searchTerm) ||
+                               (d.disciplina || '').toLowerCase().includes(searchTerm);
+                    });
+                }
+
+                downloads.sort(function(a, b) {
+                    switch (sortBy) {
+                        case 'date-asc': return new Date(a.date) - new Date(b.date);
+                        case 'name-asc': return (a.name || '').localeCompare(b.name || '');
+                        case 'name-desc': return (b.name || '').localeCompare(a.name || '');
+                        case 'discipline': return (a.disciplina || '').localeCompare(b.disciplina || '') || (new Date(b.date) - new Date(a.date));
+                        default: return new Date(b.date) - new Date(a.date);
+                    }
+                });
+
+                if (downloads.length === 0) {
+                    container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><h3>Nenhum download encontrado</h3></div>';
+                    return;
+                }
+
+                container.innerHTML = downloads.map(function(d) {
+                    const material = App.allMaterials ? App.allMaterials.find(function(m) { return String(m.ID) === String(d.materialId); }) : null;
+                    const materialLink = material ? material.Link : '';
+                    return '<div class="download-item">' +
+                        '<div class="download-icon">📄</div>' +
+                        '<div class="download-info">' +
+                            '<h4>' + Utils.escapeHTML(d.name || 'Sem nome') + '</h4>' +
+                            '<div class="download-meta">' +
+                                (d.disciplina ? '<span>📚 ' + Utils.escapeHTML(d.disciplina) + '</span>' : '') +
+                                '<span>📅 ' + new Date(d.date).toLocaleString('pt-BR') + '</span>' +
+                                (d.size ? '<span>📦 ' + Utils.formatFileSize(d.size) + '</span>' : '') +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="download-actions">' +
+                            '<button class="icon-btn" onclick="App.openMaterial(\'' + Utils.escapeHTML(materialLink) + '\', \'' + d.materialId + '\')" title="Abrir novamente">📖</button>' +
+                            '<button class="icon-btn" onclick="DownloadManager.removeDownload(\'' + d.id + '\')" title="Remover">🗑️</button>' +
+                        '</div>' +
+                    '</div>';
+                }).join('');
+            },
+
+            async removeDownload(id) {
+                await IDBManager.deleteDownload(id);
+                this.renderDownloads();
+                Toast.success('Download removido do histórico.');
+            },
+
+            async clearAll() {
+                if (confirm('Deseja realmente limpar todo o histórico de downloads?')) {
+                    await IDBManager.clearDownloads();
+                    this.renderDownloads();
+                    Toast.success('Histórico limpo.');
+                }
+            }
+        };
+
+        const NotificationManager = {
+            async addNotificationIfNew(material, existingMaterials) {
+                const oldIds = existingMaterials.map(function(m) { return String(m.ID); });
+                if (!oldIds.includes(String(material.ID))) {
+                    const isVideo = Utils.isVideoType(material.Tipo);
+                    const notif = {
+                        materialId: String(material.ID),
+                        title: Utils.escapeHTML(material['Título'] || material.Titulo || 'Sem título'),
+                        disciplina: Utils.escapeHTML(material.Disciplina || ''),
+                        tipo: isVideo ? 'video' : 'pdf',
+                        link: material.Link || '',
+                        timestamp: Date.now(),
+                        read: false
+                    };
+                    await IDBManager.addNotification(notif);
+                    this.updateBadge();
+                }
+            },
+
+            async checkForNewMaterials(oldData, newData) {
+                if (!oldData || oldData.length === 0) return;
+                const oldIds = oldData.map(function(m) { return String(m.ID); });
+                for (var i = 0; i < newData.length; i++) {
+                    var mat = newData[i];
+                    if (!oldIds.includes(String(mat.ID))) {
+                        await this.addNotificationIfNew(mat, oldData);
+                    }
+                }
+            },
+
+            async updateBadge() {
+                let count = 0;
+                try {
+                    count = await IDBManager.getUnreadCount();
+                } catch (e) { count = 0; }
+                const badge = document.getElementById('notificationCount');
+                if (badge) {
+                    badge.textContent = count;
+                    badge.style.display = count > 0 ? 'flex' : 'none';
+                    if (count > 0) {
+                        badge.style.animation = 'none';
+                        badge.offsetHeight;
+                        badge.style.animation = 'popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                    }
+                }
+            },
+
+            async markAllRead() {
+                await IDBManager.markAllNotificationsRead();
+                this.updateBadge();
+                NotificationPanel.render();
+                Toast.success('Todas as notificações marcadas como lidas.');
+            },
+
+            async clearAll() {
+                if (confirm('Limpar todas as notificações?')) {
+                    await IDBManager.clearNotifications();
+                    this.updateBadge();
+                    NotificationPanel.render();
+                    Toast.success('Notificações limpas.');
+                }
+            },
+
+            async deleteNotification(id) {
+                await IDBManager.deleteNotification(id);
+                this.updateBadge();
+                NotificationPanel.render();
+            }
+        };
+
+        const NotificationPanel = {
+            isOpen: false,
+
+            toggle() {
+                if (this.isOpen) { this.close(); } else { this.open(); }
+            },
+
+            open() {
+                this.isOpen = true;
+                document.getElementById('notificationPanel').classList.add('open');
+                document.getElementById('notificationPanelOverlay').classList.add('visible');
+                this.render();
+                document.body.style.overflow = 'hidden';
+            },
+
+            close() {
+                this.isOpen = false;
+                document.getElementById('notificationPanel').classList.remove('open');
+                document.getElementById('notificationPanelOverlay').classList.remove('visible');
+                document.body.style.overflow = '';
+            },
+
+            async render() {
+                const container = document.getElementById('notificationList');
+                if (!container) return;
+
+                let notifications = [];
+                try {
+                    notifications = await IDBManager.getNotifications();
+                } catch (e) {
+                    container.innerHTML = '<div class="notification-empty"><p>Erro ao carregar notificações.</p></div>';
+                    return;
+                }
+
+                if (notifications.length === 0) {
+                    container.innerHTML = '<div class="notification-empty">' +
+                        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>' +
+                        '<p>Nenhuma notificação</p></div>';
+                    return;
+                }
+
+                container.innerHTML = notifications.map(function(n) {
+                    const icon = n.tipo === 'video' ? '🎬' : '📄';
+                    const iconClass = n.tipo === 'video' ? 'video' : 'pdf';
+                    const timeStr = new Date(n.timestamp).toLocaleString('pt-BR');
+                    return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="NotificationPanel.openMaterial(\'' + Utils.escapeHTML(n.link || '') + '\', \'' + n.materialId + '\')">' +
+                        '<div class="notification-icon ' + iconClass + '">' + icon + '</div>' +
+                        '<div class="notification-content">' +
+                            '<div class="notification-title">' + (n.tipo === 'video' ? 'Novo vídeo' : 'Novo PDF') + '</div>' +
+                            '<div class="notification-subtitle">' + Utils.escapeHTML(n.disciplina) + ' - ' + Utils.escapeHTML(n.title) + '</div>' +
+                            '<div class="notification-time">' + timeStr + '</div>' +
+                        '</div>' +
+                        '<button class="notification-delete icon-btn" onclick="event.stopPropagation(); NotificationManager.deleteNotification(' + n.id + ')" title="Excluir">✕</button>' +
+                    '</div>';
+                }).join('');
+
+                // Marcar notificações como lidas ao abrir o painel
+                notifications.forEach(function(n) {
+                    if (!n.read) {
+                        IDBManager.markNotificationRead(n.id).catch(function() {});
+                    }
+                });
+                NotificationManager.updateBadge();
+            },
+
+            openMaterial(link, materialId) {
+                this.close();
+                if (link && link.trim() !== '') {
+                    App.openMaterial(link, materialId);
+                } else {
+                    Toast.error('Link não disponível.');
+                }
+            }
+        };
+
+        const AutoUpdater = {
+            intervalId: null,
+
+            start() {
+                this.stop();
+                this.intervalId = setInterval(function() { AutoUpdater.checkForUpdates(); }, Config.POLL_INTERVAL_MS);
+                console.log('[AutoUpdater] Verificação automática iniciada (a cada ' + (Config.POLL_INTERVAL_MS / 60000) + ' min)');
+            },
+
+            stop() {
+                if (this.intervalId) {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
+            },
+
+            async checkForUpdates() {
+                try {
+                    const oldData = App.allMaterials || [];
+                    const newData = await API.fetchMaterials();
+                    if (newData && newData.length > 0) {
+                        await NotificationManager.checkForNewMaterials(oldData, newData);
+                        if (newData.length !== oldData.length || JSON.stringify(newData.map(function(m) { return m.ID; }).sort()) !== JSON.stringify(oldData.map(function(m) { return m.ID; }).sort())) {
+                            App.allMaterials = newData;
+                            Storage.setCache(newData);
+                            Navigation.refreshCurrentPage();
+                            Sidebar.render(Utils.groupByDiscipline(newData));
+                            console.log('[AutoUpdater] Dados atualizados silenciosamente.');
+                        }
+                    }
+                } catch (error) {
+                    console.warn('[AutoUpdater] Falha na verificação:', error.message);
+                }
+            }
         };
 
         const App = {
@@ -2085,30 +2935,51 @@
                     Render.renderHome(disciplines); Sidebar.render(disciplines); Navigation.updateBadges();
                     if (!Storage.isCacheValid()) this.fetchAndCache(true);
                 } else await this.fetchAndCache(false);
-                this.setupSearchListener(); this.setupOpenMaterialListener(); Navigation.updateBadges();
+                this.setupSearchListener(); this.setupOpenMaterialListener(); this.setupDownloadListener();
+                Navigation.updateBadges();
+                AutoUpdater.start();
+                NotificationManager.updateBadge();
+                const downloadSearch = document.getElementById('downloadSearch');
+                if (downloadSearch) {
+                    downloadSearch.addEventListener('input', function() { DownloadManager.renderDownloads(); });
+                }
                 Welcome.show();
-                console.log('[VULP+] Pronto com', this.allMaterials.length, 'materiais.');
+                console.log('[VULP+] Pronto com ' + this.allMaterials.length + ' materiais.');
             },
             showLoginScreen() { document.getElementById('loginPage').style.display = 'flex'; document.getElementById('appContainer').style.display = 'none'; this.setupLoginEvents(); },
             showAppScreen() { document.getElementById('loginPage').style.display = 'none'; document.getElementById('appContainer').style.display = 'block'; },
             setupLoginEvents() {
                 const passwordInput = document.getElementById('loginPassword'), loginBtn = document.getElementById('loginBtn'), errorEl = document.getElementById('loginError'), toggleBtn = document.getElementById('togglePassword');
-                const performLogin = () => { const senha = passwordInput.value.trim(); if (!Utils.validatePassword(senha)) { errorEl.textContent = 'Senha inválida. Deve ter 8 caracteres, incluir V, U ou P e número entre 5 e 9.'; passwordInput.focus(); return; } Storage.setLoggedIn(true); errorEl.textContent = ''; this.showAppScreen(); this.init(); };
-                loginBtn.addEventListener('click', performLogin); passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') performLogin(); });
-                toggleBtn.addEventListener('click', () => { const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password'; passwordInput.setAttribute('type', type); });
+                const performLogin = function() { const senha = passwordInput.value.trim(); if (!Utils.validatePassword(senha)) { errorEl.textContent = 'Senha inválida. Deve ter 8 caracteres, incluir V, U ou P e número entre 5 e 9.'; passwordInput.focus(); return; } Storage.setLoggedIn(true); errorEl.textContent = ''; App.showAppScreen(); App.init(); };
+                loginBtn.addEventListener('click', performLogin); passwordInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') performLogin(); });
+                toggleBtn.addEventListener('click', function() { const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password'; passwordInput.setAttribute('type', type); });
             },
-            logout() { Storage.setLoggedIn(false); this.allMaterials = []; Render.showSkeletons(); document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.getElementById('pageHome')?.classList.add('active'); document.getElementById('searchInput').value = ''; Navigation.currentPage = 'home'; document.getElementById('loginPassword').value = ''; Sidebar.close(); this.showLoginScreen(); },
-            setupOpenMaterialListener() { document.addEventListener('click', (e) => { const btn = e.target.closest('.open-material-btn'); if (!btn) return; e.preventDefault(); this.openMaterial(btn.dataset.link || '', btn.dataset.id || ''); }); },
-            async fetchAndCache(silent = false) {
+            logout() { Storage.setLoggedIn(false); this.allMaterials = []; Render.showSkeletons(); document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); }); var el = document.getElementById('pageHome'); if (el) el.classList.add('active'); document.getElementById('searchInput').value = ''; Navigation.currentPage = 'home'; document.getElementById('loginPassword').value = ''; Sidebar.close(); AutoUpdater.stop(); this.showLoginScreen(); },
+            setupOpenMaterialListener() { document.addEventListener('click', function(e) { const btn = e.target.closest('.open-material-btn'); if (!btn) return; e.preventDefault(); App.openMaterial(btn.dataset.link || '', btn.dataset.id || ''); }); },
+            setupDownloadListener() {
+                const self = this;
+                document.addEventListener('click', function(e) {
+                    const btn = e.target.closest('.download-btn');
+                    if (!btn) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    DownloadManager.downloadPDF(btn);
+                });
+            },
+            async fetchAndCache(silent) {
+                silent = silent || false;
                 if (this.isLoading) return; this.isLoading = true; if (!silent) Render.showSkeletons();
                 try {
                     const data = await API.fetchMaterials();
                     if (data && data.length > 0) {
+                        const oldData = this.allMaterials || [];
                         this.allMaterials = data; Storage.setCache(data); const disciplines = Utils.groupByDiscipline(this.allMaterials);
                         if (!silent) { Render.renderHome(disciplines); Sidebar.render(disciplines); Navigation.updateBadges(); Toast.success('Dados atualizados com sucesso!'); }
                         else { if (Navigation.currentPage === 'home') Render.renderHome(disciplines); Sidebar.render(disciplines); Navigation.updateBadges(); }
-                    } else if (!silent && this.allMaterials.length === 0) document.getElementById('disciplinesGrid').innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><h3>Nenhum material disponível</h3><p>A API não retornou materiais ativos.</p><button class="action-btn outline" onclick="App.syncData()" style="margin-top:12px;">🔄 Tentar novamente</button></div>`;
-                } catch (error) { console.error('[App] Erro:', error); if (!silent && this.allMaterials.length === 0) { document.getElementById('disciplinesGrid').innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><h3>Não foi possível carregar.</h3><p>Verifique sua conexão.</p><button class="action-btn outline" onclick="App.syncData()" style="margin-top:12px;">🔄 Tentar novamente</button></div>`; Toast.error('Erro ao conectar.'); } }
+                        await NotificationManager.checkForNewMaterials(oldData, data);
+                        NotificationManager.updateBadge();
+                    } else if (!silent && this.allMaterials.length === 0) document.getElementById('disciplinesGrid').innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><h3>Nenhum material disponível</h3><p>A API não retornou materiais ativos.</p><button class="action-btn outline" onclick="App.syncData()" style="margin-top:12px;">🔄 Tentar novamente</button></div>';
+                } catch (error) { console.error('[App] Erro:', error); if (!silent && this.allMaterials.length === 0) { document.getElementById('disciplinesGrid').innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><h3>Não foi possível carregar.</h3><p>Verifique sua conexão.</p><button class="action-btn outline" onclick="App.syncData()" style="margin-top:12px;">🔄 Tentar novamente</button></div>'; Toast.error('Erro ao conectar.'); } }
                 finally { this.isLoading = false; }
             },
             async syncData() { Storage.clearCache(); Toast.info('Sincronizando...'); const syncIcon = document.getElementById('syncIcon'); if (syncIcon) syncIcon.style.animation = 'spin 0.8s linear infinite'; await this.fetchAndCache(false); if (syncIcon) syncIcon.style.animation = ''; Navigation.refreshCurrentPage(); Sidebar.render(Utils.groupByDiscipline(this.allMaterials)); },
@@ -2116,22 +2987,28 @@
             toggleDone(id) { const added = Storage.toggleDone(id); Render.updateMaterialCardButtons(id); Navigation.updateBadges(); Toast.success(added ? 'Marcado como concluído! ✅' : 'Removido dos concluídos.'); if (Navigation.currentPage === 'done') Render.renderDone(this.allMaterials); if (Navigation.currentPage === 'home') Render.renderHome(Utils.groupByDiscipline(this.allMaterials)); if (Navigation.currentPage === 'discipline' && Render.currentDiscipline) Render.renderDisciplineMaterials(); Sidebar.render(Utils.groupByDiscipline(this.allMaterials)); },
             openMaterial(link, id) {
                 if (!link || link.trim() === '') { Toast.error('Este material não possui link cadastrado.'); return; }
-                const material = this.allMaterials.find(m => String(m.ID) === String(id));
+                const material = this.allMaterials.find(function(m) { return String(m.ID) === String(id); });
                 const tipo = material ? material.Tipo : '';
                 const finalLink = Utils.getDownloadLink(link, tipo);
+                Storage.markMaterialViewed(id);
+                Render.updateMaterialCardButtons(id);
+                if (Navigation.currentPage === 'home') {
+                    Render.renderHome(Utils.groupByDiscipline(this.allMaterials));
+                }
                 if (!Storage.isDone(id)) { this.toggleDone(id); }
-                setTimeout(() => { const newWindow = window.open(finalLink, '_blank', 'noopener,noreferrer'); if (!newWindow) { Toast.error('Pop-up bloqueado! Permita a abertura de janelas para este site.'); } }, 100);
+                setTimeout(function() { const newWindow = window.open(finalLink, '_blank', 'noopener,noreferrer'); if (!newWindow) { Toast.error('Pop-up bloqueado! Permita a abertura de janelas para este site.'); } }, 100);
             },
             toggleDarkMode() { const isDark = document.body.classList.toggle('dark'); Storage.setDarkMode(isDark); this.updateDarkModeIcon(); },
             updateDarkModeIcon() { const icon = document.getElementById('darkModeIcon'); if (icon) icon.innerHTML = document.body.classList.contains('dark') ? '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>' : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'; },
-            setupSearchListener() { const searchInput = document.getElementById('searchInput'); if (!searchInput) return; let debounceTimer; searchInput.addEventListener('input', () => { clearTimeout(debounceTimer); debounceTimer = setTimeout(() => Search.performSearch(searchInput.value), 250); }); searchInput.addEventListener('keydown', (e) => { if (e.key === 'Escape') { searchInput.value = ''; Search.performSearch(''); searchInput.blur(); } }); },
+            setupSearchListener() { const searchInput = document.getElementById('searchInput'); if (!searchInput) return; let debounceTimer; searchInput.addEventListener('input', function() { clearTimeout(debounceTimer); debounceTimer = setTimeout(function() { Search.performSearch(searchInput.value); }, 250); }); searchInput.addEventListener('keydown', function(e) { if (e.key === 'Escape') { searchInput.value = ''; Search.performSearch(''); searchInput.blur(); } }); },
         };
 
         if (!CanvasRenderingContext2D.prototype.roundRect) { CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, radii) { const r = Array.isArray(radii) ? radii : [radii, radii, radii, radii]; this.beginPath(); this.moveTo(x + r[0], y); this.lineTo(x + w - r[1], y); this.quadraticCurveTo(x + w, y, x + w, y + r[1]); this.lineTo(x + w, y + h - r[2]); this.quadraticCurveTo(x + w, y + h, x + w - r[2], y + h); this.lineTo(x + r[3], y + h); this.quadraticCurveTo(x, y + h, x, y + h - r[3]); this.lineTo(x, y + r[0]); this.quadraticCurveTo(x, y, x + r[0], y); this.closePath(); return this; }; }
 
-        document.head.insertAdjacentHTML('beforeend', `<style>@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style>`);
-        document.addEventListener('DOMContentLoaded', () => App.init());
+        document.head.insertAdjacentHTML('beforeend', '<style>@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style>');
+        document.addEventListener('DOMContentLoaded', function() { App.init(); });
         console.log('%c🚀 VULP + %c100% funcional!', 'font-size:1.3em;font-weight:bold;color:#4f46e5;', 'color:#5a5a7a;');
+        console.log('%c🆕 Novas funcionalidades: Downloads, Notificações, AutoUpdate, Selo NOVO', 'color:#10b981;font-weight:bold;');
     </script>
 </body>
 </html>

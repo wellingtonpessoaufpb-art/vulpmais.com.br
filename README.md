@@ -1,1 +1,0 @@
-# vulpmais.com.br

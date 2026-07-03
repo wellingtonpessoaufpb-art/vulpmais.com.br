@@ -45,6 +45,7 @@
             --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             --navbar-height: 64px;
+            --sidebar-width: 280px;
             --max-width: 1280px;
         }
 
@@ -184,6 +185,12 @@
             color: var(--primary);
             border-radius: var(--radius);
             margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .login-card .app-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .login-card h2 {
             font-size: 1.6rem;
@@ -271,7 +278,205 @@
             line-height: 1.4;
         }
 
-        /* ========== MAIN APP (mantido) ========== */
+        /* ========== LAYOUT PRINCIPAL (SIDEBAR + MAIN) ========== */
+        .app-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: var(--sidebar-width);
+            background: var(--surface);
+            border-right: 1px solid var(--border-light);
+            box-shadow: var(--shadow-md);
+            z-index: 1100;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-slow);
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 0;
+        }
+        .dark .sidebar {
+            background: rgba(26, 26, 46, 0.98);
+            border-right: 1px solid var(--border);
+        }
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            height: var(--navbar-height);
+            border-bottom: 1px solid var(--border-light);
+            flex-shrink: 0;
+            gap: 10px;
+        }
+        .sidebar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        .sidebar-logo img {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+        .sidebar-close-btn {
+            display: none;
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            align-items: center;
+            justify-content: center;
+        }
+        .sidebar-close-btn:hover {
+            background: var(--bg);
+            color: var(--text);
+        }
+        .sidebar-nav {
+            flex: 1;
+            padding: 12px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            overflow-y: auto;
+        }
+        .sidebar-section-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            font-weight: 700;
+            padding: 12px 12px 6px;
+            margin-top: 8px;
+        }
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .sidebar-item:hover {
+            background: var(--bg);
+            color: var(--text);
+        }
+        .sidebar-item.active {
+            background: var(--primary-bg);
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .sidebar-item svg,
+        .sidebar-item .sidebar-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+        .sidebar-item .sidebar-icon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+        .sidebar-item .expand-icon {
+            margin-left: auto;
+            transition: transform var(--transition-fast);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+        .sidebar-item.expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+        .sidebar-subitems {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height var(--transition-slow);
+            padding-left: 32px;
+        }
+        .sidebar-subitems.open {
+            max-height: 300px;
+        }
+        .sidebar-subitem {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: var(--radius-xs);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .sidebar-subitem:hover {
+            color: var(--text);
+            background: var(--bg);
+        }
+        .sidebar-subitem.active {
+            color: var(--primary);
+            background: var(--primary-bg);
+            font-weight: 600;
+        }
+        .sidebar-footer {
+            border-top: 1px solid var(--border-light);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex-shrink: 0;
+        }
+        .sidebar-badge {
+            font-size: 0.7rem;
+            background: var(--danger);
+            color: #fff;
+            border-radius: var(--radius-full);
+            padding: 2px 8px;
+            font-weight: 700;
+            margin-left: auto;
+            min-width: 20px;
+            text-align: center;
+        }
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        /* Overlay para mobile */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1050;
+            transition: opacity var(--transition-slow);
+        }
+        .sidebar-overlay.visible {
+            display: block;
+        }
+
+        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -284,7 +489,7 @@
             box-shadow: var(--shadow-sm);
             display: flex;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 16px;
             gap: 12px;
             transition: all var(--transition);
             backdrop-filter: blur(12px);
@@ -294,8 +499,23 @@
             background: rgba(26, 26, 46, 0.92);
             border-bottom: 1px solid var(--border);
         }
-        .navbar-logo {
+        .hamburger-btn {
             display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            flex-shrink: 0;
+            margin-right: 4px;
+        }
+        .hamburger-btn:hover {
+            background: var(--bg);
+            color: var(--text);
+        }
+        .navbar-logo {
+            display: none;
             align-items: center;
             gap: 10px;
             font-weight: 700;
@@ -304,7 +524,7 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
-        .navbar-logo svg {
+        .navbar-logo img {
             width: 34px;
             height: 34px;
             flex-shrink: 0;
@@ -347,7 +567,7 @@
         .navbar-actions {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 2px;
             flex-shrink: 0;
         }
         .nav-btn {
@@ -397,34 +617,17 @@
             font-weight: 500;
             white-space: nowrap;
         }
-        @media (min-width: 768px) {
-            .nav-label {
-                display: inline;
-            }
-            .nav-btn {
-                width: auto;
-                padding: 0 14px;
-                gap: 6px;
-                border-radius: var(--radius-sm);
-            }
-        }
 
+        /* Main content */
         .main-content {
-            padding-top: calc(var(--navbar-height) + 24px);
-            padding-bottom: 40px;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding-left: 16px;
-            padding-right: 16px;
-            min-height: 100vh;
-        }
-        @media (min-width: 768px) {
-            .main-content {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
+            flex: 1;
+            margin-top: var(--navbar-height);
+            padding: 24px 16px 40px;
+            min-height: calc(100vh - var(--navbar-height));
+            transition: margin-left var(--transition-slow);
         }
 
+        /* ========== PAGES (mantidas) ========== */
         .page {
             display: none;
             animation: fadeSlideIn 0.35s ease-out;
@@ -455,7 +658,6 @@
             font-size: 0.95rem;
             margin-top: 4px;
         }
-        @media (min-width: 768px) { .section-header h1 { font-size: 2rem; } }
 
         .cards-grid {
             display: grid;
@@ -498,6 +700,11 @@
             flex-shrink: 0;
             background: var(--primary-bg);
             color: var(--primary);
+        }
+        .discipline-card .card-icon img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
         }
         .discipline-card .card-icon svg {
             width: 28px;
@@ -606,6 +813,14 @@
             width: 40px;
             height: 40px;
             color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .material-card .material-thumb .icon-placeholder img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
         .material-card .material-info {
             flex: 1;
@@ -769,14 +984,35 @@
         }
         .tab-btn:hover:not(.active) { color: var(--text); background: var(--surface-hover); }
 
-        @media (max-width: 640px) {
-            .navbar { padding: 0 12px; gap: 6px; }
-            .navbar-logo span { display: none; }
-            .navbar-search { max-width: 180px; height: 36px; padding: 0 10px; }
+        /* Responsividade */
+        @media (min-width: 769px) {
+            .hamburger-btn { display: none; }
+            .navbar-logo { display: none; }
+            .sidebar { transform: translateX(0); }
+            .sidebar-overlay { display: none !important; }
+            .main-content { margin-left: var(--sidebar-width); }
+            .navbar { left: var(--sidebar-width); }
+        }
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-close-btn { display: flex; }
+            .main-content { margin-left: 0; }
+            .navbar { left: 0; }
+            .navbar-logo { display: flex; }
+            .navbar-logo span { font-size: 1rem; }
             .nav-label { display: none; }
             .nav-btn { width: 36px; height: 36px; }
-            .section-header h1 { font-size: 1.4rem; }
+            .navbar-search { max-width: 200px; height: 38px; }
         }
+        @media (max-width: 480px) {
+            .navbar { padding: 0 8px; gap: 4px; }
+            .navbar-search { max-width: 140px; padding: 0 8px; }
+            .section-header h1 { font-size: 1.4rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
@@ -785,12 +1021,7 @@
     <div id="loginPage" class="login-page" style="display: none;">
         <div class="login-card">
             <div class="app-logo">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="8" y1="7" x2="16" y2="7"/>
-                    <line x1="8" y1="11" x2="14" y2="11"/>
-                </svg>
+                <img src="https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092990/ChatGPT_Image_3_de_jul._de_2026_11_01_34_t5hexq.png" alt="Logo Estude+">
             </div>
             <h2>Estude+</h2>
             <p>Entre com sua senha de acesso</p>
@@ -816,14 +1047,64 @@
 
     <!-- ==================== MAIN APP (oculto inicialmente) ==================== -->
     <div id="appContainer" style="display: none;">
+        <!-- Sidebar Overlay para mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="Sidebar.close()"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <img src="https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092990/ChatGPT_Image_3_de_jul._de_2026_11_01_34_t5hexq.png" alt="Logo Estude+">
+                    <span>Estude+</span>
+                </div>
+                <button class="sidebar-close-btn" onclick="Sidebar.close()" aria-label="Fechar menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav" id="sidebarNav">
+                <div class="sidebar-section-title">Principal</div>
+                <div class="sidebar-item active" data-page="home" onclick="Sidebar.navigateTo('home')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Início
+                </div>
+                <div class="sidebar-section-title">Disciplinas</div>
+                <div id="sidebarDisciplines">
+                    <!-- Preenchido dinamicamente -->
+                </div>
+                <div class="sidebar-section-title">Acesso Rápido</div>
+                <div class="sidebar-item" data-page="favorites" onclick="Sidebar.navigateTo('favorites')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    Favoritos
+                    <span class="sidebar-badge" id="sidebarFavBadge" style="display:none;">0</span>
+                </div>
+                <div class="sidebar-item" data-page="done" onclick="Sidebar.navigateTo('done')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Concluídos
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-item" onclick="App.syncData()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                    Sincronizar Dados
+                </div>
+                <div class="sidebar-item" onclick="App.toggleDarkMode()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    Alternar Tema
+                </div>
+                <div class="sidebar-item" onclick="App.logout()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Sair
+                </div>
+            </div>
+        </aside>
+
+        <!-- Navbar superior -->
         <nav class="navbar" id="navbar">
+            <button class="hamburger-btn" onclick="Sidebar.toggle()" aria-label="Abrir menu lateral">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
             <div class="navbar-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="8" y1="7" x2="16" y2="7"/>
-                    <line x1="8" y1="11" x2="14" y2="11"/>
-                </svg>
+                <img src="https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092990/ChatGPT_Image_3_de_jul._de_2026_11_01_34_t5hexq.png" alt="Logo Estude+">
                 <span>Estude+</span>
             </div>
             <div class="navbar-search" id="searchContainer">
@@ -862,6 +1143,7 @@
             </div>
         </nav>
 
+        <!-- Main content -->
         <main class="main-content" id="mainContent">
             <!-- HOME PAGE -->
             <div class="page active" id="pageHome">
@@ -935,7 +1217,7 @@
          * ============================================================
          * APLICATIVO ESTUDE+
          * Portal de Estudos para Concursos Públicos
-         * Código 100% funcional – com tela de login e validação de senha
+         * Código 100% funcional – com sidebar profissional e navegação aprimorada
          * ============================================================
          */
 
@@ -949,11 +1231,20 @@
             LOGIN_KEY: 'estude_plus_logged_in',
             CACHE_MAX_AGE_MS: 30 * 60 * 1000,
             TOAST_DURATION_MS: 3000,
+            PDF_ICON_URL: 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/simbolo-de-formato-de-arquivo-pdf_j0spve.png',
+            VIDEO_ICON_URL: 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/camera-de-video_c5p1ae.png',
             DISCIPLINE_ICONS: {
-                'Português': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>`,
+                'Língua Portuguesa': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/abra-o-livro_oytuad.png',
+                'Português': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/abra-o-livro_oytuad.png',
+                'Raciocínio Lógico': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092487/cerebro_xb7fma.png',
+                'Noções de Informática': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092487/computador_ckxnwj.png',
+                'Informática': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092487/computador_ckxnwj.png',
+                'Legislação Aplicada ao Cargo': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092487/mace_nhmu7r.png',
+                'Conhecimentos Específicos Nível Médio': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/pilha-de-tres-livros_eidxmm.png',
+                'Dicas de Estudos para Concursos': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092486/foguete_bppg3w.png',
+                'Simulados': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092487/trofeu_imvpxm.png',
+                'Bateria de Questões': 'https://res.cloudinary.com/dk8ta3dfy/image/upload/v1783092487/trofeu_imvpxm.png',
                 'Matemática': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="16"/><line x1="16" y1="8" x2="8" y2="16"/></svg>`,
-                'Raciocínio Lógico': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-8a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3h4l4 3V7z"/></svg>`,
-                'Informática': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
                 'Direito Constitucional': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`,
                 'Direito Administrativo': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>`,
                 'Administração': `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>`,
@@ -1036,8 +1327,14 @@
             getYouTubeThumbnail(url) { const id = this.extractYouTubeID(url); return id ? `https://img.youtube.com/vi/${id}/mqdefault.jpg` : null; },
             getDisciplineIcon(name) {
                 if (!name) return this.defaultIcon();
-                for (const [key, icon] of Object.entries(Config.DISCIPLINE_ICONS)) {
-                    if (name.toLowerCase().includes(key.toLowerCase())) return icon;
+                const icons = Config.DISCIPLINE_ICONS;
+                for (const [key, icon] of Object.entries(icons)) {
+                    if (name.toLowerCase().includes(key.toLowerCase())) {
+                        if (typeof icon === 'string' && icon.startsWith('http')) {
+                            return `<img src="${icon}" alt="${key}" width="28" height="28" style="object-fit:contain;">`;
+                        }
+                        return icon;
+                    }
                 }
                 return this.defaultIcon();
             },
@@ -1064,6 +1361,150 @@
                 const regex = /^(?=.{8}$)(?=.*[VUP])(?=.*[5-9]).*$/;
                 return regex.test(password);
             },
+            getMiniIcon(iconHTML) {
+                // Retorna versão reduzida do ícone para a sidebar
+                if (!iconHTML) return '';
+                if (iconHTML.includes('<img')) {
+                    return iconHTML.replace('width="28"', 'width="18"').replace('height="28"', 'height="18"');
+                }
+                return iconHTML.replace(/width="28"/g, 'width="18"').replace(/height="28"/g, 'height="18"');
+            },
+        };
+
+        const Sidebar = {
+            currentDisciplineName: null,
+            currentTab: 'pdfs',
+
+            toggle() {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('sidebarOverlay');
+                const isOpen = sidebar.classList.contains('open');
+                if (isOpen) {
+                    this.close();
+                } else {
+                    sidebar.classList.add('open');
+                    overlay.classList.add('visible');
+                }
+            },
+            close() {
+                document.getElementById('sidebar').classList.remove('open');
+                document.getElementById('sidebarOverlay').classList.remove('visible');
+            },
+            navigateTo(page, disciplineName = null, tab = null) {
+                // Fechar sidebar em mobile
+                if (window.innerWidth <= 768) {
+                    this.close();
+                }
+                if (page === 'home') {
+                    Navigation.navigateTo('home');
+                    this.setActiveItem('home');
+                } else if (page === 'favorites') {
+                    Navigation.navigateTo('favorites');
+                    this.setActiveItem('favorites');
+                } else if (page === 'done') {
+                    Navigation.navigateTo('done');
+                    this.setActiveItem('done');
+                } else if (page === 'discipline' && disciplineName) {
+                    Navigation.openDiscipline(disciplineName);
+                    if (tab) {
+                        setTimeout(() => {
+                            Render.switchDisciplineTab(tab);
+                        }, 100);
+                    }
+                    this.setActiveItem('discipline', disciplineName);
+                }
+            },
+            setActiveItem(page, disciplineName = null) {
+                // Remove active de todos os itens de página
+                document.querySelectorAll('.sidebar-item[data-page]').forEach(el => el.classList.remove('active'));
+                // Remove active de disciplinas e subitens
+                document.querySelectorAll('.sidebar-discipline-item').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.sidebar-subitem').forEach(el => el.classList.remove('active'));
+
+                if (page === 'home') {
+                    const homeItem = document.querySelector('.sidebar-item[data-page="home"]');
+                    if (homeItem) homeItem.classList.add('active');
+                } else if (page === 'favorites') {
+                    const favItem = document.querySelector('.sidebar-item[data-page="favorites"]');
+                    if (favItem) favItem.classList.add('active');
+                } else if (page === 'done') {
+                    const doneItem = document.querySelector('.sidebar-item[data-page="done"]');
+                    if (doneItem) doneItem.classList.add('active');
+                } else if (page === 'discipline' && disciplineName) {
+                    const discItem = document.querySelector(`.sidebar-discipline-item[data-discipline="${CSS.escape(disciplineName)}"]`);
+                    if (discItem) discItem.classList.add('active');
+                }
+                this.currentDisciplineName = disciplineName;
+            },
+            render(disciplines) {
+                const container = document.getElementById('sidebarDisciplines');
+                if (!container) return;
+                const favCount = Storage.getFavorites().length;
+
+                let html = '';
+                disciplines.forEach(disc => {
+                    const doneCount = disc.all.filter(m => Storage.isDone(m.ID)).length;
+                    const total = disc.all.length;
+                    const progress = total > 0 ? Math.round((doneCount / total) * 100) : 0;
+                    const safeName = Utils.escapeHTML(disc.name);
+                    const miniIcon = Utils.getMiniIcon(disc.icon);
+                    html += `
+                    <div class="sidebar-item sidebar-discipline-item" data-discipline="${safeName}" onclick="Sidebar.toggleDiscipline(event, '${safeName}')">
+                        <span class="sidebar-icon">${miniIcon}</span>
+                        <span>${safeName}</span>
+                        <span style="font-size:0.7rem;color:var(--text-muted);margin-left:auto;margin-right:4px;">${doneCount}/${total}</span>
+                        <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </div>
+                    <div class="sidebar-subitems" id="subitems-${CSS.escape(disc.name)}">
+                        <div class="sidebar-subitem" onclick="Sidebar.navigateTo('discipline', '${safeName}', 'pdfs')">
+                            📄 PDFs <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">${disc.pdfs.length}</span>
+                        </div>
+                        <div class="sidebar-subitem" onclick="Sidebar.navigateTo('discipline', '${safeName}', 'videos')">
+                            🎬 Vídeos <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">${disc.videos.length}</span>
+                        </div>
+                    </div>`;
+                });
+                container.innerHTML = html;
+
+                // Update badges
+                const sidebarFavBadge = document.getElementById('sidebarFavBadge');
+                if (sidebarFavBadge) {
+                    sidebarFavBadge.textContent = favCount;
+                    sidebarFavBadge.style.display = favCount > 0 ? 'inline-block' : 'none';
+                }
+            },
+            toggleDiscipline(event, disciplineName) {
+                event.stopPropagation();
+                const item = event.currentTarget;
+                const subitems = document.getElementById(`subitems-${CSS.escape(disciplineName)}`);
+                if (!subitems) return;
+                const isOpen = subitems.classList.contains('open');
+                // Fechar todos os outros
+                document.querySelectorAll('.sidebar-subitems.open').forEach(el => {
+                    if (el !== subitems) el.classList.remove('open');
+                });
+                document.querySelectorAll('.sidebar-discipline-item.expanded').forEach(el => {
+                    if (el !== item) el.classList.remove('expanded');
+                });
+                if (isOpen) {
+                    subitems.classList.remove('open');
+                    item.classList.remove('expanded');
+                } else {
+                    subitems.classList.add('open');
+                    item.classList.add('expanded');
+                }
+            },
+            updateActiveOnPageChange(page, disciplineName = null, tab = null) {
+                this.setActiveItem(page, disciplineName);
+                if (tab) this.currentTab = tab;
+            },
+            refreshBadges() {
+                const favCount = Storage.getFavorites().length;
+                document.querySelectorAll('#sidebarFavBadge, #favBadge').forEach(badge => {
+                    badge.textContent = favCount;
+                    badge.style.display = favCount > 0 ? 'flex' : 'none';
+                });
+            }
         };
 
         const Render = {
@@ -1109,6 +1550,8 @@
                 document.getElementById('disciplineSubtitle').textContent = `${disc.pdfs.length} PDFs · ${disc.videos.length} Vídeos · ${disc.all.length} materiais no total`;
                 document.querySelectorAll('#disciplineTabs .tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === 0));
                 this.renderDisciplineMaterials();
+                // Atualizar sidebar
+                Sidebar.updateActiveOnPageChange('discipline', disc.name, 'pdfs');
             },
 
             switchDisciplineTab(tab) {
@@ -1117,6 +1560,9 @@
                     btn.classList.toggle('active', btn.textContent.trim().toLowerCase().includes(tab));
                 });
                 this.renderDisciplineMaterials();
+                if (this.currentDiscipline) {
+                    Sidebar.updateActiveOnPageChange('discipline', this.currentDiscipline.name, tab);
+                }
             },
 
             renderDisciplineMaterials() {
@@ -1143,11 +1589,11 @@
 
                 let thumbHTML = '';
                 if (isVideo && thumbUrl) {
-                    thumbHTML = `<img src="${thumbUrl}" alt="Thumbnail do vídeo" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\"icon-placeholder\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polygon points=\"23 7 16 12 23 17 23 7\"/><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\"/></svg></div>'">`;
+                    thumbHTML = `<img src="${thumbUrl}" alt="Thumbnail do vídeo" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\"icon-placeholder\"><img src=\"${Config.VIDEO_ICON_URL}\" alt=\"Vídeo\" width=\"40\" height=\"40\" style=\"object-fit:contain;\"></div>'">`;
                 } else if (isVideo) {
-                    thumbHTML = `<div class="icon-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>`;
+                    thumbHTML = `<div class="icon-placeholder"><img src="${Config.VIDEO_ICON_URL}" alt="Vídeo" width="40" height="40" style="object-fit:contain;"></div>`;
                 } else {
-                    thumbHTML = `<div class="icon-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>`;
+                    thumbHTML = `<div class="icon-placeholder"><img src="${Config.PDF_ICON_URL}" alt="PDF" width="40" height="40" style="object-fit:contain;"></div>`;
                 }
 
                 return `
@@ -1267,6 +1713,8 @@
                     const disciplines = Utils.groupByDiscipline(App.allMaterials);
                     Render.renderHome(disciplines);
                 }
+                // Atualizar sidebar
+                Sidebar.updateActiveOnPageChange(page);
             },
 
             openDiscipline(disciplineName) {
@@ -1289,6 +1737,9 @@
                     case 'discipline': if (Render.currentDiscipline) Render.renderDisciplineMaterials(); break;
                 }
                 this.updateBadges();
+                Sidebar.refreshBadges();
+                // Re-renderizar sidebar se disciplinas mudaram (ex: após sync)
+                Sidebar.render(disciplines);
             },
 
             updateBadges() {
@@ -1298,6 +1749,7 @@
                     favBadge.textContent = favCount;
                     favBadge.style.display = favCount > 0 ? 'flex' : 'none';
                 }
+                Sidebar.refreshBadges();
             },
         };
 
@@ -1365,12 +1817,10 @@
             isLoading: false,
 
             async init() {
-                // Verificar login
                 if (!Storage.isLoggedIn()) {
                     this.showLoginScreen();
                     return;
                 }
-                // Já logado, esconder login, mostrar app
                 this.showAppScreen();
 
                 const darkMode = Storage.getDarkMode();
@@ -1383,6 +1833,7 @@
                     this.allMaterials = cache.data;
                     const disciplines = Utils.groupByDiscipline(this.allMaterials);
                     Render.renderHome(disciplines);
+                    Sidebar.render(disciplines);
                     Navigation.updateBadges();
                     if (!Storage.isCacheValid()) {
                         this.fetchAndCache(true);
@@ -1421,18 +1872,15 @@
                         passwordInput.focus();
                         return;
                     }
-                    // Sucesso
                     Storage.setLoggedIn(true);
                     errorEl.textContent = '';
                     this.showAppScreen();
-                    this.init(); // recarrega dados
+                    this.init();
                 };
 
                 loginBtn.addEventListener('click', performLogin);
                 passwordInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
-                        performLogin();
-                    }
+                    if (e.key === 'Enter') performLogin();
                 });
 
                 toggleBtn.addEventListener('click', () => {
@@ -1446,7 +1894,6 @@
 
             logout() {
                 Storage.setLoggedIn(false);
-                // Limpar estado visual (opcional)
                 this.allMaterials = [];
                 Render.showSkeletons();
                 document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1454,6 +1901,7 @@
                 document.getElementById('searchInput').value = '';
                 Navigation.currentPage = 'home';
                 document.getElementById('loginPassword').value = '';
+                Sidebar.close();
                 this.showLoginScreen();
             },
 
@@ -1477,16 +1925,17 @@
                     if (data && data.length > 0) {
                         this.allMaterials = data;
                         Storage.setCache(data);
+                        const disciplines = Utils.groupByDiscipline(this.allMaterials);
                         if (!silent) {
-                            const disciplines = Utils.groupByDiscipline(this.allMaterials);
                             Render.renderHome(disciplines);
+                            Sidebar.render(disciplines);
                             Navigation.updateBadges();
                             Toast.success('Dados atualizados com sucesso!');
                         } else {
                             if (Navigation.currentPage === 'home') {
-                                const disciplines = Utils.groupByDiscipline(this.allMaterials);
                                 Render.renderHome(disciplines);
                             }
+                            Sidebar.render(disciplines);
                             Navigation.updateBadges();
                         }
                     } else if (!silent && this.allMaterials.length === 0) {
@@ -1520,6 +1969,8 @@
                 await this.fetchAndCache(false);
                 if (syncIcon) syncIcon.style.animation = '';
                 Navigation.refreshCurrentPage();
+                const disciplines = Utils.groupByDiscipline(this.allMaterials);
+                Sidebar.render(disciplines);
             },
 
             toggleFavorite(id) {
@@ -1528,6 +1979,8 @@
                 Navigation.updateBadges();
                 Toast.success(added ? 'Adicionado aos favoritos! ⭐' : 'Removido dos favoritos.');
                 if (Navigation.currentPage === 'favorites') Render.renderFavorites(this.allMaterials);
+                const disciplines = Utils.groupByDiscipline(this.allMaterials);
+                Sidebar.render(disciplines);
             },
 
             toggleDone(id) {
@@ -1543,6 +1996,8 @@
                 if (Navigation.currentPage === 'discipline' && Render.currentDiscipline) {
                     Render.renderDisciplineMaterials();
                 }
+                const disciplines = Utils.groupByDiscipline(this.allMaterials);
+                Sidebar.render(disciplines);
             },
 
             openMaterial(link, id) {
@@ -1601,6 +2056,7 @@
             },
         };
 
+        // Polyfill
         if (!CanvasRenderingContext2D.prototype.roundRect) {
             CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, radii) {
                 const r = Array.isArray(radii) ? radii : [radii, radii, radii, radii];

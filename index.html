@@ -2866,7 +2866,6 @@
                     '</div>';
                 }).join('');
 
-                // Marcar notificações como lidas ao abrir o painel
                 notifications.forEach(function(n) {
                     if (!n.read) {
                         IDBManager.markNotificationRead(n.id).catch(function() {});

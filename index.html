@@ -7,12 +7,12 @@
     <meta name="description" content="Portal de estudos para concursos públicos - VULP +">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f5f6fa;
+            --bg: #f7f8fb;
             --surface: #ffffff;
-            --surface-hover: #f0f1f5;
+            --surface-hover: #f8f9fc;
             --text: #1a1a2e;
             --text-secondary: #5a5a7a;
             --text-muted: #8a8aa0;
@@ -28,21 +28,21 @@
             --danger-bg: #fef2f2;
             --warning: #f59e0b;
             --warning-bg: #fffbeb;
-            --border: #e2e4ea;
-            --border-light: #eef0f5;
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
-            --shadow: 0 2px 4px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.04);
-            --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.06), 0 6px 16px rgba(0, 0, 0, 0.04);
+            --border: #e6e8f0;
+            --border-light: #f0f2f7;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.018), 0 1px 2px rgba(0, 0, 0, 0.022);
+            --shadow: 0 2px 6px rgba(0, 0, 0, 0.018), 0 1px 3px rgba(0, 0, 0, 0.022);
+            --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.022), 0 2px 5px rgba(0, 0, 0, 0.022);
+            --shadow-lg: 0 8px 26px rgba(0, 0, 0, 0.028), 0 3px 8px rgba(0, 0, 0, 0.022);
+            --shadow-xl: 0 14px 36px rgba(0, 0, 0, 0.032), 0 4px 12px rgba(0, 0, 0, 0.024);
             --radius-xs: 6px;
             --radius-sm: 8px;
             --radius: 10px;
-            --radius-md: 14px;
+            --radius-md: 15px;
             --radius-lg: 18px;
             --radius-xl: 22px;
             --radius-full: 9999px;
-            --font-sans: 'Manrope', sans-serif;
+            --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
             --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -71,12 +71,12 @@
             --warning: #fbbf24;
             --warning-bg: #2e2000;
             --border: #2a2a40;
-            --border-light: #22223a;
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.15);
-            --shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
-            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
-            --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.35);
+            --border-light: #24243a;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+            --shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+            --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 8px 26px rgba(0, 0, 0, 0.24);
+            --shadow-xl: 0 14px 36px rgba(0, 0, 0, 0.28);
         }
 
         *,
@@ -130,7 +130,8 @@
         ul {
             list-style: none;
         }
-        input, select {
+        input,
+        select {
             font-family: inherit;
             border: none;
             outline: none;
@@ -139,7 +140,8 @@
             font-size: inherit;
             letter-spacing: -0.01em;
         }
-        input:focus-visible, select:focus-visible {
+        input:focus-visible,
+        select:focus-visible {
             outline: 2.5px solid var(--primary);
             outline-offset: 2px;
             border-radius: var(--radius-xs);
@@ -172,7 +174,7 @@
             background: var(--surface);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-xl);
-            padding: 44px 36px;
+            padding: 48px 38px;
             width: 100%;
             max-width: 400px;
             border: 1px solid var(--border-light);
@@ -226,7 +228,7 @@
             align-items: center;
             background: var(--bg);
             border-radius: var(--radius-sm);
-            border: 1.5px solid var(--border-light);
+            border: 1px solid var(--border-light);
             transition: border var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
             box-shadow: var(--shadow-sm);
         }
@@ -284,7 +286,7 @@
         }
         .login-btn:hover {
             background: var(--primary-dark);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.25);
             transform: translateY(-1px);
         }
         .login-btn:active {
@@ -319,7 +321,7 @@
             box-shadow: var(--shadow-xl);
             width: 100%;
             max-width: 500px;
-            padding: 44px 32px 36px;
+            padding: 48px 36px 40px;
             text-align: center;
             border: 1px solid var(--border-light);
             animation: welcomeScaleIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -330,12 +332,22 @@
             border-color: #2a2a40;
         }
         @keyframes welcomeScaleIn {
-            from { opacity: 0; transform: scale(0.92); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         .welcome-modal .welcome-logo {
             width: 140px;
@@ -397,7 +409,7 @@
         }
         .welcome-start-btn:hover {
             background: var(--primary-dark);
-            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
             transform: translateY(-2px);
         }
         .welcome-start-btn:active {
@@ -407,7 +419,7 @@
         @media (max-width: 520px) {
             .welcome-modal {
                 max-width: 90%;
-                padding: 32px 20px 28px;
+                padding: 36px 22px 32px;
             }
             .welcome-modal .welcome-logo {
                 width: 110px;
@@ -646,7 +658,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.45);
+            background: rgba(0, 0, 0, 0.45);
             z-index: 1050;
             transition: opacity var(--transition-slow);
             backdrop-filter: blur(2px);
@@ -725,7 +737,7 @@
             align-items: center;
             padding: 0 18px;
             height: 44px;
-            border: 1.5px solid transparent;
+            border: 1px solid transparent;
             transition: all var(--transition);
             box-shadow: var(--shadow-sm);
         }
@@ -838,9 +850,15 @@
             animation: popIn 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         @keyframes popIn {
-            0% { transform: scale(0); }
-            80% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(0);
+            }
+            80% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
         .notification-panel-overlay {
@@ -999,13 +1017,52 @@
             display: block;
         }
         @keyframes fadeSlideIn {
-            from { opacity: 0; transform: translateY(14px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
-        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-        @keyframes toastIn { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        @keyframes toastOut { from { opacity: 1; transform: translateY(0) scale(1); } to { opacity: 0; transform: translateY(30px) scale(0.95); } }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        @keyframes toastOut {
+            from {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+        }
 
         .section-header {
             margin-bottom: 26px;
@@ -1024,32 +1081,40 @@
             letter-spacing: -0.01em;
         }
         @media (min-width: 768px) {
-            .section-header h1 { font-size: 2rem; }
+            .section-header h1 {
+                font-size: 2rem;
+            }
         }
 
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 18px;
+            gap: 20px;
         }
         @media (max-width: 480px) {
-            .cards-grid { grid-template-columns: 1fr; gap: 14px; }
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
         }
 
         .discipline-card {
             background: var(--surface);
             border-radius: var(--radius-md);
-            padding: 26px 22px;
+            padding: 30px 26px;
             box-shadow: var(--shadow);
             cursor: pointer;
-            transition: all var(--transition);
-            border: 1px solid var(--border-light);
+            transition: all var(--transition-slow);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
             -webkit-tap-highlight-color: transparent;
+        }
+        .dark .discipline-card {
+            border: 1px solid rgba(255, 255, 255, 0.04);
         }
         .discipline-card::before {
             content: '';
@@ -1060,17 +1125,22 @@
             height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--primary-light));
             opacity: 0;
-            transition: opacity var(--transition);
+            transition: opacity var(--transition-slow);
             border-radius: var(--radius-md) var(--radius-md) 0 0;
         }
         .discipline-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
+            border-color: rgba(79, 70, 229, 0.12);
             background: var(--surface-hover);
         }
-        .discipline-card:hover::before { opacity: 1; }
-        .discipline-card:active { transform: scale(0.99); transition: all 0.1s ease; }
+        .discipline-card:hover::before {
+            opacity: 1;
+        }
+        .discipline-card:active {
+            transform: scale(0.99);
+            transition: all 0.1s ease;
+        }
         .discipline-card .card-icon {
             width: 54px;
             height: 54px;
@@ -1083,8 +1153,15 @@
             color: var(--primary);
             box-shadow: var(--shadow-sm);
         }
-        .discipline-card .card-icon img { width: 28px; height: 28px; object-fit: contain; }
-        .discipline-card .card-icon svg { width: 28px; height: 28px; }
+        .discipline-card .card-icon img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+        .discipline-card .card-icon svg {
+            width: 28px;
+            height: 28px;
+        }
         .discipline-card .card-info h3 {
             font-size: 1.15rem;
             font-weight: 700;
@@ -1150,24 +1227,34 @@
         }
         .discipline-card .open-btn:hover {
             background: var(--primary-dark);
-            box-shadow: 0 6px 18px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 6px 18px rgba(79, 70, 229, 0.25);
             transform: translateY(-1px);
         }
-        .discipline-card .open-btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+        .discipline-card .open-btn:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow-sm);
+        }
 
         .material-card {
             background: var(--surface);
             border-radius: var(--radius);
-            padding: 18px;
+            padding: 22px;
             box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             transition: all var(--transition);
             display: flex;
-            gap: 16px;
+            gap: 18px;
             align-items: flex-start;
             position: relative;
         }
-        .material-card:hover { box-shadow: var(--shadow-md); border-color: var(--border); transform: translateY(-1px); }
+        .dark .material-card {
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .material-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: rgba(0, 0, 0, 0.07);
+            transform: translateY(-1px);
+        }
         .material-card .material-thumb {
             width: 110px;
             height: 72px;
@@ -1181,7 +1268,11 @@
             overflow: hidden;
             box-shadow: var(--shadow-sm);
         }
-        .material-card .material-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .material-card .material-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .material-card .material-thumb .icon-placeholder {
             width: 44px;
             height: 44px;
@@ -1190,7 +1281,11 @@
             align-items: center;
             justify-content: center;
         }
-        .material-card .material-thumb .icon-placeholder img { width: 44px; height: 44px; object-fit: contain; }
+        .material-card .material-thumb .icon-placeholder img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
         .material-card .material-info {
             flex: 1;
             min-width: 0;
@@ -1232,10 +1327,25 @@
             transition: all var(--transition-fast);
             border: 1px solid transparent;
         }
-        .icon-btn:hover { background: var(--bg); color: var(--text); border-color: var(--border-light); }
-        .icon-btn.fav-active { color: #e53e3e; background: var(--danger-bg); border-color: transparent; }
-        .icon-btn.done-active { color: #10b981; background: var(--success-bg); border-color: transparent; }
-        .icon-btn svg { width: 19px; height: 19px; }
+        .icon-btn:hover {
+            background: var(--bg);
+            color: var(--text);
+            border-color: var(--border-light);
+        }
+        .icon-btn.fav-active {
+            color: #e53e3e;
+            background: var(--danger-bg);
+            border-color: transparent;
+        }
+        .icon-btn.done-active {
+            color: #10b981;
+            background: var(--success-bg);
+            border-color: transparent;
+        }
+        .icon-btn svg {
+            width: 19px;
+            height: 19px;
+        }
         .action-btn {
             display: inline-flex;
             align-items: center;
@@ -1251,10 +1361,25 @@
             box-shadow: var(--shadow-sm);
             letter-spacing: -0.01em;
         }
-        .action-btn:hover { background: var(--primary-dark); box-shadow: 0 6px 18px rgba(79, 70, 229, 0.3); transform: translateY(-1px); }
-        .action-btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
-        .action-btn.outline { background: transparent; border: 1.5px solid var(--primary); color: var(--primary); box-shadow: none; }
-        .action-btn.outline:hover { background: var(--primary-bg); box-shadow: var(--shadow-sm); }
+        .action-btn:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 6px 18px rgba(79, 70, 229, 0.25);
+            transform: translateY(-1px);
+        }
+        .action-btn:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow-sm);
+        }
+        .action-btn.outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        .action-btn.outline:hover {
+            background: var(--primary-bg);
+            box-shadow: var(--shadow-sm);
+        }
 
         .download-btn {
             display: inline-flex;
@@ -1275,16 +1400,22 @@
         }
         .download-btn:hover {
             background: #059669;
-            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.25);
             transform: translateY(-1px);
         }
-        .download-btn:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+        .download-btn:active {
+            transform: translateY(0);
+            box-shadow: var(--shadow-sm);
+        }
         .download-btn.downloading {
             background: var(--text-muted);
             pointer-events: none;
             animation: pulse 1.2s infinite;
         }
-        .download-btn svg { width: 16px; height: 16px; }
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+        }
 
         .novo-badge {
             display: inline-flex;
@@ -1306,17 +1437,27 @@
         }
 
         @media (max-width: 480px) {
-            .material-card { flex-direction: column; gap: 12px; }
-            .material-card .material-thumb { width: 100%; height: 150px; }
-            .material-card .material-actions { width: 100%; justify-content: flex-end; flex-wrap: wrap; }
+            .material-card {
+                flex-direction: column;
+                gap: 14px;
+            }
+            .material-card .material-thumb {
+                width: 100%;
+                height: 150px;
+            }
+            .material-card .material-actions {
+                width: 100%;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+            }
         }
 
         .video-card-premium {
             background: var(--surface);
             border-radius: var(--radius-md);
             box-shadow: var(--shadow);
-            border: 1px solid var(--border-light);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             gap: 0;
             overflow: hidden;
@@ -1328,8 +1469,18 @@
             flex-direction: row;
             align-items: stretch;
         }
-        .video-card-premium:hover { box-shadow: var(--shadow-lg); border-color: var(--primary); transform: translateY(-2px); }
-        .video-card-premium:active { transform: scale(0.995); transition: all 0.1s ease; }
+        .dark .video-card-premium {
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .video-card-premium:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(79, 70, 229, 0.12);
+            transform: translateY(-2px);
+        }
+        .video-card-premium:active {
+            transform: scale(0.995);
+            transition: all 0.1s ease;
+        }
         .video-thumb-wrapper {
             position: relative;
             flex-shrink: 0;
@@ -1349,7 +1500,9 @@
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: block;
         }
-        .video-card-premium:hover .video-thumb-img { transform: scale(1.06); }
+        .video-card-premium:hover .video-thumb-img {
+            transform: scale(1.04);
+        }
         .video-play-overlay {
             position: absolute;
             inset: 0;
@@ -1360,7 +1513,9 @@
             transition: background 0.25s ease;
             pointer-events: none;
         }
-        .video-card-premium:hover .video-play-overlay { background: rgba(0, 0, 0, 0.35); }
+        .video-card-premium:hover .video-play-overlay {
+            background: rgba(0, 0, 0, 0.3);
+        }
         .play-circle {
             width: 58px;
             height: 58px;
@@ -1377,7 +1532,11 @@
             line-height: 1;
             padding-left: 3px;
         }
-        .video-card-premium:hover .play-circle { transform: scale(1.12); background: #fff; box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35); }
+        .video-card-premium:hover .play-circle {
+            transform: scale(1.1);
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
         .video-duration-badge {
             position: absolute;
             bottom: 10px;
@@ -1401,10 +1560,15 @@
             background: var(--bg);
             color: var(--text-muted);
         }
-        .video-thumb-placeholder img { width: 56px; height: 56px; object-fit: contain; opacity: 0.7; }
+        .video-thumb-placeholder img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            opacity: 0.7;
+        }
         .video-info-section {
             flex: 1;
-            padding: 20px 22px;
+            padding: 24px 26px;
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -1430,7 +1594,12 @@
             color: var(--text-muted);
             align-items: center;
         }
-        .video-meta-row span { display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+        .video-meta-row span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
         .video-desc-short {
             font-size: 0.84rem;
             color: var(--text-secondary);
@@ -1462,21 +1631,57 @@
             margin-top: 6px;
             flex-wrap: wrap;
         }
-        .video-actions-row .action-btn { font-size: 0.85rem; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 600; gap: 6px; }
-        .video-actions-row .icon-btn { width: 40px; height: 40px; flex-shrink: 0; }
+        .video-actions-row .action-btn {
+            font-size: 0.85rem;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            gap: 6px;
+        }
+        .video-actions-row .icon-btn {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
 
         @media (max-width: 700px) {
-            .video-card-premium { flex-direction: column; }
-            .video-thumb-wrapper { width: 100%; min-height: 200px; max-height: 260px; border-radius: var(--radius-md) var(--radius-md) 0 0; }
-            .video-info-section { padding: 16px 16px 18px; }
-            .video-title-premium { font-size: 1rem; }
-            .play-circle { width: 50px; height: 50px; font-size: 1.4rem; }
+            .video-card-premium {
+                flex-direction: column;
+            }
+            .video-thumb-wrapper {
+                width: 100%;
+                min-height: 200px;
+                max-height: 260px;
+                border-radius: var(--radius-md) var(--radius-md) 0 0;
+            }
+            .video-info-section {
+                padding: 18px 18px 20px;
+            }
+            .video-title-premium {
+                font-size: 1rem;
+            }
+            .play-circle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
         }
         @media (max-width: 480px) {
-            .video-thumb-wrapper { min-height: 180px; max-height: 220px; }
-            .video-info-section { padding: 14px 12px 16px; }
-            .video-actions-row .action-btn { padding: 8px 14px; font-size: 0.8rem; }
-            .video-actions-row .icon-btn { width: 36px; height: 36px; }
+            .video-thumb-wrapper {
+                min-height: 180px;
+                max-height: 220px;
+            }
+            .video-info-section {
+                padding: 16px 14px 18px;
+            }
+            .video-actions-row .action-btn {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+            .video-actions-row .icon-btn {
+                width: 36px;
+                height: 36px;
+            }
         }
 
         .skeleton {
@@ -1485,10 +1690,21 @@
             animation: shimmer 1.6s infinite;
             border-radius: var(--radius-xs);
         }
-        .skeleton-card { height: 230px; border-radius: var(--radius-md); }
-        .skeleton-line { height: 14px; margin-bottom: 8px; border-radius: var(--radius-xs); }
-        .skeleton-line.short { width: 60%; }
-        .skeleton-line.medium { width: 80%; }
+        .skeleton-card {
+            height: 240px;
+            border-radius: var(--radius-md);
+        }
+        .skeleton-line {
+            height: 14px;
+            margin-bottom: 8px;
+            border-radius: var(--radius-xs);
+        }
+        .skeleton-line.short {
+            width: 60%;
+        }
+        .skeleton-line.medium {
+            width: 80%;
+        }
 
         .toast-container {
             position: fixed;
@@ -1519,19 +1735,40 @@
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
-        .toast.removing { animation: toastOut 0.3s ease-out forwards; }
-        .toast.success { border-left: 3px solid var(--success); }
-        .toast.error { border-left: 3px solid var(--danger); }
-        .toast.info { border-left: 3px solid var(--primary); }
-        .toast.download { border-left: 3px solid var(--success); }
+        .toast.removing {
+            animation: toastOut 0.3s ease-out forwards;
+        }
+        .toast.success {
+            border-left: 3px solid var(--success);
+        }
+        .toast.error {
+            border-left: 3px solid var(--danger);
+        }
+        .toast.info {
+            border-left: 3px solid var(--primary);
+        }
+        .toast.download {
+            border-left: 3px solid var(--success);
+        }
 
         .empty-state {
             text-align: center;
             padding: 56px 24px;
             color: var(--text-muted);
         }
-        .empty-state svg { width: 72px; height: 72px; margin-bottom: 18px; opacity: 0.4; }
-        .empty-state h3 { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 6px; font-weight: 600; letter-spacing: -0.01em; }
+        .empty-state svg {
+            width: 72px;
+            height: 72px;
+            margin-bottom: 18px;
+            opacity: 0.4;
+        }
+        .empty-state h3 {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
 
         .back-btn {
             display: inline-flex;
@@ -1546,8 +1783,15 @@
             letter-spacing: -0.01em;
             border: 1px solid transparent;
         }
-        .back-btn:hover { background: var(--bg); color: var(--text); border-color: var(--border-light); }
-        .back-btn svg { width: 18px; height: 18px; }
+        .back-btn:hover {
+            background: var(--bg);
+            color: var(--text);
+            border-color: var(--border-light);
+        }
+        .back-btn svg {
+            width: 18px;
+            height: 18px;
+        }
 
         .tabs {
             display: flex;
@@ -1570,8 +1814,15 @@
             white-space: nowrap;
             letter-spacing: -0.01em;
         }
-        .tab-btn.active { background: var(--surface); color: var(--primary); box-shadow: var(--shadow); }
-        .tab-btn:hover:not(.active) { color: var(--text); background: var(--surface-hover); }
+        .tab-btn.active {
+            background: var(--surface);
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        .tab-btn:hover:not(.active) {
+            color: var(--text);
+            background: var(--surface-hover);
+        }
 
         .downloads-list .download-item {
             display: flex;
@@ -1579,12 +1830,17 @@
             gap: 14px;
             background: var(--surface);
             border-radius: var(--radius);
-            padding: 16px;
+            padding: 18px 20px;
             margin-bottom: 10px;
-            border: 1px solid var(--border-light);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             transition: all var(--transition);
         }
-        .download-item:hover { box-shadow: var(--shadow-md); }
+        .dark .downloads-list .download-item {
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .download-item:hover {
+            box-shadow: var(--shadow-md);
+        }
         .download-item .download-icon {
             width: 42px;
             height: 42px;
@@ -1595,7 +1851,10 @@
             justify-content: center;
             flex-shrink: 0;
         }
-        .download-item .download-info { flex: 1; min-width: 0; }
+        .download-item .download-info {
+            flex: 1;
+            min-width: 0;
+        }
         .download-item .download-info h4 {
             font-weight: 600;
             font-size: 0.92rem;
@@ -1645,38 +1904,96 @@
         }
 
         @media (max-width: 480px) {
-            .notification-panel { max-width: 100%; right: -100%; }
-            .download-item { flex-wrap: wrap; }
-            .download-item .download-actions { width: 100%; justify-content: flex-end; }
+            .notification-panel {
+                max-width: 100%;
+                right: -100%;
+            }
+            .download-item {
+                flex-wrap: wrap;
+            }
+            .download-item .download-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
         }
 
         @media (min-width: 769px) {
-            .hamburger-btn { display: none; }
-            .navbar-logo { display: none; }
-            .sidebar { transform: translateX(0); }
-            .sidebar-overlay { display: none !important; }
-            .main-content { margin-left: var(--sidebar-width); }
-            .navbar { left: var(--sidebar-width); }
+            .hamburger-btn {
+                display: none;
+            }
+            .navbar-logo {
+                display: none;
+            }
+            .sidebar {
+                transform: translateX(0);
+            }
+            .sidebar-overlay {
+                display: none !important;
+            }
+            .main-content {
+                margin-left: var(--sidebar-width);
+            }
+            .navbar {
+                left: var(--sidebar-width);
+            }
         }
         @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.open { transform: translateX(0); }
-            .sidebar-close-btn { display: flex; }
-            .main-content { margin-left: 0; }
-            .navbar { left: 0; }
-            .navbar-logo { display: flex; }
-            .nav-label { display: none; }
-            .nav-btn { width: 38px; height: 38px; }
-            .navbar-search { max-width: 220px; height: 40px; }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .sidebar-close-btn {
+                display: flex;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .navbar {
+                left: 0;
+            }
+            .navbar-logo {
+                display: flex;
+            }
+            .nav-label {
+                display: none;
+            }
+            .nav-btn {
+                width: 38px;
+                height: 38px;
+            }
+            .navbar-search {
+                max-width: 220px;
+                height: 40px;
+            }
         }
         @media (max-width: 480px) {
-            .navbar { padding: 0 10px; gap: 6px; }
-            .navbar-search { max-width: 150px; padding: 0 10px; height: 38px; }
-            .section-header h1 { font-size: 1.45rem; }
-            .cards-grid { grid-template-columns: 1fr; }
+            .navbar {
+                padding: 0 10px;
+                gap: 6px;
+            }
+            .navbar-search {
+                max-width: 150px;
+                padding: 0 10px;
+                height: 38px;
+            }
+            .section-header h1 {
+                font-size: 1.45rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1979,8 +2296,7 @@
 
         const Storage = {
             get(key, defaultValue = null) {
-                try { const raw = localStorage.getItem(key); return raw === null ? defaultValue : JSON.parse(raw); }
-                catch (e) { console.warn('[Storage] Erro ao ler:', key, e); return defaultValue; }
+                try { const raw = localStorage.getItem(key); return raw === null ? defaultValue : JSON.parse(raw); } catch (e) { console.warn('[Storage] Erro ao ler:', key, e); return defaultValue; }
             },
             set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { console.warn('[Storage] Erro ao salvar:', key, e); } },
             remove(key) { try { localStorage.removeItem(key); } catch (e) { console.warn('[Storage] Erro ao remover:', key, e); } },
@@ -2038,7 +2354,7 @@
                     const data = await response.json();
                     let items = Array.isArray(data) ? data : (data.data || data.records || []);
                     items = items.filter(item => item.Status === 'ATIVO' || item.Status === 'ativo' || item.Status === 'Ativo')
-                                 .sort((a, b) => (parseInt(a.Ordem) || 0) - (parseInt(b.Ordem) || 0));
+                        .sort((a, b) => (parseInt(a.Ordem) || 0) - (parseInt(b.Ordem) || 0));
                     return items;
                 } catch (error) { console.error('[API] Erro:', error); throw error; }
             },
@@ -2135,8 +2451,8 @@
                 const sidebar = document.getElementById('sidebar');
                 const overlay = document.getElementById('sidebarOverlay');
                 const isOpen = sidebar.classList.contains('open');
-                if (isOpen) { this.close(); }
-                else { sidebar.classList.add('open'); overlay.classList.add('visible'); }
+                if (isOpen) { this.close(); } else { sidebar.classList.add('open');
+                    overlay.classList.add('visible'); }
             },
             close() {
                 document.getElementById('sidebar').classList.remove('open');
@@ -2144,11 +2460,11 @@
             },
             navigateTo(page, disciplineName, tab) {
                 if (window.innerWidth <= 768) this.close();
-                if (page === 'home') { Navigation.navigateTo('home'); this.setActiveItem('home'); }
-                else if (page === 'favorites') { Navigation.navigateTo('favorites'); this.setActiveItem('favorites'); }
-                else if (page === 'done') { Navigation.navigateTo('done'); this.setActiveItem('done'); }
-                else if (page === 'downloads') { Navigation.navigateTo('downloads'); this.setActiveItem('downloads'); }
-                else if (page === 'discipline' && disciplineName) {
+                if (page === 'home') { Navigation.navigateTo('home');
+                    this.setActiveItem('home'); } else if (page === 'favorites') { Navigation.navigateTo('favorites');
+                    this.setActiveItem('favorites'); } else if (page === 'done') { Navigation.navigateTo('done');
+                    this.setActiveItem('done'); } else if (page === 'downloads') { Navigation.navigateTo('downloads');
+                    this.setActiveItem('downloads'); } else if (page === 'discipline' && disciplineName) {
                     Navigation.openDiscipline(disciplineName);
                     if (tab) setTimeout(function() { Render.switchDisciplineTab(tab); }, 100);
                     this.setActiveItem('discipline', disciplineName);
@@ -2158,12 +2474,14 @@
                 document.querySelectorAll('.sidebar-item[data-page]').forEach(function(el) { el.classList.remove('active'); });
                 document.querySelectorAll('.sidebar-discipline-item').forEach(function(el) { el.classList.remove('active'); });
                 document.querySelectorAll('.sidebar-subitem').forEach(function(el) { el.classList.remove('active'); });
-                if (page === 'home') { var el = document.querySelector('.sidebar-item[data-page="home"]'); if (el) el.classList.add('active'); }
-                else if (page === 'favorites') { var el = document.querySelector('.sidebar-item[data-page="favorites"]'); if (el) el.classList.add('active'); }
-                else if (page === 'done') { var el = document.querySelector('.sidebar-item[data-page="done"]'); if (el) el.classList.add('active'); }
-                else if (page === 'downloads') { var el = document.querySelector('.sidebar-item[data-page="downloads"]'); if (el) el.classList.add('active'); }
-                else if (page === 'discipline' && disciplineName) {
-                    var sel = document.querySelector('.sidebar-discipline-item[data-discipline="' + CSS.escape(disciplineName) + '"]');
+                if (page === 'home') { var el = document.querySelector('.sidebar-item[data-page="home"]'); if (el) el.classList.add(
+                        'active'); } else if (page === 'favorites') { var el = document.querySelector(
+                        '.sidebar-item[data-page="favorites"]'); if (el) el.classList.add('active'); } else if (page === 'done') { var
+                        el = document.querySelector('.sidebar-item[data-page="done"]'); if (el) el.classList.add('active'); } else if (
+                        page === 'downloads') { var el = document.querySelector('.sidebar-item[data-page="downloads"]'); if (el) el
+                        .classList.add('active'); } else if (page === 'discipline' && disciplineName) {
+                    var sel = document.querySelector('.sidebar-discipline-item[data-discipline="' + CSS.escape(disciplineName) +
+                        '"]');
                     if (sel) sel.classList.add('active');
                 }
                 this.currentDisciplineName = disciplineName;
@@ -2178,20 +2496,27 @@
                     const total = disc.all.length;
                     const safeName = Utils.escapeHTML(disc.name);
                     const miniIcon = Utils.getMiniIcon(disc.icon);
-                    html += '<div class="sidebar-item sidebar-discipline-item" data-discipline="' + safeName + '" onclick="Sidebar.toggleDiscipline(event, \'' + safeName + '\')">' +
+                    html += '<div class="sidebar-item sidebar-discipline-item" data-discipline="' + safeName +
+                        '" onclick="Sidebar.toggleDiscipline(event, \'' + safeName + '\')">' +
                         '<span class="sidebar-icon">' + miniIcon + '</span>' +
                         '<span>' + safeName + '</span>' +
-                        '<span style="font-size:0.7rem;color:var(--text-muted);margin-left:auto;margin-right:4px;">' + doneCount + '/' + total + '</span>' +
+                        '<span style="font-size:0.7rem;color:var(--text-muted);margin-left:auto;margin-right:4px;">' + doneCount +
+                        '/' + total + '</span>' +
                         '<svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>' +
-                    '</div>' +
-                    '<div class="sidebar-subitems" id="subitems-' + CSS.escape(disc.name) + '">' +
-                        '<div class="sidebar-subitem" onclick="Sidebar.navigateTo(\'discipline\', \'' + safeName + '\', \'pdfs\')">📄 PDFs <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">' + disc.pdfs.length + '</span></div>' +
-                        '<div class="sidebar-subitem" onclick="Sidebar.navigateTo(\'discipline\', \'' + safeName + '\', \'videos\')">🎬 Vídeos <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">' + disc.videos.length + '</span></div>' +
-                    '</div>';
+                        '</div>' +
+                        '<div class="sidebar-subitems" id="subitems-' + CSS.escape(disc.name) + '">' +
+                        '<div class="sidebar-subitem" onclick="Sidebar.navigateTo(\'discipline\', \'' + safeName +
+                        '\', \'pdfs\')">📄 PDFs <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">' + disc
+                        .pdfs.length + '</span></div>' +
+                        '<div class="sidebar-subitem" onclick="Sidebar.navigateTo(\'discipline\', \'' + safeName +
+                        '\', \'videos\')">🎬 Vídeos <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted);">' +
+                        disc.videos.length + '</span></div>' +
+                        '</div>';
                 });
                 container.innerHTML = html;
                 const sidebarFavBadge = document.getElementById('sidebarFavBadge');
-                if (sidebarFavBadge) { sidebarFavBadge.textContent = favCount; sidebarFavBadge.style.display = favCount > 0 ? 'inline-block' : 'none'; }
+                if (sidebarFavBadge) { sidebarFavBadge.textContent = favCount;
+                    sidebarFavBadge.style.display = favCount > 0 ? 'inline-block' : 'none'; }
             },
             toggleDiscipline(event, disciplineName) {
                 event.stopPropagation();
@@ -2199,10 +2524,13 @@
                 const subitems = document.getElementById('subitems-' + CSS.escape(disciplineName));
                 if (!subitems) return;
                 const isOpen = subitems.classList.contains('open');
-                document.querySelectorAll('.sidebar-subitems.open').forEach(function(el) { if (el !== subitems) el.classList.remove('open'); });
-                document.querySelectorAll('.sidebar-discipline-item.expanded').forEach(function(el) { if (el !== item) el.classList.remove('expanded'); });
-                if (isOpen) { subitems.classList.remove('open'); item.classList.remove('expanded'); }
-                else { subitems.classList.add('open'); item.classList.add('expanded'); }
+                document.querySelectorAll('.sidebar-subitems.open').forEach(function(el) { if (el !== subitems) el.classList.remove(
+                        'open'); });
+                document.querySelectorAll('.sidebar-discipline-item.expanded').forEach(function(el) { if (el !== item) el.classList
+                        .remove('expanded'); });
+                if (isOpen) { subitems.classList.remove('open');
+                    item.classList.remove('expanded'); } else { subitems.classList.add('open');
+                    item.classList.add('expanded'); }
             },
             updateActiveOnPageChange(page, disciplineName, tab) {
                 this.setActiveItem(page, disciplineName);
@@ -2233,21 +2561,33 @@
                     const total = disc.all.length;
                     const doneCount = disc.all.filter(function(m) { return Storage.isDone(m.ID); }).length;
                     const progress = total > 0 ? Math.round((doneCount / total) * 100) : 0;
-                    return '<div class="discipline-card" onclick="Navigation.openDiscipline(\'' + Utils.escapeHTML(disc.name) + '\')" role="button" tabindex="0">' +
+                    return '<div class="discipline-card" onclick="Navigation.openDiscipline(\'' + Utils.escapeHTML(disc.name) +
+                        '\')" role="button" tabindex="0">' +
                         '<div class="card-icon">' + disc.icon + '</div>' +
-                        '<div class="card-info"><h3>' + Utils.escapeHTML(disc.name) + '</h3><span class="card-category">' + (disc.pdfs.length + disc.videos.length) + ' materiais</span></div>' +
-                        '<div class="card-stats"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> ' + disc.pdfs.length + ' PDFs</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> ' + disc.videos.length + ' Vídeos</span></div>' +
-                        '<div class="progress-bar-container"><div class="progress-bar-fill" style="width:' + progress + '%;"></div></div>' +
-                        '<div style="font-size:0.78rem;color:var(--text-muted);">' + doneCount + ' de ' + total + ' concluídos (' + progress + '%)</div>' +
-                        '<button class="open-btn" onclick="event.stopPropagation(); Navigation.openDiscipline(\'' + Utils.escapeHTML(disc.name) + '\')">Abrir Disciplina <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>' +
-                    '</div>';
+                        '<div class="card-info"><h3>' + Utils.escapeHTML(disc.name) +
+                        '</h3><span class="card-category">' + (disc.pdfs.length + disc.videos.length) + ' materiais</span></div>' +
+                        '<div class="card-stats"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> ' +
+                        disc.pdfs.length +
+                        ' PDFs</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg> ' +
+                        disc.videos.length + ' Vídeos</span></div>' +
+                        '<div class="progress-bar-container"><div class="progress-bar-fill" style="width:' + progress +
+                        '%;"></div></div>' +
+                        '<div style="font-size:0.78rem;color:var(--text-muted);">' + doneCount + ' de ' + total + ' concluídos (' +
+                        progress + '%)</div>' +
+                        '<button class="open-btn" onclick="event.stopPropagation(); Navigation.openDiscipline(\'' + Utils.escapeHTML(
+                            disc.name) +
+                        '\')">Abrir Disciplina <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>' +
+                        '</div>';
                 }).join('');
             },
             renderDiscipline(disc) {
-                this.currentDiscipline = disc; this.currentDisciplineTab = 'pdfs';
+                this.currentDiscipline = disc;
+                this.currentDisciplineTab = 'pdfs';
                 document.getElementById('disciplineTitle').innerHTML = disc.icon + ' ' + Utils.escapeHTML(disc.name);
-                document.getElementById('disciplineSubtitle').textContent = disc.pdfs.length + ' PDFs · ' + disc.videos.length + ' Vídeos · ' + disc.all.length + ' materiais no total';
-                document.querySelectorAll('#disciplineTabs .tab-btn').forEach(function(btn, i) { btn.classList.toggle('active', i === 0); });
+                document.getElementById('disciplineSubtitle').textContent = disc.pdfs.length + ' PDFs · ' + disc.videos.length +
+                    ' Vídeos · ' + disc.all.length + ' materiais no total';
+                document.querySelectorAll('#disciplineTabs .tab-btn').forEach(function(btn, i) { btn.classList.toggle('active', i ===
+                        0); });
                 this.renderDisciplineMaterials();
                 Sidebar.updateActiveOnPageChange('discipline', disc.name, 'pdfs');
             },
@@ -2260,11 +2600,13 @@
                 if (this.currentDiscipline) Sidebar.updateActiveOnPageChange('discipline', this.currentDiscipline.name, tab);
             },
             renderDisciplineMaterials() {
-                const disc = this.currentDiscipline; if (!disc) return;
+                const disc = this.currentDiscipline;
+                if (!disc) return;
                 const materials = this.currentDisciplineTab === 'pdfs' ? disc.pdfs : disc.videos;
                 const container = document.getElementById('disciplineMaterials');
                 if (materials.length === 0) {
-                    container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><h3>Nenhum ' + (this.currentDisciplineTab === 'pdfs' ? 'PDF' : 'vídeo') + ' nesta disciplina</h3></div>';
+                    container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><h3>Nenhum ' +
+                        (this.currentDisciplineTab === 'pdfs' ? 'PDF' : 'vídeo') + ' nesta disciplina</h3></div>';
                     return;
                 }
                 container.innerHTML = materials.map(function(mat) { return Render.createMaterialCard(mat); }).join('');
@@ -2279,22 +2621,38 @@
                 const isNew = !Storage.isMaterialViewed(mat.ID);
                 const hasLink = mat.Link && mat.Link.trim() !== '';
                 const novoBadge = isNew ? '<span class="novo-badge">NOVO</span>' : '';
-                const thumbHTML = '<div class="icon-placeholder"><img src="' + Config.PDF_ICON_URL + '" alt="PDF" width="44" height="44" style="object-fit:contain;"></div>';
+                const thumbHTML =
+                    '<div class="icon-placeholder"><img src="' + Config.PDF_ICON_URL +
+                    '" alt="PDF" width="44" height="44" style="object-fit:contain;"></div>';
                 return '<div class="material-card" id="material-' + mat.ID + '">' + novoBadge +
                     '<div class="material-thumb">' + thumbHTML + '</div>' +
                     '<div class="material-info">' +
-                        '<h4 title="' + Utils.escapeHTML(mat['Título'] || mat.Titulo || '') + '">' + Utils.escapeHTML(mat['Título'] || mat.Titulo || 'Sem título') + '</h4>' +
-                        '<div class="material-meta">' +
-                            (mat.Categoria ? '<span>📂 ' + Utils.escapeHTML(mat.Categoria) + '</span>' : '') +
-                            (mat.Professor ? '<span>👤 ' + Utils.escapeHTML(mat.Professor) + '</span>' : '') +
-                            (mat['Carga Horária'] || mat['Carga Horaria'] ? '<span>⏱️ ' + Utils.escapeHTML(mat['Carga Horária'] || mat['Carga Horaria']) + '</span>' : '') +
-                        '</div>' +
+                    '<h4 title="' + Utils.escapeHTML(mat['Título'] || mat.Titulo || '') + '">' + Utils.escapeHTML(mat['Título'] || mat
+                        .Titulo || 'Sem título') + '</h4>' +
+                    '<div class="material-meta">' +
+                    (mat.Categoria ? '<span>📂 ' + Utils.escapeHTML(mat.Categoria) + '</span>' : '') +
+                    (mat.Professor ? '<span>👤 ' + Utils.escapeHTML(mat.Professor) + '</span>' : '') +
+                    (mat['Carga Horária'] || mat['Carga Horaria'] ? '<span>⏱️ ' + Utils.escapeHTML(mat['Carga Horária'] || mat[
+                        'Carga Horaria']) + '</span>' : '') +
+                    '</div>' +
                     '</div>' +
                     '<div class="material-actions">' +
-                        '<button class="icon-btn fav-btn ' + (isFav ? 'fav-active' : '') + '" onclick="App.toggleFavorite(\'' + mat.ID + '\')" title="' + (isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos') + '" aria-label="Favorito"><svg viewBox="0 0 24 24" fill="' + (isFav ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>' +
-                        '<button class="icon-btn done-btn ' + (isDone ? 'done-active' : '') + '" onclick="App.toggleDone(\'' + mat.ID + '\')" title="' + (isDone ? 'Marcar como não concluído' : 'Marcar como concluído') + '" aria-label="Concluído"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></button>' +
-                        '<button class="action-btn open-material-btn" data-link="' + Utils.escapeHTML(mat.Link || '') + '" data-id="' + mat.ID + '" title="' + (hasLink ? 'Abrir material' : 'Link não cadastrado') + '">📖 Abrir</button>' +
-                        '<button class="download-btn" data-link="' + Utils.escapeHTML(mat.Link || '') + '" data-id="' + mat.ID + '" data-name="' + Utils.escapeHTML(mat['Título'] || mat.Titulo || 'documento') + '" data-disciplina="' + Utils.escapeHTML(mat.Disciplina || '') + '" title="Baixar PDF" onclick="event.stopPropagation(); DownloadManager.downloadPDF(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar</button>' +
+                    '<button class="icon-btn fav-btn ' + (isFav ? 'fav-active' : '') +
+                    '" onclick="App.toggleFavorite(\'' + mat.ID + '\')" title="' + (isFav ? 'Remover dos favoritos' :
+                        'Adicionar aos favoritos') + '" aria-label="Favorito"><svg viewBox="0 0 24 24" fill="' + (isFav ?
+                        'currentColor' : 'none') +
+                    '" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>' +
+                    '<button class="icon-btn done-btn ' + (isDone ? 'done-active' : '') +
+                    '" onclick="App.toggleDone(\'' + mat.ID + '\')" title="' + (isDone ? 'Marcar como não concluído' :
+                        'Marcar como concluído') +
+                    '" aria-label="Concluído"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></button>' +
+                    '<button class="action-btn open-material-btn" data-link="' + Utils.escapeHTML(mat.Link || '') +
+                    '" data-id="' + mat.ID + '" title="' + (hasLink ? 'Abrir material' : 'Link não cadastrado') +
+                    '">📖 Abrir</button>' +
+                    '<button class="download-btn" data-link="' + Utils.escapeHTML(mat.Link || '') + '" data-id="' + mat.ID +
+                    '" data-name="' + Utils.escapeHTML(mat['Título'] || mat.Titulo || 'documento') + '" data-disciplina="' + Utils
+                    .escapeHTML(mat.Disciplina || '') +
+                    '" title="Baixar PDF" onclick="event.stopPropagation(); DownloadManager.downloadPDF(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar</button>' +
                     '</div></div>';
             },
             createVideoCardPremium(mat) {
@@ -2312,54 +2670,81 @@
                 const disciplinaNome = Utils.escapeHTML(mat.Disciplina || '');
                 let thumbContent = '';
                 if (thumbUrl) {
-                    thumbContent = '<img src="' + thumbUrl + '" alt="Thumbnail do vídeo" class="video-thumb-img" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"><div class="video-thumb-placeholder" style="display:none;"><img src="' + Config.VIDEO_ICON_URL + '" alt="Vídeo" width="56" height="56" style="object-fit:contain;"></div>';
+                    thumbContent = '<img src="' + thumbUrl +
+                        '" alt="Thumbnail do vídeo" class="video-thumb-img" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"><div class="video-thumb-placeholder" style="display:none;"><img src="' +
+                        Config.VIDEO_ICON_URL +
+                        '" alt="Vídeo" width="56" height="56" style="object-fit:contain;"></div>';
                 } else {
-                    thumbContent = '<div class="video-thumb-placeholder"><img src="' + Config.VIDEO_ICON_URL + '" alt="Vídeo" width="56" height="56" style="object-fit:contain;"></div>';
+                    thumbContent = '<div class="video-thumb-placeholder"><img src="' + Config.VIDEO_ICON_URL +
+                        '" alt="Vídeo" width="56" height="56" style="object-fit:contain;"></div>';
                 }
                 const duracaoBadge = duracao ? '<span class="video-duration-badge">' + Utils.escapeHTML(duracao) + '</span>' : '';
                 let metaHTML = '';
                 if (professor) metaHTML += '<span>👤 ' + professor + '</span>';
                 if (categoria) metaHTML += '<span>📂 ' + categoria + '</span>';
                 if (duracao && !duracaoBadge) metaHTML += '<span>⏱️ ' + Utils.escapeHTML(duracao) + '</span>';
-                const descHTML = descricao ? '<p class="video-desc-short">' + Utils.escapeHTML(Utils.truncate(descricao, 120)) + '</p>' : '';
+                const descHTML = descricao ? '<p class="video-desc-short">' + Utils.escapeHTML(Utils.truncate(descricao, 120)) +
+                    '</p>' : '';
                 const discTag = disciplinaNome ? '<span class="video-disciplina-tag">📚 ' + disciplinaNome + '</span>' : '';
-                return '<div class="video-card-premium" id="material-' + mat.ID + '" onclick="App.openMaterial(\'' + Utils.escapeHTML(mat.Link || '') + '\', \'' + mat.ID + '\')">' + novoBadge +
+                return '<div class="video-card-premium" id="material-' + mat.ID +
+                    '" onclick="App.openMaterial(\'' + Utils.escapeHTML(mat.Link || '') + '\', \'' + mat.ID + '\')">' + novoBadge +
                     '<div class="video-thumb-wrapper">' + thumbContent +
-                        '<div class="video-play-overlay"><div class="play-circle">▶</div></div>' + duracaoBadge +
+                    '<div class="video-play-overlay"><div class="play-circle">▶</div></div>' + duracaoBadge +
                     '</div>' +
                     '<div class="video-info-section" onclick="event.stopPropagation();">' +
-                        '<h4 class="video-title-premium" title="' + titulo + '">' + titulo + '</h4>' +
-                        (metaHTML ? '<div class="video-meta-row">' + metaHTML + '</div>' : '') +
-                        descHTML + discTag +
-                        '<div class="video-actions-row">' +
-                            '<button class="action-btn open-material-btn" data-link="' + Utils.escapeHTML(mat.Link || '') + '" data-id="' + mat.ID + '" title="' + (hasLink ? 'Assistir vídeo' : 'Link não cadastrado') + '" onclick="event.stopPropagation(); App.openMaterial(\'' + Utils.escapeHTML(mat.Link || '') + '\', \'' + mat.ID + '\')">▶ Assistir</button>' +
-                            '<button class="icon-btn fav-btn ' + (isFav ? 'fav-active' : '') + '" onclick="event.stopPropagation(); App.toggleFavorite(\'' + mat.ID + '\')" title="' + (isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos') + '" aria-label="Favorito"><svg viewBox="0 0 24 24" fill="' + (isFav ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>' +
-                            '<button class="icon-btn done-btn ' + (isDone ? 'done-active' : '') + '" onclick="event.stopPropagation(); App.toggleDone(\'' + mat.ID + '\')" title="' + (isDone ? 'Marcar como não concluído' : 'Marcar como concluído') + '" aria-label="Concluído"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></button>' +
-                        '</div>' +
+                    '<h4 class="video-title-premium" title="' + titulo + '">' + titulo + '</h4>' +
+                    (metaHTML ? '<div class="video-meta-row">' + metaHTML + '</div>' : '') +
+                    descHTML + discTag +
+                    '<div class="video-actions-row">' +
+                    '<button class="action-btn open-material-btn" data-link="' + Utils.escapeHTML(mat.Link || '') +
+                    '" data-id="' + mat.ID + '" title="' + (hasLink ? 'Assistir vídeo' : 'Link não cadastrado') +
+                    '" onclick="event.stopPropagation(); App.openMaterial(\'' + Utils.escapeHTML(mat.Link || '') + '\', \'' +
+                    mat.ID + '\')">▶ Assistir</button>' +
+                    '<button class="icon-btn fav-btn ' + (isFav ? 'fav-active' : '') +
+                    '" onclick="event.stopPropagation(); App.toggleFavorite(\'' + mat.ID + '\')" title="' + (isFav ?
+                        'Remover dos favoritos' : 'Adicionar aos favoritos') +
+                    '" aria-label="Favorito"><svg viewBox="0 0 24 24" fill="' + (isFav ? 'currentColor' : 'none') +
+                    '" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>' +
+                    '<button class="icon-btn done-btn ' + (isDone ? 'done-active' : '') +
+                    '" onclick="event.stopPropagation(); App.toggleDone(\'' + mat.ID + '\')" title="' + (isDone ?
+                        'Marcar como não concluído' : 'Marcar como concluído') +
+                    '" aria-label="Concluído"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></button>' +
+                    '</div>' +
                     '</div></div>';
             },
             updateMaterialCardButtons(id) {
-                const card = document.getElementById('material-' + id); if (!card) return;
-                const favBtn = card.querySelector('.fav-btn'); const doneBtn = card.querySelector('.done-btn');
-                const isFav = Storage.isFavorite(id); const isDone = Storage.isDone(id);
-                if (favBtn) { favBtn.classList.toggle('fav-active', isFav); favBtn.title = isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'; const svg = favBtn.querySelector('svg'); if (svg) svg.setAttribute('fill', isFav ? 'currentColor' : 'none'); }
-                if (doneBtn) { doneBtn.classList.toggle('done-active', isDone); doneBtn.title = isDone ? 'Marcar como não concluído' : 'Marcar como concluído'; }
+                const card = document.getElementById('material-' + id);
+                if (!card) return;
+                const favBtn = card.querySelector('.fav-btn');
+                const doneBtn = card.querySelector('.done-btn');
+                const isFav = Storage.isFavorite(id);
+                const isDone = Storage.isDone(id);
+                if (favBtn) { favBtn.classList.toggle('fav-active', isFav);
+                    favBtn.title = isFav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'; const svg = favBtn.querySelector(
+                        'svg'); if (svg) svg.setAttribute('fill', isFav ? 'currentColor' : 'none'); }
+                if (doneBtn) { doneBtn.classList.toggle('done-active', isDone);
+                    doneBtn.title = isDone ? 'Marcar como não concluído' : 'Marcar como concluído'; }
                 const novoBadge = card.querySelector('.novo-badge');
                 if (novoBadge && Storage.isMaterialViewed(id)) { novoBadge.remove(); }
             },
             renderFavorites(allMaterials) {
-                const favIds = Storage.getFavorites(); const favMaterials = allMaterials.filter(function(m) { return favIds.includes(String(m.ID)); });
+                const favIds = Storage.getFavorites();
+                const favMaterials = allMaterials.filter(function(m) { return favIds.includes(String(m.ID)); });
                 const container = document.getElementById('favoritesList');
-                if (favMaterials.length === 0) container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><h3>Nenhum favorito ainda</h3><p>Marque materiais como favoritos para acessá-los rapidamente.</p></div>';
+                if (favMaterials.length === 0) container.innerHTML =
+                    '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><h3>Nenhum favorito ainda</h3><p>Marque materiais como favoritos para acessá-los rapidamente.</p></div>';
                 else container.innerHTML = favMaterials.map(function(mat) { return Render.createMaterialCard(mat); }).join('');
             },
             renderDone(allMaterials) {
-                const doneIds = Storage.getDone(); const doneMaterials = allMaterials.filter(function(m) { return doneIds.includes(String(m.ID)); });
+                const doneIds = Storage.getDone();
+                const doneMaterials = allMaterials.filter(function(m) { return doneIds.includes(String(m.ID)); });
                 const container = document.getElementById('doneList');
-                if (doneMaterials.length === 0) container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><h3>Nenhum material concluído</h3><p>Marque materiais como concluídos para acompanhar seu progresso.</p></div>';
+                if (doneMaterials.length === 0) container.innerHTML =
+                    '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><h3>Nenhum material concluído</h3><p>Marque materiais como concluídos para acompanhar seu progresso.</p></div>';
                 else container.innerHTML = doneMaterials.map(function(mat) { return Render.createMaterialCard(mat); }).join('');
             },
-            showSkeletons() { document.getElementById('disciplinesGrid').innerHTML = Array(6).fill('<div class="skeleton skeleton-card"></div>').join(''); },
+            showSkeletons() { document.getElementById('disciplinesGrid').innerHTML = Array(6).fill(
+                '<div class="skeleton skeleton-card"></div>').join(''); },
         };
 
         const Navigation = {
@@ -2367,38 +2752,60 @@
             navigateTo(page) {
                 this.currentPage = page;
                 document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-                const pageMap = { 'home': 'pageHome', 'discipline': 'pageDiscipline', 'favorites': 'pageFavorites', 'done': 'pageDone', 'downloads': 'pageDownloads' };
-                const targetId = pageMap[page]; if (targetId) { var el = document.getElementById(targetId); if (el) el.classList.add('active'); }
+                const pageMap = { 'home': 'pageHome', 'discipline': 'pageDiscipline', 'favorites': 'pageFavorites',
+                    'done': 'pageDone', 'downloads': 'pageDownloads' };
+                const targetId = pageMap[page];
+                if (targetId) { var el = document.getElementById(targetId); if (el) el.classList.add('active'); }
                 document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active-nav'); });
                 const navBtnMap = { 'home': 'navHome', 'favorites': 'navFavorites', 'done': 'navDone' };
-                const navBtnId = navBtnMap[page]; if (navBtnId) { var nb = document.getElementById(navBtnId); if (nb) nb.classList.add('active-nav'); }
-                window.scrollTo({ top: 0, behavior: 'smooth' }); this.refreshCurrentPage();
-                const searchInput = document.getElementById('searchInput'); if (searchInput && page !== 'home') searchInput.value = '';
+                const navBtnId = navBtnMap[page];
+                if (navBtnId) { var nb = document.getElementById(navBtnId); if (nb) nb.classList.add('active-nav'); }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                this.refreshCurrentPage();
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput && page !== 'home') searchInput.value = '';
                 if (page === 'home' && searchInput && searchInput.value === '' && App.allMaterials && App.allMaterials.length > 0) {
-                    const disciplines = Utils.groupByDiscipline(App.allMaterials); Render.renderHome(disciplines);
+                    const disciplines = Utils.groupByDiscipline(App.allMaterials);
+                    Render.renderHome(disciplines);
                 }
                 if (page === 'downloads') { DownloadManager.renderDownloads(); }
                 Sidebar.updateActiveOnPageChange(page);
             },
             openDiscipline(disciplineName) {
-                const disciplines = Utils.groupByDiscipline(App.allMaterials); const disc = disciplines.find(function(d) { return d.name === disciplineName; });
-                if (disc) { Render.renderDiscipline(disc); this.navigateTo('discipline'); var el = document.getElementById('disciplineTitle'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }
+                const disciplines = Utils.groupByDiscipline(App.allMaterials);
+                const disc = disciplines.find(function(d) { return d.name === disciplineName; });
+                if (disc) { Render.renderDiscipline(disc);
+                    this.navigateTo('discipline'); var el = document.getElementById('disciplineTitle'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }
             },
             refreshCurrentPage() {
                 if (!App.allMaterials || App.allMaterials.length === 0) return;
                 const disciplines = Utils.groupByDiscipline(App.allMaterials);
                 switch (this.currentPage) {
-                    case 'home': Render.renderHome(disciplines); break;
-                    case 'favorites': Render.renderFavorites(App.allMaterials); break;
-                    case 'done': Render.renderDone(App.allMaterials); break;
-                    case 'discipline': if (Render.currentDiscipline) Render.renderDisciplineMaterials(); break;
-                    case 'downloads': DownloadManager.renderDownloads(); break;
+                    case 'home':
+                        Render.renderHome(disciplines);
+                        break;
+                    case 'favorites':
+                        Render.renderFavorites(App.allMaterials);
+                        break;
+                    case 'done':
+                        Render.renderDone(App.allMaterials);
+                        break;
+                    case 'discipline':
+                        if (Render.currentDiscipline) Render.renderDisciplineMaterials();
+                        break;
+                    case 'downloads':
+                        DownloadManager.renderDownloads();
+                        break;
                 }
-                this.updateBadges(); Sidebar.refreshBadges(); Sidebar.render(disciplines);
+                this.updateBadges();
+                Sidebar.refreshBadges();
+                Sidebar.render(disciplines);
             },
             updateBadges() {
-                const favCount = Storage.getFavorites().length; const favBadge = document.getElementById('favBadge');
-                if (favBadge) { favBadge.textContent = favCount; favBadge.style.display = favCount > 0 ? 'flex' : 'none'; }
+                const favCount = Storage.getFavorites().length;
+                const favBadge = document.getElementById('favBadge');
+                if (favBadge) { favBadge.textContent = favCount;
+                    favBadge.style.display = favCount > 0 ? 'flex' : 'none'; }
                 Sidebar.refreshBadges();
             },
         };
@@ -2409,11 +2816,11 @@
                 const lowerTerm = term.toLowerCase().trim();
                 const filtered = allMaterials.filter(function(mat) {
                     return (mat.Disciplina || '').toLowerCase().includes(lowerTerm) ||
-                           (mat['Título'] || mat.Titulo || '').toLowerCase().includes(lowerTerm) ||
-                           (mat.Categoria || '').toLowerCase().includes(lowerTerm) ||
-                           (mat.Professor || '').toLowerCase().includes(lowerTerm) ||
-                           (mat.Tags || '').toLowerCase().includes(lowerTerm) ||
-                           (mat['Descrição'] || mat.Descricao || '').toLowerCase().includes(lowerTerm);
+                        (mat['Título'] || mat.Titulo || '').toLowerCase().includes(lowerTerm) ||
+                        (mat.Categoria || '').toLowerCase().includes(lowerTerm) ||
+                        (mat.Professor || '').toLowerCase().includes(lowerTerm) ||
+                        (mat.Tags || '').toLowerCase().includes(lowerTerm) ||
+                        (mat['Descrição'] || mat.Descricao || '').toLowerCase().includes(lowerTerm);
                 });
                 return Utils.groupByDiscipline(filtered);
             },
@@ -2421,8 +2828,13 @@
                 if (!App.allMaterials) return;
                 const disciplines = this.search(term, App.allMaterials);
                 if (Navigation.currentPage === 'home' || Navigation.currentPage === 'discipline') {
-                    if (term.trim() === '') { Navigation.navigateTo('home'); Render.renderHome(disciplines); }
-                    else { Navigation.navigateTo('home'); Render.renderHome(disciplines); if (disciplines.length === 0 && term.trim() !== '') document.getElementById('disciplinesGrid').innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><h3>Nenhum resultado para "' + Utils.escapeHTML(term.trim()) + '"</h3><p>Tente outros termos ou verifique a ortografia.</p></div>'; }
+                    if (term.trim() === '') { Navigation.navigateTo('home');
+                        Render.renderHome(disciplines); } else { Navigation.navigateTo('home');
+                        Render.renderHome(disciplines); if (disciplines.length === 0 && term.trim() !== '') document.getElementById(
+                                'disciplinesGrid').innerHTML =
+                            '<div class="empty-state" style="grid-column:1/-1;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><h3>Nenhum resultado para "' +
+                            Utils.escapeHTML(term.trim()) +
+                            '"</h3><p>Tente outros termos ou verifique a ortografia.</p></div>'; }
                 }
             },
         };
@@ -2430,14 +2842,17 @@
         const Toast = {
             show(message, type) {
                 type = type || 'info';
-                const container = document.getElementById('toastContainer'); if (!container) return;
-                const toast = document.createElement('div'); toast.className = 'toast ' + type;
+                const container = document.getElementById('toastContainer');
+                if (!container) return;
+                const toast = document.createElement('div');
+                toast.className = 'toast ' + type;
                 const icons = { success: '✅', error: '❌', info: 'ℹ️', download: '📥' };
                 toast.innerHTML = '<span>' + (icons[type] || 'ℹ️') + '</span> ' + message;
                 container.appendChild(toast);
                 setTimeout(function() {
                     toast.classList.add('removing');
-                    toast.addEventListener('animationend', function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, { once: true });
+                    toast.addEventListener('animationend', function() { if (toast.parentNode) toast.parentNode.removeChild(
+                            toast); }, { once: true });
                     setTimeout(function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 350);
                 }, Config.TOAST_DURATION_MS);
             },
@@ -2468,7 +2883,8 @@
                             store.createIndex('timestamp', 'timestamp', { unique: false });
                         }
                     };
-                    request.onsuccess = function(event) { self._db = event.target.result; resolve(self._db); };
+                    request.onsuccess = function(event) { self._db = event.target.result;
+                        resolve(self._db); };
                     request.onerror = function(event) { reject(event.target.error); };
                 });
             },
@@ -2552,7 +2968,8 @@
                     const getReq = store.get(id);
                     getReq.onsuccess = function() {
                         const data = getReq.result;
-                        if (data) { data.read = true; store.put(data); }
+                        if (data) { data.read = true;
+                            store.put(data); }
                         tx.oncomplete = function() { resolve(); };
                     };
                     getReq.onerror = function() { reject(getReq.error); };
@@ -2564,7 +2981,8 @@
                 const notifications = await this.getNotifications();
                 const tx = db.transaction('notifications', 'readwrite');
                 const store = tx.objectStore('notifications');
-                notifications.forEach(function(n) { n.read = true; store.put(n); });
+                notifications.forEach(function(n) { n.read = true;
+                    store.put(n); });
                 return new Promise(function(resolve) { tx.oncomplete = function() { resolve(); }; });
             },
 
@@ -2611,7 +3029,8 @@
                 }
 
                 buttonElement.classList.add('downloading');
-                buttonElement.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 10"/></svg> Baixando...';
+                buttonElement.innerHTML =
+                    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 10"/></svg> Baixando...';
 
                 try {
                     const response = await fetch(link, { mode: 'cors' }).catch(function() { return null; });
@@ -2666,7 +3085,8 @@
                     if (Navigation.currentPage === 'downloads') { DownloadManager.renderDownloads(); }
                 } finally {
                     buttonElement.classList.remove('downloading');
-                    buttonElement.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar';
+                    buttonElement.innerHTML =
+                        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Baixar';
                 }
             },
 
@@ -2678,7 +3098,8 @@
                 try {
                     downloads = await IDBManager.getDownloads();
                 } catch (e) {
-                    container.innerHTML = '<div class="empty-state"><h3>Erro ao carregar downloads</h3></div>';
+                    container.innerHTML =
+                        '<div class="empty-state"><h3>Erro ao carregar downloads</h3></div>';
                     return;
                 }
 
@@ -2688,43 +3109,53 @@
                 if (searchTerm) {
                     downloads = downloads.filter(function(d) {
                         return (d.name || '').toLowerCase().includes(searchTerm) ||
-                               (d.disciplina || '').toLowerCase().includes(searchTerm);
+                            (d.disciplina || '').toLowerCase().includes(searchTerm);
                     });
                 }
 
                 downloads.sort(function(a, b) {
                     switch (sortBy) {
-                        case 'date-asc': return new Date(a.date) - new Date(b.date);
-                        case 'name-asc': return (a.name || '').localeCompare(b.name || '');
-                        case 'name-desc': return (b.name || '').localeCompare(a.name || '');
-                        case 'discipline': return (a.disciplina || '').localeCompare(b.disciplina || '') || (new Date(b.date) - new Date(a.date));
-                        default: return new Date(b.date) - new Date(a.date);
+                        case 'date-asc':
+                            return new Date(a.date) - new Date(b.date);
+                        case 'name-asc':
+                            return (a.name || '').localeCompare(b.name || '');
+                        case 'name-desc':
+                            return (b.name || '').localeCompare(a.name || '');
+                        case 'discipline':
+                            return (a.disciplina || '').localeCompare(b.disciplina || '') || (new Date(b.date) - new Date(a
+                                .date));
+                        default:
+                            return new Date(b.date) - new Date(a.date);
                     }
                 });
 
                 if (downloads.length === 0) {
-                    container.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><h3>Nenhum download encontrado</h3></div>';
+                    container.innerHTML =
+                        '<div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><h3>Nenhum download encontrado</h3></div>';
                     return;
                 }
 
                 container.innerHTML = downloads.map(function(d) {
-                    const material = App.allMaterials ? App.allMaterials.find(function(m) { return String(m.ID) === String(d.materialId); }) : null;
+                    const material = App.allMaterials ? App.allMaterials.find(function(m) { return String(m.ID) ===
+                            String(d.materialId); }) : null;
                     const materialLink = material ? material.Link : '';
                     return '<div class="download-item">' +
                         '<div class="download-icon">📄</div>' +
                         '<div class="download-info">' +
-                            '<h4>' + Utils.escapeHTML(d.name || 'Sem nome') + '</h4>' +
-                            '<div class="download-meta">' +
-                                (d.disciplina ? '<span>📚 ' + Utils.escapeHTML(d.disciplina) + '</span>' : '') +
-                                '<span>📅 ' + new Date(d.date).toLocaleString('pt-BR') + '</span>' +
-                                (d.size ? '<span>📦 ' + Utils.formatFileSize(d.size) + '</span>' : '') +
-                            '</div>' +
+                        '<h4>' + Utils.escapeHTML(d.name || 'Sem nome') + '</h4>' +
+                        '<div class="download-meta">' +
+                        (d.disciplina ? '<span>📚 ' + Utils.escapeHTML(d.disciplina) + '</span>' : '') +
+                        '<span>📅 ' + new Date(d.date).toLocaleString('pt-BR') + '</span>' +
+                        (d.size ? '<span>📦 ' + Utils.formatFileSize(d.size) + '</span>' : '') +
+                        '</div>' +
                         '</div>' +
                         '<div class="download-actions">' +
-                            '<button class="icon-btn" onclick="App.openMaterial(\'' + Utils.escapeHTML(materialLink) + '\', \'' + d.materialId + '\')" title="Abrir novamente">📖</button>' +
-                            '<button class="icon-btn" onclick="DownloadManager.removeDownload(\'' + d.id + '\')" title="Remover">🗑️</button>' +
+                        '<button class="icon-btn" onclick="App.openMaterial(\'' + Utils.escapeHTML(materialLink) + '\', \'' +
+                        d.materialId + '\')" title="Abrir novamente">📖</button>' +
+                        '<button class="icon-btn" onclick="DownloadManager.removeDownload(\'' + d.id +
+                        '\')" title="Remover">🗑️</button>' +
                         '</div>' +
-                    '</div>';
+                        '</div>';
                 }).join('');
             },
 
@@ -2843,7 +3274,8 @@
                 try {
                     notifications = await IDBManager.getNotifications();
                 } catch (e) {
-                    container.innerHTML = '<div class="notification-empty"><p>Erro ao carregar notificações.</p></div>';
+                    container.innerHTML =
+                        '<div class="notification-empty"><p>Erro ao carregar notificações.</p></div>';
                     return;
                 }
 
@@ -2858,15 +3290,19 @@
                     const icon = n.tipo === 'video' ? '🎬' : '📄';
                     const iconClass = n.tipo === 'video' ? 'video' : 'pdf';
                     const timeStr = new Date(n.timestamp).toLocaleString('pt-BR');
-                    return '<div class="notification-item ' + (n.read ? '' : 'unread') + '" onclick="NotificationPanel.openMaterial(\'' + Utils.escapeHTML(n.link || '') + '\', \'' + n.materialId + '\')">' +
+                    return '<div class="notification-item ' + (n.read ? '' : 'unread') +
+                        '" onclick="NotificationPanel.openMaterial(\'' + Utils.escapeHTML(n.link || '') + '\', \'' + n
+                        .materialId + '\')">' +
                         '<div class="notification-icon ' + iconClass + '">' + icon + '</div>' +
                         '<div class="notification-content">' +
-                            '<div class="notification-title">' + (n.tipo === 'video' ? 'Novo vídeo' : 'Novo PDF') + '</div>' +
-                            '<div class="notification-subtitle">' + Utils.escapeHTML(n.disciplina) + ' - ' + Utils.escapeHTML(n.title) + '</div>' +
-                            '<div class="notification-time">' + timeStr + '</div>' +
+                        '<div class="notification-title">' + (n.tipo === 'video' ? 'Novo vídeo' : 'Novo PDF') + '</div>' +
+                        '<div class="notification-subtitle">' + Utils.escapeHTML(n.disciplina) + ' - ' + Utils.escapeHTML(n
+                            .title) + '</div>' +
+                        '<div class="notification-time">' + timeStr + '</div>' +
                         '</div>' +
-                        '<button class="notification-delete icon-btn" onclick="event.stopPropagation(); NotificationManager.deleteNotification(' + n.id + ')" title="Excluir">✕</button>' +
-                    '</div>';
+                        '<button class="notification-delete icon-btn" onclick="event.stopPropagation(); NotificationManager.deleteNotification(' +
+                        n.id + ')" title="Excluir">✕</button>' +
+                        '</div>';
                 }).join('');
 
                 notifications.forEach(function(n) {
@@ -2893,7 +3329,8 @@
             start() {
                 this.stop();
                 this.intervalId = setInterval(function() { AutoUpdater.checkForUpdates(); }, Config.POLL_INTERVAL_MS);
-                console.log('[AutoUpdater] Verificação automática iniciada (a cada ' + (Config.POLL_INTERVAL_MS / 60000) + ' min)');
+                console.log('[AutoUpdater] Verificação automática iniciada (a cada ' + (Config.POLL_INTERVAL_MS / 60000) +
+                    ' min)');
             },
 
             stop() {
@@ -2909,7 +3346,8 @@
                     const newData = await API.fetchMaterials();
                     if (newData && newData.length > 0) {
                         await NotificationManager.checkForNewMaterials(oldData, newData);
-                        if (newData.length !== oldData.length || JSON.stringify(newData.map(function(m) { return m.ID; }).sort()) !== JSON.stringify(oldData.map(function(m) { return m.ID; }).sort())) {
+                        if (newData.length !== oldData.length || JSON.stringify(newData.map(function(m) { return m.ID; })
+                                .sort()) !== JSON.stringify(oldData.map(function(m) { return m.ID; }).sort())) {
                             App.allMaterials = newData;
                             Storage.setCache(newData);
                             Navigation.refreshCurrentPage();
@@ -2929,15 +3367,21 @@
             async init() {
                 if (!Storage.isLoggedIn()) { this.showLoginScreen(); return; }
                 this.showAppScreen();
-                if (Storage.getDarkMode()) document.body.classList.add('dark'); this.updateDarkModeIcon();
+                if (Storage.getDarkMode()) document.body.classList.add('dark');
+                this.updateDarkModeIcon();
                 Render.showSkeletons();
                 const cache = Storage.getCache();
                 if (cache.data && cache.data.length > 0) {
-                    this.allMaterials = cache.data; const disciplines = Utils.groupByDiscipline(this.allMaterials);
-                    Render.renderHome(disciplines); Sidebar.render(disciplines); Navigation.updateBadges();
+                    this.allMaterials = cache.data;
+                    const disciplines = Utils.groupByDiscipline(this.allMaterials);
+                    Render.renderHome(disciplines);
+                    Sidebar.render(disciplines);
+                    Navigation.updateBadges();
                     if (!Storage.isCacheValid()) this.fetchAndCache(true);
                 } else await this.fetchAndCache(false);
-                this.setupSearchListener(); this.setupOpenMaterialListener(); this.setupDownloadListener();
+                this.setupSearchListener();
+                this.setupOpenMaterialListener();
+                this.setupDownloadListener();
                 Navigation.updateBadges();
                 AutoUpdater.start();
                 NotificationManager.updateBadge();
@@ -2948,16 +3392,45 @@
                 Welcome.show();
                 console.log('[VULP+] Pronto com ' + this.allMaterials.length + ' materiais.');
             },
-            showLoginScreen() { document.getElementById('loginPage').style.display = 'flex'; document.getElementById('appContainer').style.display = 'none'; this.setupLoginEvents(); },
-            showAppScreen() { document.getElementById('loginPage').style.display = 'none'; document.getElementById('appContainer').style.display = 'block'; },
+            showLoginScreen() { document.getElementById('loginPage').style.display = 'flex';
+                document.getElementById('appContainer').style.display = 'none';
+                this.setupLoginEvents(); },
+            showAppScreen() { document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('appContainer').style.display = 'block'; },
             setupLoginEvents() {
-                const passwordInput = document.getElementById('loginPassword'), loginBtn = document.getElementById('loginBtn'), errorEl = document.getElementById('loginError'), toggleBtn = document.getElementById('togglePassword');
-                const performLogin = function() { const senha = passwordInput.value.trim(); if (!Utils.validatePassword(senha)) { errorEl.textContent = 'Senha inválida. Deve ter 8 caracteres, incluir V, U ou P e número entre 5 e 9.'; passwordInput.focus(); return; } Storage.setLoggedIn(true); errorEl.textContent = ''; App.showAppScreen(); App.init(); };
-                loginBtn.addEventListener('click', performLogin); passwordInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') performLogin(); });
-                toggleBtn.addEventListener('click', function() { const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password'; passwordInput.setAttribute('type', type); });
+                const passwordInput = document.getElementById('loginPassword'),
+                    loginBtn = document.getElementById('loginBtn'),
+                    errorEl = document.getElementById('loginError'),
+                    toggleBtn = document.getElementById('togglePassword');
+                const performLogin = function() { const senha = passwordInput.value.trim(); if (!Utils.validatePassword(
+                    senha)) { errorEl.textContent =
+                        'Senha inválida. Deve ter 8 caracteres, incluir V, U ou P e número entre 5 e 9.';
+                    passwordInput.focus(); return; }
+                    Storage.setLoggedIn(true);
+                    errorEl.textContent = '';
+                    App.showAppScreen();
+                    App.init(); };
+                loginBtn.addEventListener('click', performLogin);
+                passwordInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') performLogin(); });
+                toggleBtn.addEventListener('click', function() { const type = passwordInput.getAttribute('type') ===
+                        'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type); });
             },
-            logout() { Storage.setLoggedIn(false); this.allMaterials = []; Render.showSkeletons(); document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); }); var el = document.getElementById('pageHome'); if (el) el.classList.add('active'); document.getElementById('searchInput').value = ''; Navigation.currentPage = 'home'; document.getElementById('loginPassword').value = ''; Sidebar.close(); AutoUpdater.stop(); this.showLoginScreen(); },
-            setupOpenMaterialListener() { document.addEventListener('click', function(e) { const btn = e.target.closest('.open-material-btn'); if (!btn) return; e.preventDefault(); App.openMaterial(btn.dataset.link || '', btn.dataset.id || ''); }); },
+            logout() { Storage.setLoggedIn(false);
+                this.allMaterials = [];
+                Render.showSkeletons();
+                document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); }); var el = document
+                    .getElementById('pageHome'); if (el) el.classList.add('active');
+                document.getElementById('searchInput').value = '';
+                Navigation.currentPage = 'home';
+                document.getElementById('loginPassword').value = '';
+                Sidebar.close();
+                AutoUpdater.stop();
+                this.showLoginScreen(); },
+            setupOpenMaterialListener() { document.addEventListener('click', function(e) { const btn = e.target.closest(
+                        '.open-material-btn'); if (!btn) return;
+                    e.preventDefault();
+                    App.openMaterial(btn.dataset.link || '', btn.dataset.id || ''); }); },
             setupDownloadListener() {
                 const self = this;
                 document.addEventListener('click', function(e) {
@@ -2970,23 +3443,53 @@
             },
             async fetchAndCache(silent) {
                 silent = silent || false;
-                if (this.isLoading) return; this.isLoading = true; if (!silent) Render.showSkeletons();
+                if (this.isLoading) return;
+                this.isLoading = true;
+                if (!silent) Render.showSkeletons();
                 try {
                     const data = await API.fetchMaterials();
                     if (data && data.length > 0) {
                         const oldData = this.allMaterials || [];
-                        this.allMaterials = data; Storage.setCache(data); const disciplines = Utils.groupByDiscipline(this.allMaterials);
-                        if (!silent) { Render.renderHome(disciplines); Sidebar.render(disciplines); Navigation.updateBadges(); Toast.success('Dados atualizados com sucesso!'); }
-                        else { if (Navigation.currentPage === 'home') Render.renderHome(disciplines); Sidebar.render(disciplines); Navigation.updateBadges(); }
+                        this.allMaterials = data;
+                        Storage.setCache(data);
+                        const disciplines = Utils.groupByDiscipline(this.allMaterials);
+                        if (!silent) { Render.renderHome(disciplines);
+                            Sidebar.render(disciplines);
+                            Navigation.updateBadges();
+                            Toast.success('Dados atualizados com sucesso!'); } else { if (Navigation.currentPage ===
+                                'home') Render.renderHome(disciplines);
+                            Sidebar.render(disciplines);
+                            Navigation.updateBadges(); }
                         await NotificationManager.checkForNewMaterials(oldData, data);
                         NotificationManager.updateBadge();
-                    } else if (!silent && this.allMaterials.length === 0) document.getElementById('disciplinesGrid').innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><h3>Nenhum material disponível</h3><p>A API não retornou materiais ativos.</p><button class="action-btn outline" onclick="App.syncData()" style="margin-top:12px;">🔄 Tentar novamente</button></div>';
-                } catch (error) { console.error('[App] Erro:', error); if (!silent && this.allMaterials.length === 0) { document.getElementById('disciplinesGrid').innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><h3>Não foi possível carregar.</h3><p>Verifique sua conexão.</p><button class="action-btn outline" onclick="App.syncData()" style="margin-top:12px;">🔄 Tentar novamente</button></div>'; Toast.error('Erro ao conectar.'); } }
-                finally { this.isLoading = false; }
+                    } else if (!silent && this.allMaterials.length === 0) document.getElementById('disciplinesGrid').innerHTML =
+                        '<div class="empty-state" style="grid-column:1/-1;"><h3>Nenhum material disponível</h3><p>A API não retornou materiais ativos.</p><button class="action-btn outline" onclick="App.syncData()" style="margin-top:12px;">🔄 Tentar novamente</button></div>';
+                } catch (error) { console.error('[App] Erro:', error); if (!silent && this.allMaterials.length === 0) { document
+                        .getElementById('disciplinesGrid').innerHTML =
+                        '<div class="empty-state" style="grid-column:1/-1;"><h3>Não foi possível carregar.</h3><p>Verifique sua conexão.</p><button class="action-btn outline" onclick="App.syncData()" style="margin-top:12px;">🔄 Tentar novamente</button></div>'
+                        ;
+                    Toast.error('Erro ao conectar.'); } } finally { this.isLoading = false; }
             },
-            async syncData() { Storage.clearCache(); Toast.info('Sincronizando...'); const syncIcon = document.getElementById('syncIcon'); if (syncIcon) syncIcon.style.animation = 'spin 0.8s linear infinite'; await this.fetchAndCache(false); if (syncIcon) syncIcon.style.animation = ''; Navigation.refreshCurrentPage(); Sidebar.render(Utils.groupByDiscipline(this.allMaterials)); },
-            toggleFavorite(id) { const added = Storage.toggleFavorite(id); Render.updateMaterialCardButtons(id); Navigation.updateBadges(); Toast.success(added ? 'Adicionado aos favoritos! ⭐' : 'Removido dos favoritos.'); if (Navigation.currentPage === 'favorites') Render.renderFavorites(this.allMaterials); Sidebar.render(Utils.groupByDiscipline(this.allMaterials)); },
-            toggleDone(id) { const added = Storage.toggleDone(id); Render.updateMaterialCardButtons(id); Navigation.updateBadges(); Toast.success(added ? 'Marcado como concluído! ✅' : 'Removido dos concluídos.'); if (Navigation.currentPage === 'done') Render.renderDone(this.allMaterials); if (Navigation.currentPage === 'home') Render.renderHome(Utils.groupByDiscipline(this.allMaterials)); if (Navigation.currentPage === 'discipline' && Render.currentDiscipline) Render.renderDisciplineMaterials(); Sidebar.render(Utils.groupByDiscipline(this.allMaterials)); },
+            async syncData() { Storage.clearCache();
+                Toast.info('Sincronizando...'); const syncIcon = document.getElementById('syncIcon'); if (syncIcon) syncIcon
+                    .style.animation = 'spin 0.8s linear infinite';
+                await this.fetchAndCache(false); if (syncIcon) syncIcon.style.animation = '';
+                Navigation.refreshCurrentPage();
+                Sidebar.render(Utils.groupByDiscipline(this.allMaterials)); },
+            toggleFavorite(id) { const added = Storage.toggleFavorite(id);
+                Render.updateMaterialCardButtons(id);
+                Navigation.updateBadges();
+                Toast.success(added ? 'Adicionado aos favoritos! ⭐' : 'Removido dos favoritos.'); if (Navigation.currentPage ===
+                    'favorites') Render.renderFavorites(this.allMaterials);
+                Sidebar.render(Utils.groupByDiscipline(this.allMaterials)); },
+            toggleDone(id) { const added = Storage.toggleDone(id);
+                Render.updateMaterialCardButtons(id);
+                Navigation.updateBadges();
+                Toast.success(added ? 'Marcado como concluído! ✅' : 'Removido dos concluídos.'); if (Navigation.currentPage ===
+                    'done') Render.renderDone(this.allMaterials); if (Navigation.currentPage === 'home') Render.renderHome(Utils
+                    .groupByDiscipline(this.allMaterials)); if (Navigation.currentPage === 'discipline' && Render
+                    .currentDiscipline) Render.renderDisciplineMaterials();
+                Sidebar.render(Utils.groupByDiscipline(this.allMaterials)); },
             openMaterial(link, id) {
                 if (!link || link.trim() === '') { Toast.error('Este material não possui link cadastrado.'); return; }
                 const material = this.allMaterials.find(function(m) { return String(m.ID) === String(id); });
@@ -2998,19 +3501,46 @@
                     Render.renderHome(Utils.groupByDiscipline(this.allMaterials));
                 }
                 if (!Storage.isDone(id)) { this.toggleDone(id); }
-                setTimeout(function() { const newWindow = window.open(finalLink, '_blank', 'noopener,noreferrer'); if (!newWindow) { Toast.error('Pop-up bloqueado! Permita a abertura de janelas para este site.'); } }, 100);
+                setTimeout(function() { const newWindow = window.open(finalLink, '_blank', 'noopener,noreferrer'); if (
+                        !newWindow) { Toast.error(
+                            'Pop-up bloqueado! Permita a abertura de janelas para este site.'); } }, 100);
             },
-            toggleDarkMode() { const isDark = document.body.classList.toggle('dark'); Storage.setDarkMode(isDark); this.updateDarkModeIcon(); },
-            updateDarkModeIcon() { const icon = document.getElementById('darkModeIcon'); if (icon) icon.innerHTML = document.body.classList.contains('dark') ? '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>' : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'; },
-            setupSearchListener() { const searchInput = document.getElementById('searchInput'); if (!searchInput) return; let debounceTimer; searchInput.addEventListener('input', function() { clearTimeout(debounceTimer); debounceTimer = setTimeout(function() { Search.performSearch(searchInput.value); }, 250); }); searchInput.addEventListener('keydown', function(e) { if (e.key === 'Escape') { searchInput.value = ''; Search.performSearch(''); searchInput.blur(); } }); },
+            toggleDarkMode() { const isDark = document.body.classList.toggle('dark');
+                Storage.setDarkMode(isDark);
+                this.updateDarkModeIcon(); },
+            updateDarkModeIcon() { const icon = document.getElementById('darkModeIcon'); if (icon) icon.innerHTML = document.body
+                    .classList.contains('dark') ?
+                    '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>' :
+                    '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'; },
+            setupSearchListener() { const searchInput = document.getElementById('searchInput'); if (!searchInput) return;
+                let debounceTimer;
+                searchInput.addEventListener('input', function() { clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(function() { Search.performSearch(searchInput.value); }, 250); });
+                searchInput.addEventListener('keydown', function(e) { if (e.key === 'Escape') { searchInput.value = '';
+                        Search.performSearch('');
+                        searchInput.blur(); } }); },
         };
 
-        if (!CanvasRenderingContext2D.prototype.roundRect) { CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, radii) { const r = Array.isArray(radii) ? radii : [radii, radii, radii, radii]; this.beginPath(); this.moveTo(x + r[0], y); this.lineTo(x + w - r[1], y); this.quadraticCurveTo(x + w, y, x + w, y + r[1]); this.lineTo(x + w, y + h - r[2]); this.quadraticCurveTo(x + w, y + h, x + w - r[2], y + h); this.lineTo(x + r[3], y + h); this.quadraticCurveTo(x, y + h, x, y + h - r[3]); this.lineTo(x, y + r[0]); this.quadraticCurveTo(x, y, x + r[0], y); this.closePath(); return this; }; }
+        if (!CanvasRenderingContext2D.prototype.roundRect) { CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h,
+                radii) { const r = Array.isArray(radii) ? radii : [radii, radii, radii, radii];
+                this.beginPath();
+                this.moveTo(x + r[0], y);
+                this.lineTo(x + w - r[1], y);
+                this.quadraticCurveTo(x + w, y, x + w, y + r[1]);
+                this.lineTo(x + w, y + h - r[2]);
+                this.quadraticCurveTo(x + w, y + h, x + w - r[2], y + h);
+                this.lineTo(x + r[3], y + h);
+                this.quadraticCurveTo(x, y + h, x, y + h - r[3]);
+                this.lineTo(x, y + r[0]);
+                this.quadraticCurveTo(x, y, x + r[0], y);
+                this.closePath(); return this; }; }
 
-        document.head.insertAdjacentHTML('beforeend', '<style>@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style>');
+        document.head.insertAdjacentHTML('beforeend',
+            '<style>@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style>');
         document.addEventListener('DOMContentLoaded', function() { App.init(); });
         console.log('%c🚀 VULP + %c100% funcional!', 'font-size:1.3em;font-weight:bold;color:#4f46e5;', 'color:#5a5a7a;');
-        console.log('%c🆕 Novas funcionalidades: Downloads, Notificações, AutoUpdate, Selo NOVO', 'color:#10b981;font-weight:bold;');
+        console.log('%c🆕 Novas funcionalidades: Downloads, Notificações, AutoUpdate, Selo NOVO',
+        'color:#10b981;font-weight:bold;');
     </script>
 </body>
 </html>
